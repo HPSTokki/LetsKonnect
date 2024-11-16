@@ -2,10 +2,69 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/landingpg.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HAHA</title>
+    <title>Landing Page</title>
 </head>
 <body>
-    <a href="pages/dashboardAdm.html">Click Me</a>
+    <header id="header">
+        <div>
+            <h1>LET'S KONNECT</h1>
+        </div>
+        <div>
+           <h3 id="dateTime"></h3> 
+        </div>
+    </header>
+
+
+    <main id="main">
+
+        <div class="wrap">
+            <div class="wrap-2">
+                <h1>Welcome to LET'S KONNECT</h1>
+                <p>LET'S KONNECT IS A WEBSITE FOR THE KABATAANG LUCIANS WISHING TO VIEW, EXPLORE
+                    AND KNOW MORE ABOUT THE PROJECTS OF STA. LUCIA SK COUNCIL
+                </p>
+            </div>
+            <img src="Assets/GUEST/Login & Register.png" alt="">
+        </div>
+        <div class="wrap">
+            <form id="logInForm">
+                <h2>LOGIN</h2>
+                <div class="form-fields">
+                    <input type="email" required="" placeholder="Input Email Address">
+                </div>
+                <div class="form-fields">
+                    <input type="password" required="" placeholder="Password" id="pass">
+                </div>
+                <div class="form-fields">
+                    <input type="checkbox" name="" onClick="showPass()">
+                    <label for="showPass">Show Password</label>
+                </div>
+                <button type="submit" id="logInAcc">Log In</button>
+                <p>Don't Have an account? <span id="signUpAcc">Sign In</span></p>
+                <p>Or Don't Want to Sign Up or Log In? <span id="viewAsGuest">View Site As Guest</span></p>
+            </form>
+    </div>
+    </main>
+
+    <footer id="footer">
+        <div>
+            <i class="fa-regular fa-copyright"></i>
+            <h3>LET'SKONNECT</h3>
+        </div>
+
+        <ul>
+            <li><i class="fa-brands fa-facebook"></i></li>
+            <li><i class="fa-solid fa-phone"></i></li>
+            <li><i class="fa-solid fa-envelope"></i></li>
+        </ul>
+
+    </footer>
+
+
+    <script src="js-frntend/landingDtTime.js"></script>
+    <script src="https://kit.fontawesome.com/c225de6932.js" crossorigin="anonymous"></script>
+
 </body>
 </html>
