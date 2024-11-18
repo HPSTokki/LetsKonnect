@@ -1,0 +1,15 @@
+Changes/Update for The Pages
+
+- Added dashboardAdm.html(refer to the 'pages' folder)
+- Added initial index.html in the root dir
+
+
+Changes/Update for the Styles
+
+Changes should be done withing the styles folder => add {filename}.scss => put your styles like css(nesting now allowed)
+=> run 'gulp' in the cli to compile
+
+- Added dashboardAdm.scss(refer to 'styles' folder) => dashboardAdm.css(refer to 'css' folder)
+- Added landingpg.scss(refer to 'styles' folder) => landingpg.css(refer to 'css' folder)
+
+
