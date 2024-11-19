@@ -1,29 +1,45 @@
+if (process.env.NODE_ENV !== "production") {
+    require('dotenv').config()
+}
+
 const express = require('express')
 const session = require('express-session')
+const dotenv = require('dotenv').config()
 const cors = require('cors')
-const dotenv = require('dotenv')
 const mysql = require('mysql')
+const mongoose = require('mongoose')
+
+mongoose.connect(process.env.DB_URL, { useNewUrlParser: true, useUnifiedTopology: true})
+.then(()=>{
+    console.log('Connected to Mongoose')
+})
+.catch(error => {
+    console.error('Connection Error', error)
+})
+const db2 = mongoose.connection
 
 
-dotenv.config()
+
+
+
 const app = express()
 app.use(express.json())
 app.use(cors())
-const db = mysql.createConnection({
-    host: process.env.DB_HOST,
-    user: process.env.DB_USER,
-    password: process.env.DB_PASS,
-    port: process.env.DB_PORT,
-    database: process.env.DB_NAME,
-})
+// const db = mysql.createConnection({
+//     host: process.env.DB_HOST,
+//     user: process.env.DB_USER,
+//     password: process.env.DB_PASS,
+//     port: process.env.DB_PORT,
+//     database: process.env.DB_NAME,
+// })
 
-db.connect((err)=>{
-    if (err) {
-        console.log("Database Connection Failed: ", err);
-        return;
-    }
-    console.log("Connected to Database")
-})
+// db.connect((err)=>{
+//     if (err) {
+//         console.log("Database Connection Failed: ", err);
+//         return;
+//     }
+//     console.log("Connected to Database")
+// })
 
 
 app.post('/register', (req, res)=>{
