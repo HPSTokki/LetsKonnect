@@ -12,4 +12,10 @@ Changes should be done withing the styles folder => add {filename}.scss => put y
 - Added dashboardAdm.scss(refer to 'styles' folder) => dashboardAdm.css(refer to 'css' folder)
 - Added landingpg.scss(refer to 'styles' folder) => landingpg.css(refer to 'css' folder)
 
+Changes - 19/11/2024
+
+Styles Updated 
+- Added responsive layout(?)
+- Smaller Fonts for comfort of eyes
+- Added more styles
 
