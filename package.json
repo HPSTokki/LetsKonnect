@@ -25,6 +25,8 @@
     "gulp-sass": "^5.1.0",
     "gulp-sourcemaps": "^3.0.0",
     "hbs": "^4.2.0",
+    "mongodb": "^6.10.0",
+    "mongoose": "^8.8.2",
     "mysql": "^2.18.1",
     "sass": "^1.81.0"
   }

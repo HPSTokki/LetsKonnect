@@ -1,11 +1,27 @@
+if (process.env.NODE_ENV !== "production") {
+    require('dotenv').config()
+}
+
 const express = require('express')
 const session = require('express-session')
+const dotenv = require('dotenv').config()
 const cors = require('cors')
-const dotenv = require('dotenv')
 const mysql = require('mysql')
+const mongoose = require('mongoose')
+
+mongoose.connect(process.env.DB_URL, { useNewUrlParser: true, useUnifiedTopology: true})
+.then(()=>{
+    console.log('Connected to Mongoose')
+})
+.catch(error => {
+    console.error('Connection Error', error)
+})
+const db2 = mongoose.connection
 
 
-dotenv.config()
+
+
+
 const app = express()
 app.use(express.json())
 app.use(cors())
