@@ -24,7 +24,7 @@ $font2: Montserrat, sans-serif;
 body {
     width: 100vw;      
     height: 100vh;     
-    overflow: auto;    
+    overflow: hidden;    
 }
 
 
@@ -36,7 +36,7 @@ body {
     align-items: center;
     background: linear-gradient(to right, $color1, $color2);
     font-family: $font1;
-    padding: 0.5rem 1rem;
+    padding: 0 1rem;
 
     div {
         background: linear-gradient(to right, $color2, $color4);
@@ -48,7 +48,7 @@ body {
     }
 
     #logIn {
-        font-size: 1.15rem;
+        font-size: 1rem;
         border-radius: 25px;
         border: none;
         padding: 0.5rem 1rem;
@@ -83,19 +83,19 @@ body {
         letter-spacing: 0.15rem;
 
         h2 {
-            font-size: 2.5rem;
+            font-size: 2.2rem;
             padding: 1rem 0;
         }
 
         h1 {
             font-size: 3.5rem;
-            padding: 2rem 0;
+            padding: 1rem 0;
         }
 
         h4 {
             font-size: 1.5rem;
             padding: 1rem 0;
-            padding-bottom: 2rem;
+            padding-bottom: 1rem;
         }
     }
 }
@@ -110,7 +110,7 @@ body {
     ul {
         display: flex;
         justify-content: space-around;
-        padding: 1rem;
+        padding: 0.5rem;
         list-style: none;
         li {
             a {
@@ -157,5 +157,116 @@ body {
 
     }
 
+
+}
+
+#section-1 {
+    display: grid; 
+    font-family: $font1;
+    grid-template-columns: 0.4fr 1.6fr; 
+    grid-template-rows: 0.1fr 1.9fr; 
+    gap: 0px 0px; 
+    grid-template-areas: 
+      "Name dashboard-title"
+      "dashboard-nav stats-wrap"; 
+
+    .Name {
+        justify-self: center;
+        align-self: center;
+        grid-area: Name;
+        width: 100%;
+        height: 100%;
+        text-decoration: none;
+
+        .admin-name {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            border: 1px solid black;
+        }
+
+    }
+
+    .dashboard-title {
+        padding: 0.2rem 1rem;
+        grid-area: dashboard-title;
+        align-self: center;
+        background-color: $btn-clr1;
+        
+        h2 {
+            font-weight: 600;
+            color: $font-clr1;
+        }
+        
+
+    }
+
+    .dashboard-nav {
+        padding: 1rem 0;
+        grid-area: dashboard-nav;
+        justify-self: center;
+
+        ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0;
+
+            li {
+                padding: 1rem 0;
+
+                a {
+                    margin: 0;
+                }
+
+            }
+
+        }
+
+    }
+
+    .stats-wrap {
+        padding: 1rem;
+    }
+
+}
+
+
+#footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 0.5em;
+    font-family: $font2, sans-serif;
+    background: $color4;
+
+    div {
+        display: flex;
+        align-items: center;
+
+        h3 {
+            margin: 0 1rem;
+        }
+    }
+
+    ul {
+        display: flex;
+        list-style: none;
+
+        li {
+
+            i {
+                margin: 0 1rem;
+                cursor: pointer;
+            }
+
+        }
+
+    }
 
 }

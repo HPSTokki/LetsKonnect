@@ -7,16 +7,6 @@ const session = require('express-session')
 const dotenv = require('dotenv').config()
 const cors = require('cors')
 const mysql = require('mysql')
-const mongoose = require('mongoose')
-
-mongoose.connect(process.env.DB_URL, { useNewUrlParser: true, useUnifiedTopology: true})
-.then(()=>{
-    console.log('Connected to Mongoose')
-})
-.catch(error => {
-    console.error('Connection Error', error)
-})
-const db2 = mongoose.connection
 
 
 

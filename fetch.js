@@ -7,7 +7,7 @@ document.getElementById("regForm").addEventListener('submit', function(event) {
     const age = document.getElementById('regAge').value;
     const password = document.getElementById('regPass').value;
 
-    fetch('http://localhost:6001/register', {
+    fetch(`http://localhost:5010/register`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
