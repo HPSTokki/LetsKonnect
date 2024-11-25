@@ -13,13 +13,15 @@ $color3: #9E4BDC;
 $color4: #03b0c1;
 $font-clr1: #f2f2f2;
 $font-clr2: #848484;
-$font-clr2: #A539AD;
+$font-clr3: #A539AD;
 $btn-clr1: #A101A2;
 
 // Font Styles
 
 $font1: 'Pathway Extreme', sans-serif;
 $font2: Montserrat, sans-serif;
+
+
 
 body {
     width: 100vw;      
@@ -48,6 +50,7 @@ body {
         h1 {
             padding: 0 1rem;
             color: transparent;
+            font-size: 1.15rem;
         }
 
     }
@@ -55,6 +58,7 @@ body {
     div {
         h3 {
             color: $font-clr1;
+            font-size: 1rem;
         }
     }
 
@@ -63,7 +67,7 @@ body {
 // Main Styles go here
 
 #main {
-    background-image: url('/Assets/BACKGROUND/Brgy.\ Sta\ Lucia.png');
+    background-image: url('../Assets/BACKGROUND/Brgy.\ Sta\ Lucia.png');
     display: flex;
     align-items: center;
     justify-content: center;
@@ -85,10 +89,13 @@ body {
         display: flex;
         align-items: center;
         justify-content: center;
-        border: 1px solid #333;
-        width: 60%;
+        box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+        background-color: #FFFFFF;
+        width: 90%;
+        max-width: 800px;
         padding: 1rem;
         position: absolute;
+        border-radius: 25px;
         transition: opacity 0.3s ease, transform 0.3s ease;
  
 
@@ -98,6 +105,7 @@ body {
             align-items: center;
             justify-content: center;
             flex: 1 1 0;
+
         }
     
     
@@ -111,8 +119,17 @@ body {
         .wrap {
             
             width: 100%;
-            height: 100%;
+            height: auto;
             padding: 1rem;
+            
+            h1 {
+                font-size: 1.5rem;
+            }
+
+            p {
+                font-size: 0.9rem;
+                font-weight: 500;
+            }
             
     
             .wrap-2 {
@@ -127,7 +144,7 @@ body {
     
             h2 {
                 flex: 1 1 0;
-                padding: 1rem;
+                padding: 0.5rem;
                 font-family: $font1, sans-serif;
             }
     
@@ -151,14 +168,13 @@ body {
                     align-items: center;
                     justify-content: center;
                     width: 90%;
-    
                 }
     
                 .form-fields:nth-child(2), .form-fields:nth-child(3) {
-                    margin: 1rem;
+                    margin: 0.5rem;
                     input {
                         width: 70%;
-                        font-size: 1.15rem;
+                        font-size: 1rem;
                     }
     
                 } 
@@ -168,23 +184,26 @@ body {
                     margin: 0 0 1rem 0;
     
                         input {
-                            margin-right: 1rem;
+                            margin-right: 0.5rem;
+                            font-size: 0.8rem;
+
+
                         }
     
                 }
 
                 .form-fields.regPassInput {
-                    margin: 1rem;
+                    margin: 0.5rem;
                     input {
                         width: 70%;
-                        font-size: 1.15rem;
+                        font-size: 1rem;
                     }
     
                 }
     
                 p, .btn{
                     flex: 1 1 0;
-                    padding: 1rem;
+                    padding: 0.5rem;
                 }
     
                 p {
@@ -251,4 +270,47 @@ body {
 
     }
 
+}
+
+
+// Media Queries for Responsiveness
+@media (max-width: 768px) {
+    body {
+        flex-direction: column;
+    }
+
+    #header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    #main {
+        .gen-wrap {
+            width: 95%; // Adjust width for smaller screens
+        }
+    }
+
+    #footer {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+@media (max-width: 480px) {
+
+    img {
+        scale: -50%, -50%;
+    }
+
+    h1 {
+        font-size: 1.3rem; // Adjust font size for smaller screens
+    }
+
+    h2 {
+        font-size: 1.1rem; // Adjust font size for smaller screens
+    }
+
+    .btn {
+        width: 100%; // Make button full width on small screens
+    }
 }
