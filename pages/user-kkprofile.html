@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="stylesheet" href="../css/user-kkprofiling.css">
+    <link rel="stylesheet" href="../css/user-kkprofiling.css" />
     <link
       href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
       rel="stylesheet"
@@ -12,12 +12,12 @@
   </head>
   <body>
     <header id="header">
-        <div id="homeBtn">
-            <h1>LET'SKONNECT</h1>
-        </div>
-        <span class="material-symbols-outlined account-icon">
-          account_circle
-          </span>
+      <div id="homeBtn">
+        <h1>LET'SKONNECT</h1>
+      </div>
+      <span class="material-symbols-outlined account-icon">
+        account_circle
+      </span>
     </header>
 
     <main id="main">
@@ -30,19 +30,74 @@
           <li><a href="/">Confirmation</a></li>
         </ul>
         <form action="" id="some-form">
-          <div class="title">
-            KK PROFILING
-          </div>
+          <div class="title">KK PROFILING</div>
           <div class="detes-grid">
             <div class="form-group">
               <label for="givenName">Given Name</label>
-              <input type="text" name="givenName" id="givenName" required>
+              <input type="text" name="givenName" id="givenName" required />
             </div>
             <div class="form-group">
-              <label for="givenName">Middle Name</label>
-              <input type="text" name="middleName" id="middleName" required>
+              <label for="middleName">Middle Name</label>
+              <input type="text" name="middleName" id="middleName" required />
             </div>
           </div>
+          <div class="detes-grid-2">
+            <div class="form-group">
+              <label for="lastName">Last Name</label>
+              <input type="text" name="lastName" id="lastName" required />
+            </div>
+            <div class="form-group">
+              <label for="suffix">Suffix</label>
+              <input type="text" name="suffix" id="suffix" required />
+            </div>
+            <div class="form-group">
+              <label for="Age">Age</label>
+              <input type="number" name="age" id="age" required />
+            </div>
+          </div>
+          <div class="detes-grid-3">
+            <div class="form-group">
+              <label for="dateOfBirth">Date of Birth</label>
+              <input type="date" name="dateOfBirth" id="dateOfBirth" required/>
+            </div>
+            <div class="form-group">
+              <label for="Sex">Sex assigned at birth</label>
+              <select name="Sex" id="Sex" required>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+                <option value="Intersex">Intersex</option>
+              </select>
+            </div>
+          </div>
+          <div class="detes-grid-4">
+            <div class="form-group">
+              <label for="blk-street">Block & Street</label>
+              <textarea name="blk-street" id="blk-street" style="resize: none;" required></textarea>
+            </div>
+          </div>
+          <div class="detes-grid-5">
+            <div class="form-group">
+              <label for="Sitio">Sitio</label>
+              <select name="Sitio" id="Sitio" required>
+                <option value="Sitio-1">Sitio 1</option>
+                <option value="Sitio-2">Sitio 2</option>
+                <option value="Sitio-3">Sitio 3</option>
+                <option value="Sitio-4">Sitio 4</option>
+                <option value="Sitio-5">Sitio 5</option>
+                <option value="Sitio-6">Sitio 6</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="emailAddress">Email Address</label>
+              <input type="email" name="emailAddress" id="emailAddress" required/>
+            </div>
+            <div class="form-group">
+              <label for="contactNumber">Contact Number</label>
+              <input type="number" name="contactNumber" id="contactNumber" required/>
+            </div>
+          </div>
+          
+        </div>
         </form>
       </div>
     </main>
