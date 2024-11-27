@@ -1,319 +1,330 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Pathway+Extreme:ital,opsz,wght@0,8..144,100..900;1,8..144,100..900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Pathway+Extreme:ital,opsz,wght@0,8..144,100..900;1,8..144,100..900&display=swap");
 
 * {
-    box-sizing: border-box;
-    margin: 0;
+  box-sizing: border-box;
+  margin: 0;
 }
 
 // Color Variables
 
-$color1: #FFFFFF;
-$color2: #6610A6;
-$color3: #9E4BDC;
+$color1: #ffffff;
+$color2: #6610a6;
+$color3: #9e4bdc;
 $color4: #03b0c1;
 $font-clr1: #f2f2f2;
 $font-clr2: #848484;
-$font-clr2: #A539AD;
-$btn-clr1: #A101A2;
+$font-clr2: #a539ad;
+$btn-clr1: #a101a2;
 
 // Font Styles
 
-$font1: 'Pathway Extreme', sans-serif;
+$font1: "Pathway Extreme", sans-serif;
 $font2: Montserrat, sans-serif;
 
 body {
-    width: 100%;      
-    height: 100vh;     
-    display: flex;
-    flex-direction: column;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
-
 
 // Style for Header go here
 
 #header {
-    flex: 0 1 auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: linear-gradient(to right, $color1, $color2);
-    font-family: $font1;
-    padding: 0 1rem;
+  flex: 1 1 auto;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(to right, $color1, $color2);
+  font-family: $font1;
+  padding: 0 1rem;
 
-    div {
-        background: linear-gradient(to right, $color2, $color4);
-        background-clip: text;
-        h1 {
-            padding: 0.5rem 1rem;
-            color: transparent;
-            font-size: 1.5rem;
-        }
+  div {
+    background: linear-gradient(to right, $color2, $color4);
+    background-clip: text;
+    h1 {
+      padding: 0.5rem 1rem;
+      color: transparent;
+      font-size: 1.5rem;
     }
+  }
 
-    .material-symbols-outlined.account-icon {
-        font-size: 3rem;
-        padding: 0.5rem;
-        background: linear-gradient(to right, $color1, #333);
-        background-clip: text;
-        position: relative;
-        color: transparent;
+  .material-symbols-outlined.account-icon {
+    font-size: 3rem;
+    padding: 0.5rem;
+    background: linear-gradient(to right, $color1, #333);
+    background-clip: text;
+    position: relative;
+    color: transparent;
 
-        &::after {
-            content: "";
-            width: 100%;
-            height: 100%;
-            top: 0;
-            left: 0;
-            position: absolute;
-            background: linear-gradient(to right, $color2, $color4);
-            z-index: -1;
-        }
-
+    &::after {
+      content: "";
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      position: absolute;
+      background: linear-gradient(to right, $color2, $color4);
+      z-index: -1;
     }
-
+  }
 }
-
 
 #main {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex: 1 1 auto;
-    width: 100%;
-    height: 100%;
-    font-family: $font1;
-    input {
-        border-radius: 25px;
-        border: none;
-        border: 1px solid #333;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1 1 auto;
+  width: 100%;
+  height: 100%;
+  font-family: $font2;
+
+
+
+  label {
+    font-weight: 500;
+    color: $color3;
+    margin: 0.5rem 0;
+  }
+
+  input {
+    border-radius: 15px;
+    border: none;
+    border: 1px solid #3b3535b4;
+    padding: 0 0.5rem;
+  }
+  textarea {
+    border-radius: 15px;
+    border: none;
+    border: 1px solid #3b3535b4;
+    padding: 0.3rem 0.5rem;
+  }
+
+  .form-wrap {
+    display: grid;
+    grid-template-columns: auto 1.3fr;
+    grid-template-rows: auto;
+    gap: 0px 0px;
+    grid-template-areas: "some-nav some-form";
+    max-width: 60%;
+    width: 85%;
+    padding: 2rem;
+    height: max-content;
+    border-radius: 15px;
+    border: 1px solid #333;
+
+    .some-nav {
+      grid-area: some-nav;
+      list-style: none;
+      padding: 0;
+      
+
+      li {
+        padding: 1.5rem 2rem;
+
+        a {
+          text-decoration: none;
+        }
+      }
     }
 
-    .form-wrap {
-        display: grid;
-        grid-template-columns: auto 1.3fr;
-        grid-template-rows: auto;
-        gap: 0px 0px;
-        grid-template-areas: 
-        "some-nav some-form";
-        width: 85%;
-        padding: 2rem;
-        height: max-content;
+    #some-form {
 
-        .some-nav {
-            grid-area: some-nav;
-            list-style: none;
-            padding: 0;
-            border: 1px solid #333;
+    border-left: 1px solid #333;
+      grid-area: some-form;
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-template-rows: auto 1fr 1fr 1fr 1fr 1fr 1fr;
+      gap: 0px 0px;
+      grid-template-areas:
+        "title"
+        "detes-grid"
+        "detes-grid-2"
+        "detes-grid-3"
+        "detes-grid-4"
+        "detes-grid-5"
+        "detes-grid-6";
 
-            li {
-                
-                padding: 1.5rem 2rem;
+      .title {
+        grid-area: title;
+        font-size: 1.5rem;
+        font-weight: 600;
+        border-bottom: 1px solid #333;
+        padding: 1.5rem 1rem;
+      }
+
+      .detes-grid {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        grid-area: detes-grid;
+
+        .form-group {
+          flex: 1 1 auto;
+          padding: 1rem 1rem;
+
+          input {
+            width: 80%;
+            font-size: 1.15rem;
+          }
+
+          #age {
+            width: 10px;
+            font-size: 1.15rem;
+          }
+        }
+      }
+
+      .detes-grid-2 {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        grid-area: detes-grid-2;
+
+        .form-group {
+          flex: 1 1 auto;
+          padding: 0.1rem 1rem;
+          display: flex;
+          flex-direction: column;
+          font-size: 1.15rem;
+
+          input {
+            width: 80%;
+            font-size: 1.15rem;
+          }
+        }
+      }
+
+      .detes-grid-3 {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        grid-area: detes-grid-3;
+        font-size: 1rem;
+
+        .form-group {
+          flex: 1 1 auto;
+          padding: 0.1rem 1rem;
+          display: flex;
+          flex-direction: column;
+          font-size: 1.15rem;
+
+          input {
+            width: 60%;
+            font-size: 1.15rem;
+          }
+
+          select {
+            width: 60%;
+            font-size: 1.15rem;
+
+            option {
+              font-size: 1.15rem;
+            }
+          }
+        }
+      }
+
+      .detes-grid-4 {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        grid-area: detes-grid-4;
+
+        .form-group {
+          flex: 1 1 auto;
+          padding: 0.1rem 1rem;
+          display: flex;
+          flex-direction: column;
+          font-size: 1rem;
+
+          textarea {
+            font-size: 0.8rem;
+            height: auto;
+          }
+        }
+      }
+
+      .detes-grid-5 {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        grid-area: detes-grid-5;
+        font-size: 1rem;
+
+        .form-group {
+          flex: 1 1 auto;
+          padding: 0.1rem 1rem;
+          display: flex;
+          flex-direction: column;
+          font-size: 1.15rem;
+
+          input {
+            width: 100%;
+            font-size: 1.15rem;
+          }
+
+          select {
+            text-align: center;
+            width: 100%;
+            font-size: 1.15rem;
+
+            option {
+              font-size: 1.15rem;
+            }
+          }
+        }
+      }
+      .detes-grid-6 {
+        height: 100%;
+            .next {
+                display: flex;
+                height: 100%;
+                align-items: center;
+                justify-content: flex-end;
 
                 a {
+                    padding: 0.5rem 3rem;
                     text-decoration: none;
+                    background: $color3;
+                    border-radius: 25px;
+                    color: $font-clr1;
                 }
 
             }
-
-        }
-
-        #some-form {
-            padding: 2rem;
-            border: 1px solid #333;
-            grid-area: some-form;
-            display: grid; 
-            grid-template-columns: 1fr; 
-            grid-template-rows: auto 1fr 1fr 1fr 1fr 1fr 1fr 1fr; 
-            gap: 0px 0px; 
-            grid-template-areas: 
-            "title"
-            "detes-grid"
-            "detes-grid-2"
-            "detes-grid-3"
-            "detes-grid-4"
-            "detes-grid-5"
-            "detes-grid-6"
-            "button-box"; 
-
-            .title {
-                grid-area: title;
-            }
-
-            .detes-grid {
-                display: flex;
-                justify-content: space-evenly;
-                align-items: center;
-                grid-area: detes-grid;
-
-                .form-group {
-                    flex: 1 1 auto;
-                    padding: 1rem 1rem;
-
-                    input {
-                        width: 80%;
-                        font-size: 1.15rem;
-
-                    }
-
-                    #age {
-                        width: 10px;
-                        font-size: 1.15rem;
-                    }
-
-                }
-
-            }
-
-            .detes-grid-2 {
-                display: flex;
-                justify-content: space-evenly;
-                align-items: center;
-                grid-area: detes-grid-2;
-
-                .form-group {
-                    flex: 1 1 auto;
-                    padding: 0.1rem 1rem;
-                    display: flex;
-                    flex-direction: column;
-                    font-size: 1.15rem;
-
-                    input {
-                        width: 80%;
-                        font-size: 1.15rem;
-                    }
-
-                }
-
-            }
-
-            .detes-grid-3 {
-                display: flex;
-                justify-content: space-evenly;
-                align-items: center;
-                grid-area: detes-grid-3;
-                font-size: 1rem;
-
-                .form-group {
-                    flex: 1 1 auto;
-                    padding: 0.1rem 1rem;
-                    display: flex;
-                    flex-direction: column;
-                    font-size: 1.15rem;
-
-                    input {
-                        width: 60%;
-                        font-size: 1.15rem;
-                    }
-
-                    select {
-                        width: 60%;
-                        font-size: 1.15rem;
-
-                        option {
-                            font-size: 1.15rem;
-                        }
-
-                    }
-
-                }
-            }
-
-            .detes-grid-4 {
-                display: flex;
-                justify-content: space-evenly;
-                align-items: center;
-                grid-area: detes-grid-4;
-
-                .form-group {
-                    flex: 1 1 auto;
-                    padding: 0.1rem 1rem;
-                    display: flex;
-                    flex-direction: column;
-                    font-size: 1rem;
-
-                    textarea {
-                        font-size: 0.8rem;
-                        height: auto;
-                    }
-
-                    
-
-                }
-
-
-            }
-
-            .detes-grid-5 {
-                display: flex;
-                justify-content: space-evenly;
-                align-items: center;
-                grid-area: detes-grid-5;
-                font-size: 1rem;
-
-                .form-group {
-                    flex: 1 1 auto;
-                    padding: 0.1rem 1rem;
-                    display: flex;
-                    flex-direction: column;
-                    font-size: 1.15rem;
-
-                    input {
-                        width: 100%;
-                        font-size: 1.15rem;
-                    }
-
-                    select {
-                        text-align: center;
-                        width: 100%;
-                        font-size: 1.15rem;
-
-                        option {
-                            font-size: 1.15rem;
-                        }
-
-                    }
-
-                }
-            }
-
-        }
-
+      }
     }
-
+  }
 }
 
-
 #footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 0.5em;
+  font-family: $font2, sans-serif;
+  background: $color4;
+  flex: 0 1 auto;
+
+  div {
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    padding: 0 0.5em;
-    font-family: $font2, sans-serif;
-    background: $color4;
-    flex: 0 1 auto;
 
-    div {
-        display: flex;
-        align-items: center;
-
-        h3 {
-            margin: 0 1rem;
-        }
+    h3 {
+      margin: 0 1rem;
     }
+  }
 
-    ul {
-        display: flex;
-        list-style: none;
+  ul {
+    display: flex;
+    list-style: none;
 
-        li {
-
-            i {
-                margin: 0 1rem;
-                cursor: pointer;
-            }
-
-        }
-
+    li {
+      i {
+        margin: 0 1rem;
+        cursor: pointer;
+      }
     }
-
+  }
 }

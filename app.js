@@ -32,6 +32,8 @@ db.connect((err)=>{
 })
 
 
+// Endpoints goes here
+
 app.post('/register', (req, res)=>{
     const {email, age, password} = req.body;
 
@@ -81,6 +83,11 @@ app.post('/login', (req, res)=>{
 
     })
 
+})
+
+app.post('/reg-1', (req, res)=>{
+    const {userAcc_ID, givenName, middleName, lastName, suffix, age, dateOfBirth, sex, blk_street, sitio, email, contacts} = req.body
+    
 })
 
 app.listen(process.env.SERVER_PORT || 3000, ()=> {
