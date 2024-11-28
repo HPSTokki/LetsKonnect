@@ -7,6 +7,7 @@ const session = require('express-session')
 const dotenv = require('dotenv').config()
 const cors = require('cors')
 const mysql = require('mysql')
+const { use } = require('browser-sync')
 
 
 
@@ -22,6 +23,13 @@ const db = mysql.createConnection({
     port: process.env.DB_PORT,
     database: process.env.DB_NAME,
 })
+
+app.use(session({
+    secret: 'secret',
+    resave: false,
+    saveUninitialized: false,
+    cookie: {secure: false}
+}))
 
 db.connect((err)=>{
     if (err) {
@@ -79,15 +87,43 @@ app.post('/login', (req, res)=>{
 
         req.session.userAcc_ID = user.userAcc_ID;
         res.status(200).json({ message: 'Login Succesfully', userAcc_ID: user.userAcc_ID})
-        
 
     })
 
 })
 
 app.post('/reg-1', (req, res)=>{
-    const {userAcc_ID, givenName, middleName, lastName, suffix, age, dateOfBirth, sex, blk_street, sitio, email, contacts} = req.body
+    const {userAcc_ID, givenName, middleName, lastName, suffix, age, dateOfBirth, sex} = req.body
+    const {blk_street, sitio, email, contacts} = req.body
+
+    const insertQuery1 = "INSERT INTO kk_personalinfo (userAcc_ID, givenName, middleName, lastName, suffix, age, dateOfBirth, sex) VALUES (?, ?, ?, ?, ?, ?, ?, ?)"
+    const insertQuery2 = "INSERT INTO kk_personalinfo2(userAcc_ID, blk_street, sitio, emailAddress, contacts) VALUES (?, ?, ? ,? ,?)"
+
+    if (!givenName || !middleName || !lastName || !suffix || !age || !dateOfBirth || !sex) {
+        return res.status(400).json({message: "Please input all the necessary details"})
+    }
+
+    if (!blk_street || !sitio || !email || !contacts) {
+        return res.status(400).json({message: "Please input all the necessary details"})
+    }
+
+    db.query(insertQuery1, [userAcc_ID, givenName, middleName, lastName, suffix, age, dateOfBirth, sex], (err, res1)=>{
+        if(err) {
+            console.log("Error Querying into Database")
+            return res1.status(500).json({message: "Error Registering..."})
+        } 
+    })
+
+    db.query(insertQuery2, [userAcc_ID, blk_street, sitio, email, contacts], (err, result2) => {
+        if (err) {
+            console.log("Error inserting into kk_personalinfo2:", err);
+            return res.status(500).json({ message: "Error Registering" });
+        }
+
+        return res.status(200).json({ message: "Registered Successfully" });
+    });
     
+
 })
 
 app.listen(process.env.SERVER_PORT || 3000, ()=> {
