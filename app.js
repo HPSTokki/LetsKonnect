@@ -112,16 +112,20 @@ app.post('/reg-1', (req, res)=>{
             console.log("Error Querying into Database")
             return res1.status(500).json({message: "Error Registering..."})
         } 
+
+        db.query(insertQuery2, [userAcc_ID, blk_street, sitio, email, contacts], (err, result2) => {
+            if (err) {
+                console.log("Error inserting into kk_personalinfo2:", err);
+                return res.status(500).json({ message: "Error Registering" });
+            }
+    
+            return res.status(200).json({ message: "Registered Successfully" });
+        });
+    
+        console.log('Received data:', req.body);
+        
     })
 
-    db.query(insertQuery2, [userAcc_ID, blk_street, sitio, email, contacts], (err, result2) => {
-        if (err) {
-            console.log("Error inserting into kk_personalinfo2:", err);
-            return res.status(500).json({ message: "Error Registering" });
-        }
-
-        return res.status(200).json({ message: "Registered Successfully" });
-    });
     
 
 })

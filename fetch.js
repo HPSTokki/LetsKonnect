@@ -72,9 +72,9 @@ document.getElementById('some-form').addEventListener('submit', function(e){
     // Second KK Personal Info
 
     const blkstrt = document.getElementById('blk-street')
-    const sitio = document.getElementById('sitio')
-    const email = document.getElementById('email')
-    const contacts = document.getElementById('contact')
+    const sitio = document.getElementById('Sitio')
+    const email = document.getElementById('emailAddress')
+    const contacts = document.getElementById('contactNumber')
 
     const today = new Date()
     let age = today.getFullYear() - dateOfBirth.getFullYear()
@@ -119,6 +119,21 @@ document.getElementById('some-form').addEventListener('submit', function(e){
     .catch(error => {
         console.log('error:', error)
     })
+
+    console.log('Sending data:', {
+        userAcc_ID,
+        givenName,
+        middleName,
+        lastName,
+        suffix,
+        age,
+        dateOfBirth: dateOfBirth.toISOString().split('T')[0],
+        sex,
+        blkstrt,
+        sitio,
+        email,
+        contacts
+    });
 
     // fetch('http://localhost:6001/reg-1', {
     //     method: 'POST',
