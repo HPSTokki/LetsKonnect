@@ -1,82 +1,23 @@
-// Register for Acc Endpoint
-
-document.getElementById("regForm").addEventListener('submit', function(event) {
-    event.preventDefault();
-
-    const email = document.getElementById('regEmail').value;
-    const age = document.getElementById('regAge').value;
-    const password = document.getElementById('regPass').value;
-
-    fetch(`http://localhost:5010/register`, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        }, 
-        body: JSON.stringify({email, age, password})
-    })
-    .then(response => response.json())
-    .then(data => {
-        if(data.message) {
-            alert(data.message)
-        }
-    })
-    .catch(error => {
-        console.log('Error:', error)
-    })
-})
-
-// Login Account Endpoint
-let userAcc_ID;
-
-document.getElementById('logInForm').addEventListener('submit', function(e) {
-    e.preventDefault();
-
-    const email = document.getElementById('logInEmail').value
-    const password = document.getElementById('LogInpass').value
-
-    fetch('http://localhost:6001/login', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({email, password})
-    })
-    .then(response => response.json())
-    .then(data => {
-        if (data.message) {
-            alert(data.message);
-            if (data.userAcc_ID) {
-                sessionStorage.setItem('userAcc_ID', data.userAcc_ID)
-                console.log('User  ID:', data.userAcc_ID);
-                window.location.href = "pages/user-kkprofile.html"
-            }
-        }
-    })
-    .catch(error => {
-        console.error('Error:', error);
-    });
-})
-
-// KK Registration First Endpoint
+// KK First Fetch
 
 document.getElementById('some-form').addEventListener('submit', function(e){
     e.preventDefault();
 
+    const userAcc_ID = sessionStorage.getItem('userAcc_ID')
     // First KK Personal Info
-    const userAcc_ID = data.userAcc_ID
     const givenName = document.getElementById('givenName').value
     const middleName = document.getElementById('middleName').value
     const lastName = document.getElementById('lastName').value
     const suffix = document.getElementById('suffix').value
     const dateOfBirth = new Date(document.getElementById('dateOfBirth').value)
-    const sex = document.getElementById('sex').value
+    const sex = document.getElementById('Sex').value
 
     // Second KK Personal Info
 
-    const blkstrt = document.getElementById('blk-street')
-    const sitio = document.getElementById('Sitio')
-    const email = document.getElementById('emailAddress')
-    const contacts = document.getElementById('contactNumber')
+    const blk_street = document.getElementById('blk-street').value
+    const sitio = document.getElementById('Sitio').value
+    const email = document.getElementById('emailAddress').value
+    const contacts = document.getElementById('contactNumber').value
 
     const today = new Date()
     let age = today.getFullYear() - dateOfBirth.getFullYear()
@@ -102,9 +43,9 @@ document.getElementById('some-form').addEventListener('submit', function(e){
             lastName,
             suffix,
             age,
-            dateOfBirth: dateOfBirth.toISOString().split('T')[0],
+            dateOfBirth,
             sex,
-            blkstrt,
+            blk_street,
             sitio,
             email,
             contacts})

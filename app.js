@@ -84,8 +84,8 @@ app.post('/login', (req, res)=>{
         if (user.password != password) {
             return res.status(401).json({ message:'Invalid Email or password'})
         }
-
         req.session.userAcc_ID = user.userAcc_ID;
+        
         res.status(200).json({ message: 'Login Succesfully', userAcc_ID: user.userAcc_ID})
 
     })
@@ -93,8 +93,7 @@ app.post('/login', (req, res)=>{
 })
 
 app.post('/reg-1', (req, res)=>{
-    const {userAcc_ID, givenName, middleName, lastName, suffix, age, dateOfBirth, sex} = req.body
-    const {blk_street, sitio, email, contacts} = req.body
+    const {userAcc_ID, givenName, middleName, lastName, suffix, age, dateOfBirth, sex, blk_street, sitio, email, contacts} = req.body
 
     const insertQuery1 = "INSERT INTO kk_personalinfo (userAcc_ID, givenName, middleName, lastName, suffix, age, dateOfBirth, sex) VALUES (?, ?, ?, ?, ?, ?, ?, ?)"
     const insertQuery2 = "INSERT INTO kk_personalinfo2(userAcc_ID, blk_street, sitio, emailAddress, contacts) VALUES (?, ?, ? ,? ,?)"
@@ -107,10 +106,15 @@ app.post('/reg-1', (req, res)=>{
         return res.status(400).json({message: "Please input all the necessary details"})
     }
 
+    console.log('Inserting into kk_personalinfo:', { userAcc_ID, givenName, middleName, lastName, suffix, age, dateOfBirth, sex });
+    console.log('Inserting into kk_personalinfo2:', { userAcc_ID, blk_street, sitio, email, contacts });
+
+
     db.query(insertQuery1, [userAcc_ID, givenName, middleName, lastName, suffix, age, dateOfBirth, sex], (err, res1)=>{
         if(err) {
             console.log("Error Querying into Database")
-            return res1.status(500).json({message: "Error Registering..."})
+            console.log("Error inserting into kk_personalinfo:", err);
+            return res.status(500).json({message: "Error Registering..."})
         } 
 
         db.query(insertQuery2, [userAcc_ID, blk_street, sitio, email, contacts], (err, result2) => {
