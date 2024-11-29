@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin: Job Fairs</title>
+    <link rel ="stylesheet" href = "../css/admin-jobfairs.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="header">
+                <img src= "../Assets/LET'SKONNECT.png" alt="Let'sKonnect Logo">
+            </div>
+
+            <div class="logsignbutton">
+                <button type="button" class="logbutton">Log in</button>
+                <button type="button" class="signbutton">Sign up</button>
+            </div>
+        </nav>
+    </header>
+
+<section class="welcome-section">
+    <div class="image-container">
+        <img src="../Assets/BACKGROUND/Sangguniang Kabataan.png" alt="Welcome Image" class="welcome-image">
+        <div class="welcome-text">
+            <h1>WELCOME TO</h1>
+            <h2>LET'SKONNECT</h2>
+            <p>KASAMA KA SA AKSYON, KASAMA KA SA SOLUSYON</p>
+        </div>
+    </div>
+</section>
+<section class="navigation-tabs">
+    <div class="nav-menu">
+        <button class="tab-button active" onclick="openTab(event, 'Home')">Home</button>
+        <button class="tab-button" onclick="openTab(event, 'Events')">Events</button>
+        <button class="tab-button" onclick="openTab(event, 'News')">News & Updates</button>
+        <button class="tab-button" onclick="openTab(event, 'Scholarships')">Scholarships</button>
+        <button class="tab-button" onclick="openTab(event, 'JobFairs')">Job Fairs</button>
+        <button class="tab-button" onclick="openTab(event, 'KKProfiling')">KK Profiling</button>
+    </div>
+</section>
+<section class = "main-content">
+    <img src = "../Assets//BACKGROUND/Brgy. Sta Lucia.png">
+    
+    <div class = "create-post-section">
+        <h4>New Job fairs available? Click 'CREATE POST' to edit and share it with Kabataang Lucians.</h4>
+        <button class = "create-post-btn" onclick = "openModal()">CREATE POST</button>
+    </div>
+    <h3>Published Job Fairs</h3>
+    
+    <div class = "sort-section">
+        <i class ="fa-solid fa-filter" onclick = "toggleEllipsisSetting()"></i>
+        <h4>2024</h4>
+    </div>
+    
+    <div class = "job-op">
+        <h1>Job Fair Title</h1>
+        <i class="fa-solid fa-ellipsis-v"></i>
+        <hr>
+        <div class = "job-op-content">
+            <div class = "job-op-details">
+                <p><span class = "label">Date&nbsp;&nbsp;&nbsp;</span>MM/DD/YY</p>
+                <hr>
+                <p><span class = "label">Time&nbsp;&nbsp;&nbsp;</span>00:00 Time Period</p>
+                <hr>
+                <p><span class = "label">Location/Venue&nbsp;&nbsp;&nbsp;</span>Lorem ipsum dolor sit amet</p>
+            </div>
+            <div class = "job-op-description">
+                <p class = "description-title">Description</p>
+                <p class = "main-description">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas eleifend justo feugiat magna volutpat,
+                    eu corsequat elit hendrerit consectetur adipiscing elit. Maecenas eleifend...
+                </p>
+                <div class = "description-buttons">
+                    <button>Send Feedback Form</button>
+                    <button id = "loadmoreBtn" onclick = "toggleContent()">Load More</button>
+                </div>
+            </div>
+        </div>
+        <div class = "more-content">
+            <h4>Full Details</h4>
+            <p>Requirements</p>
+            <ul>
+                <li>Requirement 1</li>
+                <li>Requirement 2</li>
+                <li>Requirement 3</li>
+            </ul>
+        </div>
+        <div class = "ellipsis-setting">
+            <button class = "archive">Archive</button>
+            <button class = "edit">Edit</button>
+        </div>
+    </div>
+
+    <div class = "job-op">
+        <h1>Job Fair Title</h1>
+        <i class="fa-solid fa-ellipsis-v"></i>
+        <hr>
+        <div class = "job-op-content">
+            <div class = "job-op-details">
+                <p><span class = "label">Date&nbsp;&nbsp;&nbsp;</span>MM/DD/YY</p>
+                <hr>
+                <p><span class = "label">Time&nbsp;&nbsp;&nbsp;</span>00:00 Time Period</p>
+                <hr>
+                <p><span class = "label">Location/Venue&nbsp;&nbsp;&nbsp;</span>Lorem ipsum dolor sit amet</p>
+            </div>
+            <div class = "job-op-description">
+                <p class = "description-title">Description</p>
+                <p class = "main-description">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas eleifend justo feugiat magna volutpat,
+                    eu corsequat elit hendrerit consectetur adipiscing elit. Maecenas eleifend...
+                </p>
+                <div class = "description-buttons">
+                    <button>Send Feedback Form</button>
+                    <button id = "loadmoreBtn" onclick = "toggleContent()">Load More</button>
+                </div>
+            </div>
+        </div>
+        <div class = "more-content">
+            <h4>Full Details</h4>
+            <p>Requirements</p>
+            <ul>
+                <li>Requirement 1</li>
+                <li>Requirement 2</li>
+                <li>Requirement 3</li>
+            </ul>
+        </div>
+        <div class = "ellipsis-setting">
+            <button class = "archive">Archive</button>
+            <button class = "edit">Edit</button>
+        </div>
+    </div>
+</section>
+<footer class="footer">
+    <a class="credit">
+        <i class="fa-regular fa-copyright"></i>
+        <span>2024 Let'SKonnect</span>
+    </a>
+    <div class="footer-content">
+        <div class="social-icons">
+            <a href="#" class="footer-icon">
+                <img src="Assets/footers/Phone Number (Small Footer).png" alt="Phone Icon">
+            </a>
+            <a href="https://facebook.com" target="_blank" class="footer-icon">
+                <img src="Assets/footers/Facebook (Small Footer).png" alt="Facebook Icon">
+            </a>
+            <a href="#" class="footer-icon">
+                <img src="Assets/footers/Email (Small Footer).png" alt="Email Icon">
+            </a>
+        </div>
+    </div>
+</footer>
+<div id = "modalbackdrop" class = "modal-backdrop">
+    <div class = "create-post-modal">
+        <h1>Job Fair Title</h1>
+        <hr>
+        <form class="form-grid" id="evt-post">
+            <div class="subgrid-1">
+                <div class = "date-and-time">
+                    <label for="date">Date & Time:</label>
+                    <input type="date" id="date" name="date" placeholder = none>
+                    <input type="time" id="time" name="time">
+                </div>
+                <div>
+                    <label for="location">Location/Venue</label>
+                    <textarea id="location" name="location"></textarea>
+                </div>
+                <div>
+                    <label for="requirements">Requirements/Documents Needed</label>
+                    <textarea id="requirements" name="requirements"></textarea>
+                </div>
+                <div>
+                    <label for="employer">Employer/Sponsor</label>
+                    <textarea id="employer" name="employer"></textarea>
+                </div>
+            </div>
+            <div class="subgrid-2">
+                <div>
+                    <label for="description">Description</label>
+                    <textarea id="description" name="description"></textarea>
+                </div>
+                <div>
+                    <label for="full_details">Full Details</label>
+                    <textarea id="full_details" name="full_details"></textarea>
+                </div>
+                <div class = "create-post-buttons">
+                    <button type = "button" class = "cancel" onclick = "closeModal()">Cancel</button>
+                    <button type = "submit" id = "submitBtn" class = "submit" onclick = "showCreatePostConfirmModal()" >Submit</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+    <!-- JavaScript -->
+    <script src="../js-frntend/admin-jobfairs.js"></script>
+    <script src="../fetch/evt-posts.js"></script>
+</body>
+</html>

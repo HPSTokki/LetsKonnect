@@ -42,6 +42,8 @@ db.connect((err)=>{
 
 // Endpoints goes here
 
+// Register Endpoint
+
 app.post('/register', (req, res)=>{
     const {email, age, password} = req.body;
 
@@ -60,6 +62,8 @@ app.post('/register', (req, res)=>{
     })
 
 })
+
+// Login Endpoint
 
 app.post('/login', (req, res)=>{
     const {email, password} = req.body;
@@ -91,6 +95,8 @@ app.post('/login', (req, res)=>{
     })
 
 })
+
+// Registration KK Profile Endpoint
 
 app.post('/reg-1', (req, res)=>{
     const {userAcc_ID, givenName, middleName, lastName, suffix, age, dateOfBirth, sex, blk_street, sitio, email, contacts} = req.body
@@ -133,6 +139,51 @@ app.post('/reg-1', (req, res)=>{
     
 
 })
+
+// Event Posts Endpoints Here
+
+app.post('/evt-post', (req, res)=> {
+    const {date, time, location, requirements, employer, description, full_details} = req.body
+
+    const query = "INSERT INTO tbl_eventposts (date, time, location, requirements, employer, description, full_details) VALUES (?, ?, ?, ?, ?, ?, ?)"
+    if (!date || !time || !location) {
+        res.status(400).json({message: "Please Fill in the details"})
+    }
+
+    console.log("Inserting into tbl_eventposts: ", {date, time, location, requirements, employer, description, full_details})
+
+    db.query(query, [date, time, location, requirements, employer, description, full_details], (err, results)=>{
+        if (err) {
+            console.log("Error at: ", err)
+           return res.status(500).json({message: "Error inserting into database"})
+        } else {
+            res.status(200).json({message: "Post created succesfully!"})
+        }
+    })
+
+
+})
+
+app.get('/evt-posts', (req, res)=>{
+    const query = "SELECT * FROM tbl_eventposts"
+
+    db.query(query, (err, results) =>{
+        if(err) {
+            console.log("Error:", err)
+            return res.status(500).json({message: "Error getting data from Database"})
+        }
+        return res.status(200).json(results)
+    })
+
+})
+
+
+
+
+
+
+
+// Server Port 
 
 app.listen(process.env.SERVER_PORT || 3000, ()=> {
     try {
