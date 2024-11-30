@@ -46,7 +46,8 @@ body {
     h1 {
       padding: 0.5rem 1rem;
       color: transparent;
-      font-size: 1.5rem;
+      font-size: 1vw;
+      user-select: none;
     }
   }
 
@@ -77,23 +78,31 @@ body {
   justify-content: center;
   flex: 1 1 auto;
   width: 100%;
-  height: 100%;
+  height: max-content;
   font-family: $font2;
-
-
+  padding: 1rem 0;
 
   label {
     font-weight: 500;
     color: $color3;
     margin: 0.5rem 0;
     user-select: none;
+    font-size: 0.9rem;
+  }
+
+  select {
+    border-radius: 15px;
+    border: none;
+    border: 1px solid #3b3535b4;
+    padding: 0.5rem 0.5rem;
+    width: max-content;
   }
 
   input {
     border-radius: 15px;
     border: none;
     border: 1px solid #3b3535b4;
-    padding: 0 0.5rem;
+    padding: 0.5rem 0.5rem;
   }
   textarea {
     border-radius: 15px;
@@ -104,39 +113,48 @@ body {
 
   .form-wrap {
     display: grid;
-    grid-template-columns: auto 1.3fr;
+    grid-template-columns: auto auto;
     grid-template-rows: auto;
     gap: 0px 0px;
     grid-template-areas: "some-nav some-form";
-    max-width: 60%;
-    width: 85%;
+    max-width: 65%;
+    width: 90%;
     padding: 2rem;
     height: max-content;
     border-radius: 15px;
     border: 1px solid #333;
 
+
     .some-nav {
       grid-area: some-nav;
       list-style: none;
       padding: 0;
-      
 
       li {
-        padding: 1.5rem 2rem;
+        padding: 1rem 2rem;
 
-        a {
+        .kk-link {
           text-decoration: none;
+          font-size: 0.95rem;
+          user-select: none;
+          cursor: pointer;
+          text-align: right;
+
+          
+        }
+
+        .kk-link.active {
+          font-weight: 600;
         }
       }
     }
 
-    #some-form {
-
-    border-left: 1px solid #333;
+    .forms {
+      border-left: 1px solid #333;
       grid-area: some-form;
       display: grid;
       grid-template-columns: 1fr;
-      grid-template-rows: auto 1fr 1fr 1fr 1fr 1fr 1fr;
+      grid-template-rows: auto 1fr 1fr 1fr 1fr 1fr;
       gap: 0px 0px;
       grid-template-areas:
         "title"
@@ -163,16 +181,16 @@ body {
 
         .form-group {
           flex: 1 1 auto;
-          padding: 1rem 1rem;
+          padding: 0.1rem 1rem;
+          display: flex;
+          flex-direction: column;
 
           input {
-            width: 80%;
-            font-size: 1.15rem;
+            width: max-content;
           }
 
           #age {
             width: 10px;
-            font-size: 1.15rem;
           }
         }
       }
@@ -188,11 +206,9 @@ body {
           padding: 0.1rem 1rem;
           display: flex;
           flex-direction: column;
-          font-size: 1.15rem;
 
           input {
-            width: 80%;
-            font-size: 1.15rem;
+            width: max-content;
           }
         }
       }
@@ -202,27 +218,19 @@ body {
         justify-content: space-evenly;
         align-items: center;
         grid-area: detes-grid-3;
-        font-size: 1rem;
 
         .form-group {
           flex: 1 1 auto;
           padding: 0.1rem 1rem;
           display: flex;
           flex-direction: column;
-          font-size: 1.15rem;
 
           input {
-            width: 60%;
-            font-size: 1.15rem;
+            width: max-content;
           }
 
           select {
-            width: 60%;
-            font-size: 1.15rem;
-
-            option {
-              font-size: 1.15rem;
-            }
+            width: max-content;
           }
         }
       }
@@ -238,7 +246,6 @@ body {
           padding: 0.1rem 1rem;
           display: flex;
           flex-direction: column;
-          font-size: 1rem;
 
           textarea {
             font-size: 0.8rem;
@@ -252,50 +259,68 @@ body {
         justify-content: space-evenly;
         align-items: center;
         grid-area: detes-grid-5;
-        font-size: 1rem;
 
         .form-group {
           flex: 1 1 auto;
           padding: 0.1rem 1rem;
           display: flex;
           flex-direction: column;
-          font-size: 1.15rem;
 
           input {
             width: 100%;
-            font-size: 1.15rem;
           }
 
           select {
             text-align: center;
-            width: 100%;
-            font-size: 1.15rem;
+            width: max-content;
+            align-self: center;
 
             option {
-              font-size: 1.15rem;
+              font-size: inherit;
+              text-align: center;
             }
           }
         }
       }
       .detes-grid-6 {
-        height: 100%;
-            .next {
-                display: flex;
-                height: 100%;
-                align-items: center;
-                justify-content: flex-end;
+        height: max-content;
+        display: flex;
+        justify-content: space-evenly;
+        .next{
+          display: flex;
+          height: 100%;
+          align-items: center;
+          justify-content: flex-end;
 
-                button {
-                    padding: 0.5rem 3rem;
-                    text-decoration: none;
-                    background: $color3;
-                    border-radius: 25px;
-                    color: $font-clr1;
-                    border: none;
-                    cursor: pointer;
-                }
+          button {
+            padding: 0.5rem 3rem;
+            text-decoration: none;
+            background: $color3;
+            border-radius: 25px;
+            color: $font-clr1;
+            border: none;
+            cursor: pointer;
+          }
+          
+        }
 
-            }
+        .back {
+          display: flex;
+          height: 100%;
+          align-items: center;
+
+          button {
+            padding: 0.5rem 3rem;
+            text-decoration: none;
+            background: $color3;
+            border-radius: 25px;
+            color: $font-clr1;
+            border: none;
+            cursor: pointer;
+          }
+
+        }
+
       }
     }
   }

@@ -4,7 +4,7 @@ if (process.env.NODE_ENV !== "production") {
 
 const express = require('express')
 const session = require('express-session')
-const dotenv = require('dotenv').config()
+const dotenv = require('dotenv').config('/')
 const cors = require('cors')
 const mysql = require('mysql')
 const { use } = require('browser-sync')
@@ -23,6 +23,12 @@ const db = mysql.createConnection({
     port: process.env.DB_PORT,
     database: process.env.DB_NAME,
 })
+
+console.log(process.env.DB_HOST,
+            process.env.DB_USER,
+            process.env.DB_PASS,
+            process.env.DB_PORT,
+            process.env.DB_NAME,)
 
 app.use(session({
     secret: 'secret',
@@ -136,8 +142,162 @@ app.post('/reg-1', (req, res)=>{
         
     })
 
-    
+})
 
+// KK Registration Endpoint 2
+
+app.post('/reg-2', (req, res)=>{
+    const {userAcc_ID, civilStatus, youthAge, educationalBackground, youthClass, workStatus, regVoter, regNatVoter, soloParent, kid_count, isLGBT, attendedKK, attendedTime, personWDisability, partIndigenous} = req.body
+    const query1 = "INSERT INTO kk_personalinfo3 (userAcc_ID, civilStatus, youthAge, educationalBackground, youthClass, workStatus, regVoter, regNatVoter) VALUES (?, ?, ?, ?, ?, ?, ?, ?)"
+    const query2 = "INSERT INTO kk_personalinfo4 (userAcc_ID, soloParent, kid_count, isLGBT, attendedKK, attendedTime, personWDisability, partIndigenous) VALUES (?, ?, ?, ?, ?, ?, ?, ?)"
+    
+    if (!userAcc_ID || !civilStatus || !youthAge || !educationalBackground || !youthClass || !workStatus || !regVoter || !regNatVoter || !soloParent || !kid_count || !isLGBT || !attendedKK || !attendedTime || !personWDisability || !partIndigenous) {
+        return res.status(400).json({ message: "Please provide all required fields." });
+    }
+
+    console.log("First Insert: ", {userAcc_ID, civilStatus, youthAge, educationalBackground, youthClass, workStatus, regVoter, regNatVoter})
+    console.log("First Insert: ", {userAcc_ID, soloParent, kid_count, isLGBT, attendedKK, attendedTime, personWDisability, partIndigenous})
+
+    db.query(query1, [userAcc_ID, civilStatus, youthAge, educationalBackground, youthClass, workStatus, regVoter, regNatVoter], (err, result) => {
+        if (err) {
+            res.status(500).json({message: "Error querying into database..."})
+            console.log("Error: ", err)
+        }
+
+        db.query(query2, [userAcc_ID, soloParent, kid_count, isLGBT, attendedKK, attendedTime, personWDisability, partIndigenous], (err, result1) => {
+            if (err) {
+                res.status(500).json({message: "Error querying into database...."})
+                console.log("Error: ", err)
+            }
+
+            return res.status(200).json({message: "Registered succesfully"})
+
+        })
+
+        console.log("Received Data: ", req.body)
+
+    })
+
+})
+
+app.post('/reg-3', (req, res)=>{
+    const {userAcc_ID ,licensedProd, company, position} = req.body
+    const query = "INSERT INTO kk_personalinfo5 (userAcc_ID, licensedProd, company, position) VALUES (?, ?, ?, ?)"
+
+    console.log("Data Query: ", {userAcc_ID ,licensedProd, company, position})
+
+    db.query(query, [userAcc_ID, licensedProd, company, position], (err, result)=>{
+        if(err) {
+            console.log("Errors: ", err)
+            return res.status(500).json({message: "Error Querying into222 Database..."})
+            
+        } 
+
+        return res.status(200).json({message: "Data inserted into database...."})
+
+    })
+
+    console.log("Received Data: ", req.body)
+
+})
+
+app.post('/reg-4', (req, res)=>{
+    const {userAcc_ID, lvl, school, ydo_recipient, other_recipient, other_detes} = req.body
+    const query = "INSERT INTO kk_personalinfo6 (userAcc_ID, lvl, school, ydo_recipient, other_recipient, other_detes) VALUES (?, ?, ?, ?, ?, ?)"
+
+    console.log('Body:', {userAcc_ID, lvl, school, ydo_recipient, other_detes, other_detes})
+
+    db.query(query, [userAcc_ID, lvl, school, ydo_recipient, other_recipient, other_detes], (err, results)=>{
+        if (err) {
+            console.log(err)
+            return res.status(500).json({message: "Error Querying into database...."})
+        } 
+        return res.status(200).json("Data Submitted Into Database Succesfully")
+    })
+
+    console.log('Received Data: ', req.body)
+
+})
+
+
+// Chart APIs
+
+app.get('/chart-api', (req, res)=>{
+    const query = `SELECT 
+            'College Graduate' AS Status,
+            COUNT(*) AS Count
+        FROM kk_personalinfo3
+        WHERE educationalBackground = 'College Graduate'
+
+        UNION ALL
+
+        SELECT 
+            'Senior Highschool Graduate' AS Status,
+            COUNT(*) AS Count
+        FROM kk_personalinfo3
+        WHERE educationalBackground = 'Senior Highschool Graduate'
+
+        UNION ALL
+
+        SELECT 
+            'Junior Highschool Graduate' AS Status,
+            COUNT(*) AS Count
+        FROM kk_personalinfo3
+        WHERE educationalBackground = 'Junior Highschool Graduate'
+
+        UNION ALL
+
+        SELECT 
+            'Undergraduate' AS Status,
+            COUNT(*) AS Count
+        FROM kk_personalinfo3
+        WHERE educationalBackground = 'Undergraduate'
+
+        UNION ALL
+
+        SELECT 
+            'Solo Parent' AS Status,
+            COUNT(*) AS Count
+        FROM kk_personalinfo4
+        WHERE soloParent = 'Yes'
+
+        UNION ALL
+
+        SELECT 
+            'Person with Disability' AS Status,
+            COUNT(*) AS Count
+        FROM kk_personalinfo4
+        WHERE personWDisability = 'Yes'
+
+        UNION ALL
+
+        SELECT 
+            'LGBT' AS Status,
+            COUNT(*) AS Count
+        FROM kk_personalinfo4
+        WHERE isLGBT = 'Yes'
+
+        UNION ALL
+
+        SELECT 
+            'Indigenous' AS Status,
+            COUNT(*) AS Count
+        FROM kk_personalinfo4
+        WHERE partIndigenous = 'Yes'
+
+        UNION ALL
+
+        SELECT 
+            'Employed' AS Status,
+            COUNT(*) AS Count
+        FROM kk_personalinfo3
+        WHERE workStatus = 'Employed';`
+    db.query(query, (err, result)=>{
+        if (err) {
+            return res.status(500).json({error: err.message})
+        }
+        res.json(result)
+    })
 })
 
 // Event Posts Endpoints Here
@@ -176,6 +336,11 @@ app.get('/evt-posts', (req, res)=>{
     })
 
 })
+
+
+
+
+
 
 
 

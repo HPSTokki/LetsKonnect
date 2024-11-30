@@ -56,34 +56,17 @@ document.getElementById('some-form').addEventListener('submit', function(e){
             alert(data.message);
             if (data.userAcc_ID) {
                 console.log('User ID: ', data.userAcc_ID)
+                
             }
         }
+        
     })
     .catch(error => {
         console.log('error:', error)
     })
 
-    
-
-    // fetch('http://localhost:6001/reg-1', {
-    //     method: 'POST',
-    //     'headers': {
-    //         'Content-Type' : 'application/json',
-    //     },
-    //     'body': JSON.stringify({userAcc_ID, blkstrt, sitio, email, contacts})
-    // })
-    // .then(response => response.json())
-    // .then(data => {
-    //     if (data.message) {
-    //         alert(data.message);
-    //         if (data.userAcc_ID) {
-    //             console.log('User ID: ', data.userAcc_ID)
-    //         }
-    //     }
-    // })
-    // .catch(error => {
-    //     console.log('error:', error)
-    // })
- 
-
 })
+
+function goNext() {
+    window.location.href = '../pages/user-kkprofile1.html'
+}

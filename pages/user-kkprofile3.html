@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="../css/user-kkprofiling.css" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
+        rel="stylesheet"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+<body>
+    <header id="header">
+        <div id="homeBtn">
+            <h1>LET'SKONNECT</h1>
+        </div>
+        <span class="material-symbols-outlined account-icon">
+            account_circle
+        </span>
+    </header>
+
+    <main id="main">
+        <div class="form-wrap hidden" id="form2">
+            <ul class="some-nav">
+                <li><a href="#" class="kk-link" data-target="form1">Profile</a></li>
+                <li><a href="#" class="kk-link" data-target="form2">Demographic</a></li>
+                <li><a href="#" class="kk-link" data-target="form3">Educational Background</a></li>
+                <li><a href="#" class="kk-link" data-target="form4">Additional Background</a></li>
+                <li><a href="#" class="kk-link" data-target="form5">Confirmation</a></li>
+            </ul>
+            <form action="" id="some-form4" class="forms">
+                <div class="title">KK PROFILING 4</div>
+                <div class="detes-grid">
+                    <div class="form-group">
+                        <label for="lvl">Level</label>
+                        <select name="lvl" id="lvl">
+                            <option value="Elementary Graduate">Elementary Graduate</option>
+                            <option value="Highschool Graduate">Highschool Graduate</option>
+                            <option value="Senior Highschool Graduate">Senior Highschool Graduate</option>
+                            <option value="College Graduate">College Graduate</option>
+                            <option value="College Undergraduate">College Undergraduate</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="detes-grid-2">
+                    <div class="form-group">
+                        <label for="school">School</label>
+                        <input type="text" name="school" id="school">
+                    </div>
+                </div>
+                <div class="detes-grid-3">
+                    <div class="form-group">
+                        <label for="ydo-recipient">Are you a recipient of Quezon City Scholarship (QCYDO) Program?</label>
+                        <select name="ydo-recipient" id="ydo-recipient">
+                          <option value="Yes">Yes</option>
+                          <option value="No">No</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="detes-grid-4">
+                  <div class="form-group">
+                    <label for="other-recipient">Are you a recipient of other Scholarships other than QCYDO?</label>
+                    <select name="other-recipient" id="other-recipient">
+                      <option value="Yes">Yes</option>
+                      <option value="No">No</option>
+                    </select>
+                </div>
+                </div>
+                <div class="detes-grid-5">
+                  <div class="form-group">
+                    <label for="other-detes">If YES, please indicate name of Scholarship Program</label>
+                    <input type="text" name="other-detes" id="other-detes">
+                </div>
+                </div>
+                <div class="detes-grid-6">
+                    <div class="back">
+                        <button type="button" class="back-btn" onclick="goBack()">Back</button>
+                    </div>
+                    <div class="next">
+                        <button type="submit">Next</button>
+                    </div>
+                </div>
+            </form>
+        </div> 
+    </main>
+
+    <footer id="footer">
+        <div>
+            <i class="fa-regular fa-copyright"></i>
+            <h3>LET'SKONNECT</h3>
+        </div>
+
+        <ul>
+            <li><i class="fa-brands fa-facebook"></i></li>
+            <li><i class="fa-solid fa-phone"></i></li>
+            <li><i class="fa-solid fa-envelope"></i></li>
+        </ul>
+    </footer>
+    <script
+        src="https://kit.fontawesome.com/c225de6932.js"
+        crossorigin="anonymous"
+    ></script>
+    <script src="../fetch/kk-reg3.js"></script>
+    <script src="../js-frntend/user-kkprofile.js"></script>
+</body>
+</html>

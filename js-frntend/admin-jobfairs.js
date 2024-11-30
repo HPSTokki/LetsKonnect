@@ -21,15 +21,7 @@ function closeModal() {
     modalBackdrop.classList.remove('visible');
 }
 
-function showCreatePostConfirmModal() {
-    const postConfirmModalBackdrop = document.getElementById('postconfirm-modalbackdrop');
-    postConfirmModalBackdrop.classList.add('visible');
-}
 
-function closeCreatePostConfirmModal() {
-    const postConfirmModalBackdrop = document.getElementById('postconfirm-modalbackdrop');
-    postConfirmModalBackdrop.classList.remove('visible');
-}
 
 document.querySelectorAll('.fa-ellipsis-v').forEach((icon) => {
     icon.addEventListener('click', (e) => {

@@ -21,15 +21,15 @@
     </header>
 
     <main id="main">
-      <div class="form-wrap">
+      <div class="form-wrap" id="form1">
         <ul class="some-nav">
-          <li><a href="/">Profile</a></li>
-          <li><a href="/">Demographic</a></li>
-          <li><a href="/">Educational Background</a></li>
-          <li><a href="/">Employment Background</a></li>
-          <li><a href="/">Confirmation</a></li>
+          <li><a href="#" class="kk-link active" data-target="form1">Profile</a></li>
+          <li><a href="#" class="kk-link" data-target="form2">Demographic</a></li>
+          <li><a href="#" class="kk-link" data-target="form3">Educational Background</a></li>
+          <li><a href="#" class="kk-link" data-target="form4">Additional Background</a></li>
+          <li><a href="#" class="kk-link" data-target="form5">Confirmation</a></li>
         </ul>
-        <form action="" id="some-form">
+        <form action="" id="some-form" class="forms">
           <div class="title">KK PROFILING</div>
           <div class="detes-grid">
             <div class="form-group">
@@ -79,12 +79,12 @@
             <div class="form-group">
               <label for="Sitio">Sitio</label>
               <select name="Sitio" id="Sitio" required>
-                <option value="Sitio-1">Sitio 1</option>
-                <option value="Sitio-2">Sitio 2</option>
-                <option value="Sitio-3">Sitio 3</option>
-                <option value="Sitio-4">Sitio 4</option>
-                <option value="Sitio-5">Sitio 5</option>
-                <option value="Sitio-6">Sitio 6</option>
+                <option value="Sitio 1">Sitio 1</option>
+                <option value="Sitio 2">Sitio 2</option>
+                <option value="Sitio 3">Sitio 3</option>
+                <option value="Sitio 4">Sitio 4</option>
+                <option value="Sitio 5">Sitio 5</option>
+                <option value="Sitio 6">Sitio 6</option>
               </select>
             </div>
             <div class="form-group">
@@ -98,7 +98,7 @@
           </div>
           <div class="detes-grid-6">
             <div class="next">
-              <button type="submit">Next</button>
+              <button type="submit" onclick="goNext()">Next</button>
             </div>
           </div>
         </div>
@@ -123,5 +123,6 @@
       crossorigin="anonymous"
     ></script>
     <script src="../fetch/kk-reg.js"></script>
+    <script src="../js-frntend/user-kkprofile.js"></script>
   </body>
 </html>

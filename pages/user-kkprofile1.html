@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="stylesheet" href="../css/user-kkprofiling.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+</head>
+
+<body>
+  <header id="header">
+    <div id="homeBtn">
+      <h1>LET'SKONNECT</h1>
+    </div>
+    <span class="material-symbols-outlined account-icon">
+      account_circle
+    </span>
+  </header>
+
+  <main id="main">
+    <div class="form-wrap hidden" id="form2">
+      <ul class="some-nav">
+        <li><a href="#" class="kk-link" data-target="form1">Profile</a></li>
+        <li><a href="#" class="kk-link" data-target="form2">Demographic</a></li>
+        <li><a href="#" class="kk-link" data-target="form3">Educational Background</a></li>
+        <li><a href="#" class="kk-link" data-target="form4">Additional Background</a></li>
+        <li><a href="#" class="kk-link" data-target="form5">Confirmation</a></li>
+      </ul>
+      <form action="" id="some-form2" class="forms">
+        <div class="title">KK PROFILING 2</div>
+        <div class="detes-grid">
+          <div class="form-group">
+            <label for="civilStatus">Civil Status</label>
+            <select name="civilStatus" id="civilStatus" required>
+              <option value="Single">Single</option>
+              <option value="Married">Married</option>
+              <option value="Widowed">Widowed</option>
+              <option value="Separated">Separated</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="youthAge">Youth Age</label>
+            <select name="youthAge" id="youthAge">
+              <option value="Child Youth (15-17 yrs old)">Child Youth (15-17 yrs old)</option>
+              <option value="Core Youth (18-24 yrs old)">Core Youth (18-24 yrs old)</option>
+              <option value="Young Adult (25-30 yrs old)">Young Adult (25-30 yrs old)</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="educationalBackground">Educational Background</label>
+            <select name="educationalBackground" id="educationalBackground" required>
+              <option value="College Graduate">College Graduate</option>
+              <option value="Senior Highschool Graduate">Senior Highschool Graduate</option>
+              <option value="Junior Highschool Graduate">Junior Highschool Graduate</option>
+              <option value="ALS">ALS</option>
+              <option value="Undergraduate">Undergraduate</option>
+            </select>
+          </div>
+        </div>
+        <div class="detes-grid-2">
+          <div class="form-group">
+            <label for="youthClass">Youth Classification</label>
+            <select name="youthClass" id="youthClass" required>
+              <option value="In School Youth">In School Youth</option>
+              <option value="Out of School Youth">Out of School Youth</option>
+              <option value="Working Youth">Working Youth</option>
+              <option value="Youth With Specific Needs">Youth With Specific Needs</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="workStatus">Work Status</label>
+            <select name="workStatus" id="workStatus" required>
+              <option value="Unemployed">Unemployed</option>
+              <option value="Employed">Employed</option>
+              <option value="Student">Student</option>
+              <option value="Part Time">Part Time</option>
+            </select>
+          </div>
+        </div>
+        <div class="detes-grid-3">
+          <div class="form-group">
+            <label for="regVoter">Registered SK Voter?</label>
+            <select name="regVoter" id="regVoter" required>
+              <option value="Yes">Yes</option>
+              <option value="No">No</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="regNatVoter">Registered National Voter?</label>
+            <select name="regNatVoter" id="regNatVoter" required>
+              <option value="Yes">Yes</option>
+              <option value="No">No</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="soloParent">Solo Parent?</label>
+            <select name="soloParent" id="soloParent" required>
+              <option value="Yes">Yes</option>
+              <option value="No">No</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="kid-count">If Yes, How Many?</label>
+            <input type="number" name="kid-count" id="kid-count" required>
+          </div>
+        </div>
+        <div class="detes-grid-4">
+          <div class="form-group">
+            <label for="isLGBT">Part of LGBTQ+ Community?</label>
+            <select name="isLGBT" id="isLGBT" required>
+              <option value="Yes">Yes</option>
+              <option value="No">No</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="attendedKK">Have you already attended a KK Assembly?</label>
+            <select name="attendedKK" id="attendedKK" required>
+              <option value="Yes">Yes</option>
+              <option value="No">No</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="attendedTime">If yes, how many times?</label>
+            <input type="number" name="attendedTime" id="attendedTime" required>
+          </div>
+        </div>
+        <div class="detes-grid-5">
+          <div class="form-group">
+            <label for="personWDisability">Are you a person with disability?</label>
+            <select name="personWDisability" id="personWDisability" required>
+              <option value="Yes">Yes</option>
+              <option value="No">No</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="partIndigenous">Are you part of an Indigenous Group?</label>
+            <select name="partIndigenous" id="partIndigenous" required>
+              <option value="Yes">Yes</option>
+              <option value="No">No</option>
+            </select>
+          </div>
+        </div>
+        <div class="detes-grid-6">
+          <div class="back">
+            <button type="button" class="back-btn" onclick="goBack()">Back</button>
+          </div>
+          <div class="next">
+            <button type="submit">Next</button>
+          </div>
+        </div>
+    </div>
+    </form>
+    </div>
+  </main>
+
+  <footer id="footer">
+    <div>
+      <i class="fa-regular fa-copyright"></i>
+      <h3>LET'SKONNECT</h3>
+    </div>
+
+    <ul>
+      <li><i class="fa-brands fa-facebook"></i></li>
+      <li><i class="fa-solid fa-phone"></i></li>
+      <li><i class="fa-solid fa-envelope"></i></li>
+    </ul>
+  </footer>
+  <script src="https://kit.fontawesome.com/c225de6932.js" crossorigin="anonymous"></script>
+  <script src="../fetch/kk-reg1.js"></script>
+  <script src="../js-frntend/user-kkprofile.js"></script>
+</body>
+
+</html>
