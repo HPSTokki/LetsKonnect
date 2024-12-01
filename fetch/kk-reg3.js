@@ -45,5 +45,5 @@ function goBack() {
 }
 
 function goNext() {
-    window.location.href = '../pages/user-kkprofile3.html'
+    window.location.href = '../pages/user-kkprofile4.html'
 }
