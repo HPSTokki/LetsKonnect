@@ -291,6 +291,42 @@ app.post('/reg-4', (req, res)=>{
 
 })
 
+// Table Survey Remarks
+
+app.get('/api/surveys', (req, res) => {
+    const query = `
+        SELECT 
+            s.surveyID, 
+            s.category, 
+            COUNT(CASE WHEN sr.ques1 IS NOT NULL THEN 1 END) AS total_question1_responses,
+            COUNT(CASE WHEN sr.ques2 IS NOT NULL THEN 1 END) AS total_question2_responses
+        FROM 
+            tbl_survey s
+        LEFT JOIN 
+            tbl_surveyres sr ON s.surveyID = sr.surveyID
+        GROUP BY 
+            s.surveyID, s.category;
+    `;
+    
+    db.query(query, (err, results) => {
+        if (err) {
+            console.log("error: ", err);
+            return res.status(500).json({ error: err.message });
+        }
+        res.json(results);
+    });
+});
+
+app.delete('/api/surveys/:id', (req, res) => {
+    const surveyId = req.params.id;
+    db.query('DELETE FROM tbl_surveylist WHERE id = ?', [surveyId], (err, results) => {
+        if (err) {
+            return res.status(500).json({ error: err.message });
+        }
+        res.json({ message: 'Survey deleted successfully' });
+    });
+});
+
 
 // Chart APIs
 

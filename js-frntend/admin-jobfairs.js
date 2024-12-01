@@ -1,7 +1,8 @@
-function toggleContent() {
-    const moreContent = document.querySelector('.more-content');
-    const button = document.querySelector('#loadmoreBtn');
-    
+function toggleContent(event) {
+    console.log(event); // Log the event to see if it's being passed correctly
+    const moreContent = event.target.closest('.job-op').querySelector('.more-content');
+    const button = event.target;
+
     if (!moreContent.classList.contains('show')) {
         moreContent.classList.add('show');
         button.textContent = 'See Less...';

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../css/dashboardAdm1.css" >
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Admin</title>
+</head>
+<body>
+    <header id="header">
+        <div id="homeBtn">
+            <h1>LET'SKONNECT</h1>
+        </div>
+        <button id="logIn">Log In</button>
+    </header>
+    <main id="main">
+        <div>
+            <h2>WELCOME TO</h2>
+            <h1>LET'SKONNECT</h1>
+            <h4>KASAMA KA SA AKSYON, KASAMA KA SA SOLUSYON</h4>
+        </div>
+    </main>
+    <nav id="navBar">
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/">Events</a></li>
+            <li><a href="/">News & Updates</a></li>
+            <li><a href="/">Scholarships</a></li>
+            <li><a href="/">Job Fairs</a></li>
+            <li><a href="/" class="click active">Dashboard</a></li>
+        </ul>
+    </nav>
+    <section id="section-1">
+        <a href="/" class="Name">
+            <div class="admin-name">
+                Placeholder Dot Name
+            </div>
+           </a>
+        <div class="dashboard-title">
+            <h2>Dashboard</h2>
+        </div>
+       <aside class="dashboard-nav">
+            <ul>
+                <li><a href="/"><span class="material-symbols-outlined">
+                    dashboard
+                    </span>Dashboard</a></li>
+                <li><a href="/"><span class="material-symbols-outlined">
+                    rate_review
+                    </span>Feedback</a></li>
+                <li><a href="/"><span class="material-symbols-outlined">
+                    settings
+                    </span>User Management</a></li>
+                <li><a href="/"><span class="material-symbols-outlined">
+                    bookmark
+                    </span>Archive</a></li>
+            </ul>
+       </aside>
+       <div class="stats-wrap">
+            <div class="title">
+                <div class="title-wrap">
+                    <h2>Results</h2>
+                </div>
+                <div class="funcs">
+                    <label for="search">Search</label>
+                    <input type="text" name="search" id="search">
+                    <input type="checkbox" name="selectAll" id="selectAll">
+                    <label for="selectAll">Select All</label>
+                </div>
+            </div>
+            <table id="respondentTables">
+                <thead>
+                    <tr>
+                        <th>Survey ID</th>
+                        <th>Category</th>
+                        <th>Question 1</th>
+                        <th>Question 2</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                </tbody>
+            </table>
+       </div>
+       
+    </section>
+    <footer id="footer">
+        <div>
+          <i class="fa-regular fa-copyright"></i>
+          <h3>LET'SKONNECT</h3>
+        </div>
+  
+        <ul>
+          <li><i class="fa-brands fa-facebook"></i></li>
+          <li><i class="fa-solid fa-phone"></i></li>
+          <li><i class="fa-solid fa-envelope"></i></li>
+        </ul>
+      </footer>
+      <script
+      src="https://kit.fontawesome.com/c225de6932.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="../fetch/dashboardAdm1.js"></script>
+</body>
+</html>

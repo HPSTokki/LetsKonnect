@@ -38,5 +38,8 @@ fetch('http://localhost:6001/chart-api')
             }
         }
     })
-    .catch(error => console.log('Error Fetching Data: ', error))
+    
+})
+.catch(error=>{
+    console.log("Error:", error)
 })
