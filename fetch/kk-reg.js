@@ -56,15 +56,15 @@ document.getElementById('some-form').addEventListener('submit', function(e){
             alert(data.message);
             if (data.userAcc_ID) {
                 console.log('User ID: ', data.userAcc_ID)
-                
             }
+            goNext()
         }
         
     })
     .catch(error => {
         console.log('error:', error)
     })
-
+    
 })
 
 function goNext() {

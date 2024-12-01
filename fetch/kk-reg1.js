@@ -53,8 +53,8 @@ document.getElementById('some-form2').addEventListener('submit', function(e){
     .then(data => {
         if(data.message) {
             alert(data.message);
-
         }
+        goNext()
     })
     .catch(error => {
         console.log('Error: ', error)

@@ -17,7 +17,7 @@ document.getElementById('some-form3').addEventListener('submit', function(e){
             'Content-Type' : 'application/json'
         },
         'body': JSON.stringify({
-            userAcc_ID: userAcc_ID = 15,
+            userAcc_ID,
             licensedProd,
             company,
             position
@@ -28,8 +28,8 @@ document.getElementById('some-form3').addEventListener('submit', function(e){
     .then(data => {
         if(data.message) {
             alert(data.message);
-
         }
+        goNext()
     })
     .catch(error => {
         console.log('Error: ', error)

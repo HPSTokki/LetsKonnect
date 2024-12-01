@@ -1,316 +1,316 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Pathway+Extreme:ital,opsz,wght@0,8..144,100..900;1,8..144,100..900&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Pathway+Extreme:ital,opsz,wght@0,8..144,100..900;1,8..144,100..900&display=swap');
 
-* {
-    box-sizing: border-box;
-    margin: 0;
-}
+    * {
+        box-sizing: border-box;
+        margin: 0;
+    }
 
-// Color Variables
+    // Color Variables
 
-$color1: #FFFFFF;
-$color2: #6610A6;
-$color3: #9E4BDC;
-$color4: #03b0c1;
-$font-clr1: #f2f2f2;
-$font-clr2: #848484;
-$font-clr3: #A539AD;
-$btn-clr1: #A101A2;
+    $color1: #FFFFFF;
+    $color2: #6610A6;
+    $color3: #9E4BDC;
+    $color4: #03b0c1;
+    $font-clr1: #f2f2f2;
+    $font-clr2: #848484;
+    $font-clr3: #A539AD;
+    $btn-clr1: #A101A2;
 
-// Font Styles
+    // Font Styles
 
-$font1: 'Pathway Extreme', sans-serif;
-$font2: Montserrat, sans-serif;
+    $font1: 'Pathway Extreme', sans-serif;
+    $font2: Montserrat, sans-serif;
 
 
 
-body {
-    width: 100vw;      
-    height: 100vh;     
-    overflow: auto;   
-    display: flex;
-    justify-content: center;
-    flex-direction: column; 
-}
+    body {
+        width: 100vw;      
+        height: 100vh;     
+        overflow: auto;   
+        display: flex;
+        justify-content: center;
+        flex-direction: column; 
+    }
 
-// Header Styles Go Here
+    // Header Styles Go Here
 
-#header {
-    background: linear-gradient(to right, $color1, $color2);
-    font-family: $font1, sans-serif;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem;
-    flex: 0 1 0;
+    #header {
+        background: linear-gradient(to right, $color1, $color2);
+        font-family: $font1, sans-serif;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem;
+        flex: 0 1 0;
 
-    div {
-        background: linear-gradient(to right, $color2, $color4);
-        background-clip: text;
+        div {
+            background: linear-gradient(to right, $color2, $color4);
+            background-clip: text;
 
-        h1 {
-            padding: 0 1rem;
-            color: transparent;
-            font-size: 1.15rem;
+            h1 {
+                padding: 0 1rem;
+                color: transparent;
+                font-size: 1.15rem;
+            }
+
+        }
+
+        div {
+            h3 {
+                color: $font-clr1;
+                font-size: 1rem;
+            }
         }
 
     }
 
-    div {
-        h3 {
-            color: $font-clr1;
-            font-size: 1rem;
-        }
-    }
+    // Main Styles go here
 
-}
-
-// Main Styles go here
-
-#main {
-    background-image: url('../Assets/BACKGROUND/Brgy.\ Sta\ Lucia.png');
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex: 1 1 0;
-    width: 100%;
-    height: 100%;
-    position: relative;
-
-
-    .gen-wrap.inactive {
-        visibility: hidden;
-        transition: opacity 0.3s ease, transform 0.3s ease;
-        opacity: 0;
-        pointer-events: none;
-        transform: translate(20px);
-    }
-
-    .gen-wrap {
+    #main {
+        background-image: url('../Assets/BACKGROUND/Brgy.\ Sta\ Lucia.png');
         display: flex;
         align-items: center;
         justify-content: center;
-        box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
-        background-color: #FFFFFF;
-        width: 90%;
-        max-width: 800px;
-        padding: 1rem;
-        position: absolute;
-        border-radius: 25px;
-        transition: opacity 0.3s ease, transform 0.3s ease;
- 
+        flex: 1 1 0;
+        width: 100%;
+        height: 100%;
+        position: relative;
 
-        .wrap:nth-child(1) {
+
+        .gen-wrap.inactive {
+            visibility: hidden;
+            transition: opacity 0.3s ease, transform 0.3s ease;
+            opacity: 0;
+            pointer-events: none;
+            transform: translate(20px);
+        }
+
+        .gen-wrap {
             display: flex;
-            flex-direction: column;
             align-items: center;
             justify-content: center;
-            flex: 1 1 0;
-
-        }
-    
-    
-        .wrap:nth-child(2) {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex: 1 1 0;
-        }
-    
-        .wrap {
-            
-            width: 100%;
-            height: auto;
+            box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+            background-color: #FFFFFF;
+            width: 90%;
+            max-width: 800px;
             padding: 1rem;
-            
-            h1 {
-                font-size: 1.5rem;
-            }
+            position: absolute;
+            border-radius: 25px;
+            transition: opacity 0.3s ease, transform 0.3s ease;
+    
 
-            p {
-                font-size: 0.9rem;
-                font-weight: 500;
+            .wrap:nth-child(1) {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                flex: 1 1 0;
+
             }
-            
-    
-            .wrap-2 {
+        
+        
+            .wrap:nth-child(2) {
                 display: flex;
                 justify-content: center;
                 align-items: center;
-                flex-direction: column;
-                text-align: center;
-                font-family: $font2, sans-serif;
                 flex: 1 1 0;
             }
-    
-            h2 {
-                flex: 1 1 0;
-                padding: 0.5rem;
-                font-family: $font1, sans-serif;
-            }
-    
-            #logInForm, #regForm {
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
-                box-shadow: 0px 0px 10px 3px rgba(0,0,0,0.75);
-                background: #f2f2f2;
-                padding: 1rem;
-                width: 100%;
-                height: max-content;
-                font-family: $font1, sans-serif;
-                border-radius: 25px;
+        
+            .wrap {
                 
-    
-                .form-fields {
+                width: 100%;
+                height: auto;
+                padding: 1rem;
+                
+                h1 {
+                    font-size: 1.5rem;
+                }
+
+                p {
+                    font-size: 0.9rem;
+                    font-weight: 500;
+                }
+                
+        
+                .wrap-2 {
                     display: flex;
-                    flex-direction: row;
-                    align-items: center;
                     justify-content: center;
-                    width: 90%;
+                    align-items: center;
+                    flex-direction: column;
+                    text-align: center;
+                    font-family: $font2, sans-serif;
+                    flex: 1 1 0;
                 }
-    
-                .form-fields:nth-child(2), .form-fields:nth-child(3) {
-                    margin: 0.5rem;
-                    input {
-                        width: 70%;
-                        font-size: 1rem;
-                    }
-    
-                } 
-    
-                .form-fields:nth-child(5) {
-                    
-                    margin: 0 0 1rem 0;
-    
-                        input {
-                            margin-right: 0.5rem;
-                            font-size: 0.8rem;
-
-
-                        }
-    
-                }
-
-                .form-fields.regPassInput {
-                    margin: 0.5rem;
-                    input {
-                        width: 70%;
-                        font-size: 1rem;
-                    }
-    
-                }
-    
-                p, .btn{
+        
+                h2 {
                     flex: 1 1 0;
                     padding: 0.5rem;
+                    font-family: $font1, sans-serif;
                 }
-    
-                p {
-                    user-select: none;
-                    font-weight: 500;
-                    span {
-                        color: $color2;
-                        text-decoration: underline;
+        
+                #logInForm, #regForm {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    box-shadow: 0px 0px 10px 3px rgba(0,0,0,0.75);
+                    background: #f2f2f2;
+                    padding: 1rem;
+                    width: 100%;
+                    height: max-content;
+                    font-family: $font1, sans-serif;
+                    border-radius: 25px;
+                    
+        
+                    .form-fields {
+                        display: flex;
+                        flex-direction: row;
+                        align-items: center;
+                        justify-content: center;
+                        width: 90%;
+                    }
+        
+                    .form-fields:nth-child(2), .form-fields:nth-child(3) {
+                        margin: 0.5rem;
+                        input {
+                            width: 70%;
+                            font-size: 1rem;
+                        }
+        
+                    } 
+        
+                    .form-fields:nth-child(5) {
+                        
+                        margin: 0 0 1rem 0;
+        
+                            input {
+                                margin-right: 0.5rem;
+                                font-size: 0.8rem;
+
+
+                            }
+        
+                    }
+
+                    .form-fields.regPassInput {
+                        margin: 0.5rem;
+                        input {
+                            width: 70%;
+                            font-size: 1rem;
+                        }
+        
+                    }
+        
+                    p, .btn{
+                        flex: 1 1 0;
+                        padding: 0.5rem;
+                    }
+        
+                    p {
+                        user-select: none;
+                        font-weight: 500;
+                        span {
+                            color: $color2;
+                            text-decoration: underline;
+                            cursor: pointer;
+                        }
+        
+                    }
+                    
+                    .btn {
+                        font-size: 1.15rem;
+                        width: 70%;
+                        border-radius: 25px;
+                        border: none;
+                        background-color: $btn-clr1;
+                        color: $font-clr1;
                         cursor: pointer;
                     }
-    
+        
                 }
-                
-                .btn {
-                    font-size: 1.15rem;
-                    width: 70%;
-                    border-radius: 25px;
-                    border: none;
-                    background-color: $btn-clr1;
-                    color: $font-clr1;
-                    cursor: pointer;
-                }
-    
-            }
-        }
-
-
-    }
-
-    
-}
-
-// Footer Styles go here
-
-#footer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 0.5em;
-    font-family: $font2, sans-serif;
-    background: $color4;
-
-    div {
-        display: flex;
-        align-items: center;
-
-        h3 {
-            margin: 0 1rem;
-        }
-    }
-
-    ul {
-        display: flex;
-        list-style: none;
-
-        li {
-
-            i {
-                margin: 0 1rem;
-                cursor: pointer;
             }
 
+
         }
 
+        
     }
 
-}
-
-
-// Media Queries for Responsiveness
-@media (max-width: 768px) {
-    body {
-        flex-direction: column;
-    }
-
-    #header {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    #main {
-        .gen-wrap {
-            width: 95%; // Adjust width for smaller screens
-        }
-    }
+    // Footer Styles go here
 
     #footer {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-}
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 0.5em;
+        font-family: $font2, sans-serif;
+        background: $color4;
 
-@media (max-width: 480px) {
+        div {
+            display: flex;
+            align-items: center;
 
-    img {
-        scale: -50%, -50%;
+            h3 {
+                margin: 0 1rem;
+            }
+        }
+
+        ul {
+            display: flex;
+            list-style: none;
+
+            li {
+
+                i {
+                    margin: 0 1rem;
+                    cursor: pointer;
+                }
+
+            }
+
+        }
+
     }
 
-    h1 {
-        font-size: 1.3rem; // Adjust font size for smaller screens
+
+    // Media Queries for Responsiveness
+    @media (max-width: 768px) {
+        body {
+            flex-direction: column;
+        }
+
+        #header {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        #main {
+            .gen-wrap {
+                width: 95%; // Adjust width for smaller screens
+            }
+        }
+
+        #footer {
+            flex-direction: column;
+            align-items: flex-start;
+        }
     }
 
-    h2 {
-        font-size: 1.1rem; // Adjust font size for smaller screens
-    }
+    @media (max-width: 480px) {
 
-    .btn {
-        width: 100%; // Make button full width on small screens
+        img {
+            scale: -50%, -50%;
+        }
+
+        h1 {
+            font-size: 1.3rem; // Adjust font size for smaller screens
+        }
+
+        h2 {
+            font-size: 1.1rem; // Adjust font size for smaller screens
+        }
+
+        .btn {
+            width: 100%; // Make button full width on small screens
+        }
     }
-}

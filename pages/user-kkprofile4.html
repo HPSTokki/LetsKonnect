@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="../css/user-kkprofiling.css" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
+        rel="stylesheet"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+<body>
+    <header id="header">
+        <div id="homeBtn">
+            <h1>LET'SKONNECT</h1>
+        </div>
+        <span class="material-symbols-outlined account-icon">
+            account_circle
+        </span>
+    </header>
+
+    <main id="main">
+        <div class="form-wrap hidden" id="form2">
+            <ul class="some-nav">
+                <li><a href="#" class="kk-link" data-target="form1">Profile</a></li>
+                <li><a href="#" class="kk-link" data-target="form2">Demographic</a></li>
+                <li><a href="#" class="kk-link" data-target="form3">Educational Background</a></li>
+                <li><a href="#" class="kk-link" data-target="form4">Additional Background</a></li>
+                <li><a href="#" class="kk-link" data-target="form5">Confirmation</a></li>
+            </ul>
+            <form action="" id="some-form5" class="forms">
+                <div class="title">KK PROFILING 5</div>
+                <div class="detes-grid">
+                    <div class="form-group">
+                        <label for="complete-name">Complete Name</label>
+                        <input type="text" id="complete-name" name="complete-name">
+                    </div>
+                </div>
+                <div class="detes-grid-2">
+                    <label for="image">Signature</label>
+                    <input type="file" name="image" accept="image/*" required>
+                </div>
+                <div class="detes-grid-3">
+                    
+                </div>
+                <div class="detes-grid-4">
+
+                </div>
+                <div class="detes-grid-5">
+                  
+                </div>
+                <div class="detes-grid-6">
+                    <div class="back">
+                        <button type="button" class="back-btn" onclick="goBack()">Back</button>
+                    </div>
+                    <div class="next">
+                        <button type="submit">Confirm All</button>
+                    </div>
+                </div>
+            </form>
+        </div> 
+    </main>
+
+    <footer id="footer">
+        <div>
+            <i class="fa-regular fa-copyright"></i>
+            <h3>LET'SKONNECT</h3>
+        </div>
+
+        <ul>
+            <li><i class="fa-brands fa-facebook"></i></li>
+            <li><i class="fa-solid fa-phone"></i></li>
+            <li><i class="fa-solid fa-envelope"></i></li>
+        </ul>
+    </footer>
+    <script
+        src="https://kit.fontawesome.com/c225de6932.js"
+        crossorigin="anonymous"
+    ></script>
+    <script src="../fetch/kk-reg4.js"></script>
+    <script src="../js-frntend/user-kkprofile.js"></script>
+</body>
+</html>
