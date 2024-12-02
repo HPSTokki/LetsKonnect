@@ -1,0 +1,352 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Pathway+Extreme:ital,opsz,wght@0,8..144,100..900;1,8..144,100..900&display=swap');
+
+/* Global Styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+body {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Header */
+#header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(to right, #fff, #6610a6);
+    font-family: 'Pathway Extreme', sans-serif;
+    padding: 0 1rem;
+}
+
+#header div {
+    background: linear-gradient(to right, #6610a6, #03b0c1);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+#header div h1 {
+    padding: 0 1rem;
+}
+
+#header #logIn {
+    font-size: 1rem;
+    border-radius: 25px;
+    border: none;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+}
+
+/* Main Section */
+#main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Pathway Extreme', sans-serif;
+    position: relative;
+    background-image: url("../Assets/BACKGROUND/Sangguniang\ Kabataan.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+#main div {
+    backdrop-filter: blur(5px);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #f2f2f2;
+    letter-spacing: 0.15rem;
+}
+
+#main div h2 {
+    font-size: 2.2rem;
+    padding: 1rem 0;
+}
+
+#main div h1 {
+    font-size: 3.5rem;
+    padding: 1rem 0;
+}
+
+#main div h4 {
+    font-size: 1.5rem;
+    padding: 1rem 0;
+}
+
+/* Navigation Bar */
+#navBar {
+    background-color: #9e4bdc;
+    font-family: Montserrat, sans-serif;
+}
+
+#navBar ul {
+    display: flex;
+    justify-content: space-around;
+    padding: 0.5rem;
+    list-style: none;
+}
+
+#navBar ul li a {
+    color: #f2f2f2;
+    text-decoration: none;
+    font-size: 1.15rem;
+    padding: 0.1rem 1rem;
+    position: relative;
+    text-align: center;
+}
+
+#navBar ul li a::after {
+    content: "";
+    width: 0%;
+    height: 2px;
+    bottom: 0;
+    left: 50%;
+    background: #f2f2f2;
+    position: absolute;
+    transition: all 0.3s ease;
+}
+
+#navBar ul li a:hover::after {
+    left: 0;
+    width: 100%;
+}
+
+#navBar ul li a.click.active::before {
+    content: "";
+    width: 100%;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background: #f2f2f2;
+    position: absolute;
+    transition: all 0.3s ease;
+}
+
+/* Section 1 Layout */
+#section-1 {
+    flex: 1 1 auto;
+    display: grid;
+    font-family: 'Pathway Extreme', sans-serif;
+    grid-template-columns: 0.4fr 1.6fr;
+    grid-template-rows: 0.1fr 1.9fr;
+    grid-template-areas:
+        "Name dashboard-title"
+        "dashboard-nav stats-wrap";
+}
+
+#section-1 .Name {
+    justify-self: center;
+    align-self: center;
+    grid-area: Name;
+    text-decoration: none;
+}
+
+#section-1 .Name .admin-name {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    border: 1px solid #000;
+}
+
+#section-1 .dashboard-title {
+    padding: 0.2rem 1rem;
+    grid-area: dashboard-title;
+    align-self: center;
+    background-color: #a101a2;
+}
+
+#section-1 .dashboard-title h2 {
+    font-weight: 600;
+    color: #f2f2f2;
+}
+
+#section-1 .dashboard-nav {
+    padding: 1rem;
+    grid-area: dashboard-nav;
+    justify-self: center;
+    border: 1px solid #333;
+    width: 100%;
+    height: 100vh;
+}
+
+#section-1 .dashboard-nav ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0;
+}
+
+#section-1 .dashboard-nav ul li {
+    padding: 1rem 0;
+}
+
+#section-1 .dashboard-nav ul li a {
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    position: relative;
+    padding: 0.1rem 1rem;
+    color: #6610a6;
+    transition: color 0.3s ease;
+}
+
+#section-1 .dashboard-nav ul li a:hover {
+    color: #f2f2f2;
+}
+
+#section-1 .dashboard-nav ul li a::after {
+    content: "";
+    background: #a101a2;
+    width: 0%;
+    height: 0%;
+    top: 50%;
+    left: 0;
+    position: absolute;
+    border-radius: 25px;
+    z-index: -1;
+    transition: width 0.3s ease, height 0.3s ease, top 0.3s ease;
+}
+
+#section-1 .dashboard-nav ul li a:hover::after {
+    width: 100%;
+    height: 100%;
+    top: 0;
+}
+
+#mainContainer {
+    height: 70%;
+    width: 100%;
+}
+
+#searchSection {
+    width: 100%;
+    height: 20vh;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#searchSectionText {
+    width: 40%;
+    height: 100%;
+    margin: 20px;
+}
+
+#searchSectionText h1 {
+    font-size: 1.5em;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    margin: 20px 0 10px 0;
+}
+
+#searchSectionText p {
+    font-size: 0.8em;
+    font-family: 'Pontano Sans', sans-serif;
+    color: #908989;
+}
+
+#searchSectionActions {
+    width: 60%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+#searchSectionActions i {
+    cursor: pointer;
+}
+
+#searchSectionActions i:hover {
+    color: #a101a2;
+}
+
+#searchBox {
+    border-radius: 10px;
+    padding: 20px;
+    width: 60%;
+    border: solid 1px #5A5A5A;
+}
+
+#tableContainer {
+    width: 100%;
+    height: 100%;
+}
+
+table {
+    border-spacing: 0;
+    border-collapse: collapse;
+    padding: 0;
+    margin: 0;
+}
+
+th {
+    font-weight: 300;
+    font-family: 'Pathway Extreme', sans-serif;
+    font-size: 0.9em;
+    color: #f2f2f2;
+}
+
+tr, td {
+    text-align: center;
+}
+
+td i {
+    cursor: pointer;
+}
+
+td i:hover {
+    color: #a101a2;
+}
+
+#tableContainer th {
+    padding: 0;
+    margin: 0;
+}
+
+#footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 0.5em;
+    font-family: Montserrat, sans-serif;
+    background: #03b0c1;
+}
+
+#footer div {
+    display: flex;
+    align-items: center;
+}
+
+#footer div h3 {
+    margin: 0 1rem;
+}
+
+#footer ul {
+    display: flex;
+    list-style: none;
+}
+
+#footer ul li i {
+    margin: 0 1rem;
+    cursor: pointer;
+}
