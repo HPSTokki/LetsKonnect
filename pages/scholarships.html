@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scholarships</title>
+    <link rel = "stylesheet" href = "../css/scholarships.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+            <nav>
+                <div class = "header">
+                    <img src = "../Assets/LET'SKONNECT.png">
+                </div>
+    
+                <div class = "logsignbutton">
+                    <button type = "button" class = "logbutton">Log In</button>
+                    <button type = "button" class = "signbutton">Sign Up</button>
+                </div>
+            </nav>
+        </header>
+    
+        <section class = "welcome-section" id = "welcomeSection">
+            <div class = "image-container">
+                <img src = "../Assets/BACKGROUND/Sangguniang Kabataan.png" alt = "Welcome Image" class = "welcome-image">
+                <div class = "welcome-text">
+                    <h1>WELCOME TO</h1>
+                    <h2>LET'SKONNECT</h2>
+                    <p>KASAMA KA SA AKSYON, KASAMA KA SA SOLUSYON</p>
+                </div>
+            </div>
+        </section>
+    
+        <section class = "navigation-tabs">
+            <div class = "nav-menu">
+                <button class = "tab-button active" onclick = "window.location.href='dashboard.html'">Home</button>
+                <button class="tab-button" onclick="openTab(event, 'Events')">Events</button>
+                <button class="tab-button" onclick="openTab(event, 'News')">News & Updates</button>
+                <button class="tab-button" onclick="window.location.href='scholarships.html'">Scholarships</button>
+                <button class="tab-button" onclick="openTab(event, 'JobFairs')">Job Fairs</button>
+                <button class="tab-button" onclick="openTab(event, 'KKProfiling')">KK Profiling</button>
+            </div>
+        </section>
+        
+        <div class = "main-container">
+            <div class = "main-content">
+                <img src = "../Assets/BACKGROUND/Brgy. Sta Lucia.png">
+                <div class = "scholarship" id = "sch-1">
+                    <img src = "../Assets/GUEST/QCYDO-Logo.png">
+                    <h1>Scholarship Title</h1>
+                    <hr>
+                    <div class = "scholarship-container">
+                        <p><span class = "label">Scholarship Type&nbsp&nbsp&nbsp&nbsp</span>Financial Assistance</p>
+                        <p><span class = "label">Application Deadline&nbsp&nbsp&nbsp</span>MM/DD/YY</p>
+                        <p><span class = "label">Eligibility Criteria<br></span></p>
+                        <ul>
+                            <li>Lorem ipsum</li>
+                            <li>Lorem ipsum</li>
+                            <li>Lorem ipsum</li>
+                        </ul>
+                        <div class = "desc-box">
+                            <p class = "title">Description</p>
+                            <p class = "body">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas eleifend justo feugiat magna volutpat, eu consequat elit hendrerit consectetur adipiscing elit. Maecenas eleifend....</p>
+                        </div>
+                    </div>
+                    <div class = "more-content" id = "more-con-1">
+                        <hr>
+                        <div class = "more-content-box">
+                            <p class = "title">Requirements/Documents</p>
+                            <ul>
+                                <li>Lorem ipsum dolor sit amet</li>
+                                <li>Lorem ipsum dolor sit amet</li>
+                                <li>Lorem ipsum dolor sit amet</li>
+                                <li>Lorem ipsum dolor sit amet</li>
+                            </ul>
+                            <hr>
+                            <p class = "redirect">Online Redirect</p>
+                            <a href = "https.//www.example.com/redirect?to=newpage">Example Link</a>
+                            <hr>
+                            <p class = "contact">Contact</p>
+                            <p class = "details">schoolname@example.com<br>0912 345 6789</p>
+                            <div class = "more-desc-right">
+                                <p><span class = "fulldetails">Full Details<br></span>&nbsp;&nbsp;&nbsp;&nbsp;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas 
+                                    eleifend justo feugiat magna volutpat, eu consequat elit hendrerit. Mauris malesuada in 
+                                    risus nec pretium. Etiam finibus risus non enim euismod, vitae sodales turpis elementum. 
+                                    Vivamus commodo, leo at iaculis pulvinar, dui ex fringilla quam, sed rhoncus sapien sem 
+                                    et leo. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas eleifend justo 
+                                    feugiat magna volutpat, eu consequat elit hendrerit. Mauris malesuada in risus nec 
+                                    pretium. Etiam finibus risus non enim euismod, vitae sodales turpis elementum. Vivamus 
+                                    commodo, leo at iaculis pulvinar, dui ex fringilla quam, sed rhoncus sapien sem et leo. 
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class = "buttons" id = "button-1">
+                        <button onclick = "toggleMoreContent()">See More...</button>
+                        <button>Apply Now</button>
+                    </div>  
+                </div>
+            </div>
+        <footer class = "footer">
+            <a class = "credit">
+                <i class="fa-regular fa-copyright"></i>
+                <span>2024 Let'SKonnect</span>
+            </a>
+            <div class = "footer-content">
+                <div class = "social-icons">
+                    <a href = "#" class = "footer-icon">
+                        <img src = "../Assets/GUEST/telephone right side small footer.png" alt = "Phone Icon">
+                    </a>
+                    <a href = "https://facebook.com" target="_blank" class="footer-icon">
+                        <img src = "../Assets/GUEST/facebook right side small footer.png" alt = "Facebook Icon">
+                    </a>
+                    <a href = "#" class = "footer-icon">
+                        <img src = "../Assets/GUEST/Email (Small Footer).png" alt = "Email Icon">
+                    </a>
+                </div>
+            </div>
+        </footer>
+    <script src = "../js-frntend/scholarships.js"></script>
+        
+</body>
+</html>
