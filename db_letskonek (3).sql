@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3307
--- Generation Time: Nov 30, 2024 at 11:35 PM
+-- Generation Time: Dec 03, 2024 at 01:24 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `db_letskonnect`
+-- Database: `db_letskonek`
 --
 
 -- --------------------------------------------------------
@@ -44,7 +44,8 @@ CREATE TABLE `kk_personalinfo` (
 --
 
 INSERT INTO `kk_personalinfo` (`kk_personalInfo`, `userAcc_ID`, `givenName`, `middleName`, `lastName`, `suffix`, `age`, `dateOfBirth`, `sex`) VALUES
-(1, 15, 'DAWDAWDADADAWD', 'DADADADAWD', 'AWDADADAWd', 'ADAWDAWDAD', 20, '2004-07-23', 'Female');
+(1, 15, 'DAWDAWDADADAWD', 'DADADADAWD', 'AWDADADAWd', 'ADAWDAWDAD', 20, '2004-07-23', 'Female'),
+(2, 16, 'Renace', 'Raymundo', 'Tehing', 'N/A', 20, '2004-08-19', 'Female');
 
 -- --------------------------------------------------------
 
@@ -66,7 +67,8 @@ CREATE TABLE `kk_personalinfo2` (
 --
 
 INSERT INTO `kk_personalinfo2` (`kk_personalInfo2`, `userAcc_ID`, `blk_street`, `sitio`, `emailAddress`, `contacts`) VALUES
-(1, 15, 'AUDAWIDHAIDJHAIODHDUIAHDI', 'Sitio-1', 'jawdUIAdh@gmail.com', 3570275020);
+(1, 15, 'AUDAWIDHAIDJHAIODHDUIAHDI', 'Sitio-1', 'jawdUIAdh@gmail.com', 3570275020),
+(2, 16, 'ADAWDADAWD', 'Sitio 2', 'ADAWDADWD@gmail.com', 20349023840);
 
 -- --------------------------------------------------------
 
@@ -91,7 +93,8 @@ CREATE TABLE `kk_personalinfo3` (
 --
 
 INSERT INTO `kk_personalinfo3` (`kk_personaInfo3`, `userAcc_ID`, `civilStatus`, `youthAge`, `educationalBackground`, `youthClass`, `workStatus`, `regVoter`, `regNatVoter`) VALUES
-(1, 15, 'Single', 'child', 'Senior Highschool Graduate', 'inSchool', 'Employed', 'yes', 'yes');
+(1, 15, 'Single', 'child', 'Senior Highschool Graduate', 'inSchool', 'Employed', 'yes', 'yes'),
+(2, 16, 'Single', 'Core Youth (18-24 yrs old)', 'Senior Highschool Graduate', 'In School Youth', 'Unemployed', 'No', 'No');
 
 -- --------------------------------------------------------
 
@@ -116,7 +119,8 @@ CREATE TABLE `kk_personalinfo4` (
 --
 
 INSERT INTO `kk_personalinfo4` (`kk_personaInfo4`, `userAcc_ID`, `soloParent`, `kid_count`, `isLGBT`, `attendedKK`, `attendedTime`, `personWDisability`, `partIndigenous`) VALUES
-(1, 15, 'yes', 2, 'yes', 'yes', '2', 'Yes', 'yes');
+(1, 15, 'yes', 2, 'yes', 'yes', '2', 'Yes', 'yes'),
+(2, 16, 'No', 0, 'No', 'No', '0', 'No', 'No');
 
 -- --------------------------------------------------------
 
@@ -137,7 +141,8 @@ CREATE TABLE `kk_personalinfo5` (
 --
 
 INSERT INTO `kk_personalinfo5` (`kk_personaInfo5`, `userAcc_ID`, `licensedProd`, `company`, `position`) VALUES
-(1, 15, 'YES', 'none', 'IDJAOWJDIAWJD');
+(1, 15, 'YES', 'none', 'IDJAOWJDIAWJD'),
+(4, 16, 'No', '', '');
 
 -- --------------------------------------------------------
 
@@ -160,7 +165,29 @@ CREATE TABLE `kk_personalinfo6` (
 --
 
 INSERT INTO `kk_personalinfo6` (`kk_personaInfo6`, `userAcc_ID`, `lvl`, `school`, `ydo_recipient`, `other_recipient`, `other_detes`) VALUES
-(1, 15, 'Highschool Graduate', 'ADAWDADAWD', 'Yes', 'Yes', 'AWDAWDAWDAWD');
+(1, 15, 'Highschool Graduate', 'ADAWDADAWD', 'Yes', 'Yes', 'AWDAWDAWDAWD'),
+(3, 16, 'Senior Highschool Graduate', 'Quezon City University', 'No', 'No', '');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `kk_personalinfo7`
+--
+
+CREATE TABLE `kk_personalinfo7` (
+  `kk_personaInfo7` int(11) NOT NULL,
+  `userAcc_ID` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `path` varchar(255) NOT NULL,
+  `complete_name` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `kk_personalinfo7`
+--
+
+INSERT INTO `kk_personalinfo7` (`kk_personaInfo7`, `userAcc_ID`, `name`, `path`, `complete_name`) VALUES
+(1, 16, 'image-1733015737160.ico', 'uploads\\image-1733015737160.ico', 'Renace Tehing');
 
 -- --------------------------------------------------------
 
@@ -170,6 +197,7 @@ INSERT INTO `kk_personalinfo6` (`kk_personaInfo6`, `userAcc_ID`, `lvl`, `school`
 
 CREATE TABLE `tbl_eventposts` (
   `eventposts_ID` int(11) NOT NULL,
+  `kk_adminID` int(11) NOT NULL,
   `date` date NOT NULL,
   `time` time NOT NULL,
   `location` text NOT NULL,
@@ -179,15 +207,53 @@ CREATE TABLE `tbl_eventposts` (
   `full_details` longtext NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+-- --------------------------------------------------------
+
 --
--- Dumping data for table `tbl_eventposts`
+-- Table structure for table `tbl_kkadmin`
 --
 
-INSERT INTO `tbl_eventposts` (`eventposts_ID`, `date`, `time`, `location`, `requirements`, `employer`, `description`, `full_details`) VALUES
-(1, '2024-11-06', '07:20:00', 'HAHAHAHAHAHAH', 'IAJDOIAJDOAJDOAWJDAI', 'OIAWDJAOJDAWDJAOWIDIAJD', 'IWJWDIOAJDAWJDOAWJDODJOdij', 'IOAWDJAWOJ IAWJDOI JAWDJ AWOIJ AOIJD IAJWDOAJOJAOWIJDAIWJDOD A'),
-(2, '2024-11-06', '22:20:00', 'UD AWUIDH IAWHD IAWHDIH AWDH AWHD IUH', 'IUHD UAHWD UAWHD IAUHD IAUWHD AIWUH', 'UDH AWIUDH AIUDH AWIDH WIADH AWIDH ', 'IUDH AIWUDH AWIDHAWIDH AWIDH', 'WUDH AIUH AIUDH AIDH AIWU AIWUhd'),
-(3, '2024-11-06', '22:20:00', 'ADAWHDIAWDIAHWDIUAWDHIU AHDU HAWIUDH AWIDH', 'IUDH AWUIDH D DIDH IDH I', 'IDUHAIUDHAWIUDHAUIHAWIUDH AUIWHDIUAWHD UIAWHD', 'UWIADHAUIWDHAWUDHAIUWDH UAWHDIU AHWD UIaw', 'UIWDHIUAH DIAUHD IUAWHDI HAWIDU HAWIUDH AWU '),
-(4, '2024-12-04', '07:30:00', 'SANTA LUCIA SPORTS COMPLEX 30th FLOOR', 'BLOOD BAG', 'RENACE TEHING', 'HAHAHAHAHA', 'HAHAHAHAHHA');
+CREATE TABLE `tbl_kkadmin` (
+  `kk_adminID` int(11) NOT NULL,
+  `userName` varchar(255) NOT NULL,
+  `emailAddress` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `tbl_kkadmin`
+--
+
+INSERT INTO `tbl_kkadmin` (`kk_adminID`, `userName`, `emailAddress`, `password`) VALUES
+(1, 'Mark Jorelle', 'markjorelledpelayo@gmail.com', 'admin123456');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_survey`
+--
+
+CREATE TABLE `tbl_survey` (
+  `surveyID` int(11) NOT NULL,
+  `question1` varchar(50) NOT NULL,
+  `question2` varchar(50) NOT NULL,
+  `category` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_surveyres`
+--
+
+CREATE TABLE `tbl_surveyres` (
+  `tbl_surveylist` int(11) NOT NULL,
+  `surveyID` int(11) NOT NULL,
+  `title` varchar(250) NOT NULL,
+  `category` varchar(250) NOT NULL,
+  `ques1` bigint(20) NOT NULL,
+  `ques2` bigint(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -200,16 +266,20 @@ CREATE TABLE `tbl_usersacc` (
   `emailAddress` varchar(150) NOT NULL,
   `password` varchar(20) NOT NULL,
   `age` int(11) NOT NULL,
-  `dateOfReg` date NOT NULL
+  `dateOfReg` date NOT NULL,
+  `reset_code` varchar(6) DEFAULT NULL,
+  `reset_code_expiration` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `tbl_usersacc`
 --
 
-INSERT INTO `tbl_usersacc` (`userAcc_ID`, `emailAddress`, `password`, `age`, `dateOfReg`) VALUES
-(14, 'awdawd@gmail.com', 'skibidirizz', 16, '2005-04-15'),
-(15, 'test@example.us', 'test1234567', 18, '0000-00-00');
+INSERT INTO `tbl_usersacc` (`userAcc_ID`, `emailAddress`, `password`, `age`, `dateOfReg`, `reset_code`, `reset_code_expiration`) VALUES
+(14, 'awdawd@gmail.com', 'skibidirizz', 16, '2005-04-15', NULL, NULL),
+(15, 'test@example.us', 'test1234567', 18, '0000-00-00', '114074', '2024-12-03 18:53:43'),
+(16, 'renacetehing@gmail.com', 'renacetehing_16', 20, '0000-00-00', NULL, NULL),
+(17, 'sorachisenpai@gmail.com', 'RainAlexander16', 20, '0000-00-00', '956903', '2024-12-03 20:04:59');
 
 --
 -- Indexes for dumped tables
@@ -258,10 +328,37 @@ ALTER TABLE `kk_personalinfo6`
   ADD UNIQUE KEY `userAcc_ID` (`userAcc_ID`);
 
 --
+-- Indexes for table `kk_personalinfo7`
+--
+ALTER TABLE `kk_personalinfo7`
+  ADD PRIMARY KEY (`kk_personaInfo7`),
+  ADD UNIQUE KEY `userAcc_ID` (`userAcc_ID`);
+
+--
 -- Indexes for table `tbl_eventposts`
 --
 ALTER TABLE `tbl_eventposts`
-  ADD PRIMARY KEY (`eventposts_ID`);
+  ADD PRIMARY KEY (`eventposts_ID`),
+  ADD KEY `kk_adminID` (`kk_adminID`);
+
+--
+-- Indexes for table `tbl_kkadmin`
+--
+ALTER TABLE `tbl_kkadmin`
+  ADD PRIMARY KEY (`kk_adminID`);
+
+--
+-- Indexes for table `tbl_survey`
+--
+ALTER TABLE `tbl_survey`
+  ADD PRIMARY KEY (`surveyID`);
+
+--
+-- Indexes for table `tbl_surveyres`
+--
+ALTER TABLE `tbl_surveyres`
+  ADD PRIMARY KEY (`tbl_surveylist`),
+  ADD UNIQUE KEY `surveyID` (`surveyID`);
 
 --
 -- Indexes for table `tbl_usersacc`
@@ -277,49 +374,73 @@ ALTER TABLE `tbl_usersacc`
 -- AUTO_INCREMENT for table `kk_personalinfo`
 --
 ALTER TABLE `kk_personalinfo`
-  MODIFY `kk_personalInfo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `kk_personalInfo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `kk_personalinfo2`
 --
 ALTER TABLE `kk_personalinfo2`
-  MODIFY `kk_personalInfo2` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `kk_personalInfo2` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `kk_personalinfo3`
 --
 ALTER TABLE `kk_personalinfo3`
-  MODIFY `kk_personaInfo3` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `kk_personaInfo3` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `kk_personalinfo4`
 --
 ALTER TABLE `kk_personalinfo4`
-  MODIFY `kk_personaInfo4` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `kk_personaInfo4` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `kk_personalinfo5`
 --
 ALTER TABLE `kk_personalinfo5`
-  MODIFY `kk_personaInfo5` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `kk_personaInfo5` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `kk_personalinfo6`
 --
 ALTER TABLE `kk_personalinfo6`
-  MODIFY `kk_personaInfo6` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `kk_personaInfo6` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT for table `kk_personalinfo7`
+--
+ALTER TABLE `kk_personalinfo7`
+  MODIFY `kk_personaInfo7` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `tbl_eventposts`
 --
 ALTER TABLE `tbl_eventposts`
-  MODIFY `eventposts_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `eventposts_ID` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `tbl_kkadmin`
+--
+ALTER TABLE `tbl_kkadmin`
+  MODIFY `kk_adminID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `tbl_survey`
+--
+ALTER TABLE `tbl_survey`
+  MODIFY `surveyID` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `tbl_surveyres`
+--
+ALTER TABLE `tbl_surveyres`
+  MODIFY `tbl_surveylist` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `tbl_usersacc`
 --
 ALTER TABLE `tbl_usersacc`
-  MODIFY `userAcc_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `userAcc_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- Constraints for dumped tables
@@ -360,6 +481,24 @@ ALTER TABLE `kk_personalinfo5`
 --
 ALTER TABLE `kk_personalinfo6`
   ADD CONSTRAINT `kk_personalinfo6_ibfk_1` FOREIGN KEY (`userAcc_ID`) REFERENCES `tbl_usersacc` (`userAcc_ID`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `kk_personalinfo7`
+--
+ALTER TABLE `kk_personalinfo7`
+  ADD CONSTRAINT `kk_personalinfo7_ibfk_1` FOREIGN KEY (`userAcc_ID`) REFERENCES `tbl_usersacc` (`userAcc_ID`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `tbl_eventposts`
+--
+ALTER TABLE `tbl_eventposts`
+  ADD CONSTRAINT `tbl_eventposts_ibfk_1` FOREIGN KEY (`kk_adminID`) REFERENCES `tbl_kkadmin` (`kk_adminID`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `tbl_surveyres`
+--
+ALTER TABLE `tbl_surveyres`
+  ADD CONSTRAINT `tbl_surveyres_ibfk_1` FOREIGN KEY (`tbl_surveylist`) REFERENCES `tbl_survey` (`surveyID`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
