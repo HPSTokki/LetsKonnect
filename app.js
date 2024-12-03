@@ -7,9 +7,14 @@ const session = require('express-session')
 const dotenv = require('dotenv').config('/')
 const cors = require('cors')
 const mysql = require('mysql')
-const { use } = require('browser-sync')
+const { use, reset } = require('browser-sync')
 const multer = require('multer')
 const path = require('path')
+const bodyParser = require('body-parser')
+const bcrypt = require('bcrypt')
+const mailer = require('nodemailer')
+const crypto = require('crypto')
+const { error } = require('console')
 
 
 
@@ -20,6 +25,9 @@ const path = require('path')
 const app = express()
 app.use(express.json())
 app.use(cors())
+app.use(bodyParser.json())
+
+
 const db = mysql.createConnection({
     host: process.env.DB_HOST,
     user: process.env.DB_USER,
@@ -143,6 +151,136 @@ app.post('/login', (req, res)=>{
 
 })
 
+// Reset Password for User
+
+app.post('/send-reset-code', (req, res)=>{
+    const email = req.body.email
+    const query = "SELECT * FROM tbl_usersacc WHERE emailAddress = ?"
+    db.query(query, [email], (err, result)=>{
+        if (err) {
+            console.error("Error: ", err)
+            return res.status(500).json({message: "DATABASE ERROR"})
+        }
+        if (result.length === 0) {
+            return res.status(400).json({message: "No Account Found"})
+        }
+
+        const resetCode = crypto.randomInt(100000, 999999).toString()
+
+        const expirationTime = new Date(Date.now() + 60 * 1000)
+
+        const query2 = "UPDATE tbl_usersacc SET reset_code = ?, reset_code_expiration = ? WHERE emailAddress = ?"
+        db.query(query2, [resetCode, expirationTime, email], (err)=>{
+            if (err) {
+                console.log("Error: ", err)
+                return res.status(500).json({message: "Database Connection Error"})
+            }
+
+            const transporter = mailer.createTransport({
+                service: 'gmail',
+                auth: {
+                    user: 'alexanderaguirresotto@gmail.com',
+                    pass: 'lafn ifpt mpgo gabj'
+                }
+            })
+
+            const mailOptions = {
+                from: 'alexanderaguirresotto@gmail.com',
+                to: email,
+                subject: 'Password Reset Code',
+                text: `Hiiii, here reset pass, if no send, ignore ${resetCode}`
+            }
+
+            transporter.sendMail(mailOptions, (error)=>{
+                if (error) {
+                    console.log("Error: ", error)
+                    return res.status(500).json({success: false, message: "Error Sending"})
+                }
+                res.json({success: true, message: "SENT!"})
+            })
+
+        })
+
+    })
+
+})
+
+app.post('/verify-reset-code', (req, res)=>{
+    const {code, newPassword} = req.body
+    const query = "SELECT * FROM tbl_usersacc WHERE reset_code = ? AND reset_code_expiration > NOW()"
+    db.query(query, [code], (error, result)=>{
+        if (error) {
+            console.error("Error:", error)
+            return res.status(500).json({success: false, message:"Error Accessing Database"})
+        }
+        if (result.length === 0) {
+            return res.status(400).json({success: false, message: "Invalid or Expired Code"})
+        }
+        bcrypt.hash(newPassword, 10, (err, hashedPassword)=>{
+            if (err) {
+                console.error("Error:", err)
+                return res.status(500).json({success: false, message: "Error Hashing Password"})
+            }
+
+            const query2 = "UPDATE tbl_usersacc SET password = ?, reset_code = NULL, reset_code_expiration = NULL WHERE reset_code = ?"
+            db.query(query, [hashedPassword, code], (err)=>{
+                if (err) {
+                    console.log("Error:", err)
+                    return res.status(500).json({success: false, message: 'Database Error'})
+                }
+                res.json({success: true, message: 'Password Changed Succesfully'})
+            })
+
+        })
+    })
+})
+
+app.post('/resend-reset-code', (req, res) => {
+    const email = req.body.email;
+
+    // Check if the email is registered
+    db.query('SELECT * FROM tbl_usersacc WHERE emailAddress = ?', [email], (err, results) => {
+        if (err) return res.status(500).json({ success: false, message: 'Database error' });
+        if (results.length === 0) {
+            return res.status(404).json({ success: false, message: 'Account not registered' });
+        }
+
+        // Generate a new 6-digit code
+        const resetCode = crypto.randomInt(100000, 999999).toString();
+
+        // Set new expiration time (e.g., 10 minutes from now)
+        const expirationTime = new Date(Date.now() + 10 * 60 * 1000); // 10 minutes
+
+        // Update the reset code and expiration time in the database
+        db.query('UPDATE tbl_usersacc SET reset_code = ?, reset_code_expiration = ? WHERE emailAddress = ?', [resetCode, expirationTime, email], (err) => {
+            if (err) return res.status(500).json({ success: false, message: 'Database error' });
+
+            // Send the new reset code via email
+            const transporter = mailer.createTransport({
+                service: 'gmail',
+                auth: {
+                    user: 'alexanderaguirresotto@gmail.com',
+                    pass: 'lafn ifpt mpgo gabj'
+                }
+            });
+
+            const mailOptions = {
+                from: 'alexanderaguirresotto@gmail.com',
+                to: email,
+                subject: 'Password Reset Code',
+                text: `Hiiii, here reset pass, if no send, ignore ${resetCode}`
+            };
+
+            transporter.sendMail(mailOptions, (error) => {
+                if (error) return res.status(500).json({ success: false, message: 'Error sending email' });
+                res.json({ success: true, message: 'New reset code sent to your email' });
+            });
+        });
+    });
+});
+
+// Admin Login
+
 app.post('/admin-login', (req, res) => {
     const { emailAddress, password } = req.body;
 
@@ -252,6 +390,8 @@ app.post('/reg-2', (req, res)=>{
 
 })
 
+// KK Registration Endpoint 3
+
 app.post('/reg-3', (req, res)=>{
     const {userAcc_ID ,licensedProd, company, position} = req.body
     const query = "INSERT INTO kk_personalinfo5 (userAcc_ID, licensedProd, company, position) VALUES (?, ?, ?, ?)"
@@ -272,6 +412,8 @@ app.post('/reg-3', (req, res)=>{
     console.log("Received Data: ", req.body)
 
 })
+
+// KK Registration Endpoint 4
 
 app.post('/reg-4', (req, res)=>{
     const {userAcc_ID, lvl, school, ydo_recipient, other_recipient, other_detes} = req.body
