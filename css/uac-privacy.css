@@ -1,0 +1,475 @@
+@import url('https://fonts.googleapis.com/css2?family=Pathway+Extreme:ital,opsz,wght@0,8..144,100..900;1,8..144,100..900&display=swap');
+
+*,
+*::before,
+*::after {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --bg-color1: #6610A6;
+    --bg-color2: #FFFFFF;
+    --font-color: #f2f2f2;
+}
+
+body {
+    font-family: "Pathway Extreme", sans-serif;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+body::-webkit-scrollbar {
+    display: none; 
+}
+
+nav {
+    display: grid;
+    width: 100%;
+    height: 50px;
+    background: linear-gradient(to right, var(--bg-color2), var(--bg-color1));
+    grid-template-columns: 0.1rem 1fr 3fr;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+    position: sticky;
+}
+
+.header img {
+    margin-left: 30px;
+    margin-top: 5px;
+    height: 35px;
+}
+
+.profile {
+    position: absolute;
+    height: 50px;
+    width: 100px;
+    top: 0%;
+    right: 0%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.profile p {
+    font-size: 0.9em;
+    color: #f2f2f2;
+}
+
+.profile p:hover {
+    cursor: pointer;
+    color:aqua;
+}
+
+.vl {
+    margin-left: 25%;
+    height: 25px;
+    border-left: solid 1px #f2f2f2;
+}
+
+.profile img {
+    margin-right: 30%;
+}
+
+.profile-box {
+    display: none;
+    position: absolute;
+    top: 50px; 
+    right: 0;
+    background-color: white;
+    border: 1px solid #ccc;
+    box-shadow: 0 5px 2px rgba(0, 0, 0, 0.1);
+    width: 200px;
+    height: 260px;
+    z-index: 1000;
+}
+
+.profile-bg {
+    width: 200px;
+    height: 100px;
+    padding: 0;
+    margin: 0;
+    object-fit: cover;
+}
+
+.profile-image {
+    position: absolute;
+    top: 5%;
+    left: 37%;
+    height: 60px;
+    width: 60px;
+}
+
+.profile-box h4 {
+    color: #00064D;
+    font-weight: 600;
+    margin-left: 20%;
+}
+
+.email {
+    font-size: 0.7em;
+    margin-left: 25%;
+    color: #5E5E5E;
+}
+
+.profile-box button {
+    margin-left: 6%;
+    margin-top: 5%;
+    padding: 5px 20px;
+    font-size: 16px;
+    background-color: #A101A2;
+    font-family: 'Pathway Extreme', sans-serif;
+    font-size: 0.8em;
+    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.1);
+    color: white;
+    border: none;
+    border-radius: 7px;
+    cursor: pointer;
+}
+
+.profile-box button:hover {
+    background-color: #8751c7;
+}
+
+.profile-box hr {
+    margin-left: 15%;
+    margin-top: 10%;
+    color: #5E5E5E;
+    width: 70%;
+    opacity: 0.4;
+}
+
+.sign-out {
+    font-size: 0.7em;
+    margin-left: 36%;
+    margin-top: 10%;
+    color: #5E5E5E;
+}
+
+.sign-out:hover {
+    cursor: pointer;
+    color: #383737;
+}
+
+.modal {
+    display: none; 
+    position: fixed; 
+    z-index: 1000; 
+    left: 0;
+    top: 0;
+    width: 200%; 
+    height: 100%; 
+    backdrop-filter: blur(5px);
+}
+
+.modal-content {
+    position: absolute;
+    top: 50vh; 
+    left: 50vw; 
+    transform: translate(-50%, -50%); 
+    background-color: #f2f2f2; 
+    padding: 20px;
+    width: 500px; 
+    height: 50vh; 
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+}
+
+.modal-content img {
+    height: 35%;
+    width: 35%;
+    object-fit: contain;
+}
+
+.modal-content h2 {
+    font-weight: 600;
+    font-size: 1.2em;
+}
+
+.modal-content p {
+    margin-top: 2%;
+    margin-bottom: 10%;
+    font-size: 0.75em;
+}
+
+.signOutbtn {
+    margin-left: 6%;
+    margin-top: 5%;
+    padding: 5px 20px;
+    font-size: 16px;
+    background-color: #A101A2;
+    font-family: 'Pathway Extreme', sans-serif;
+    font-size: 0.8em;
+    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.1);
+    color: white;
+    border: none;
+    border-radius: 7px;
+    cursor: pointer;
+}
+
+.signOutbtn:hover {
+    background-color: #8751c7;
+}
+
+.cancel {
+    margin: 10px;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    font-family: 'Pathway Extreme', sans-serif;
+}
+
+.cancel:hover {
+    text-decoration: underline;
+}
+
+.welcome-section {
+    position: relative;
+    text-align: center;
+    width: 100%;
+}
+
+.welcome-section {
+    position: relative;
+    text-align: center;
+    width: 100%;
+    display: flex; 
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.image-container {
+    position: relative;
+    width: 100%;
+    height: 40vh; 
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.welcome-section h3 {
+    color: #f2f2f2;
+    font-size: 1.5em;
+    text-shadow: 2px 2px #383737;
+    margin: 0;
+    background: transparent; 
+    padding: 0;
+    display: inline-block; 
+    position: relative;
+}
+
+.welcome-section h3.centered-heading {
+    position: absolute;
+    top: 30vh; 
+    left: 50%;
+    transform: translateX(-50%); 
+}
+
+.empty-profile {
+    position: absolute;
+    top: 20px;
+    width: 12%;
+    height: 60%;
+    z-index: 2;
+}
+
+.welcome-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: blur(2.5px);
+    -webkit-filter: blur(2.5px);
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.uac-tabs {
+    width: 100%;
+    background-color: #6a0dad;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: sticky;
+}
+
+.uac-menu {
+    display: flex;
+    justify-content: center;
+    width: 100%; 
+}
+
+.tab-button {
+    flex: 1; 
+    padding: 14.3px;
+    cursor: pointer;
+    background-color: #9e4bdc; 
+    color: white;
+    border: none;
+    font-size: 0.937vw;
+    font-family: "Pathway Extreme", serif;
+    font-weight: 600;
+    text-align: center;
+    transition: background-color 0.3s;
+}
+
+.tab-button:hover {
+    background-color: #8751c7;
+}
+
+.main-content {
+    position: relative;
+    top: 0%;
+    left: 0%;
+    height: 100vh;
+}
+
+.background-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.flex-container {
+    position: absolute;
+    top: 10%;
+    left: 20%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 2%;
+}
+
+.privacy-box {
+    background-color: #f2f2f2;
+    height: 70vh;
+    width: 30vw;
+    border-radius: 10px;
+    box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+.privacy-box img {
+    display: block;
+    max-width: 90%;
+    max-height: 90%;
+    margin-top: 5%;
+}
+
+.privacy-box h2 {
+    font-weight: 300;
+    margin-top: 0.5%;
+}
+
+.privacy-box p {
+    text-align: justify;
+    padding: 1% 5% 5% 5%;
+    font-size: 0.9em;
+}
+
+.privacy-box a {
+    color: #383737;
+    margin-bottom: 5%;
+}
+
+.new-privacy-box {
+    position: relative;
+    top: 0;
+    left: 21.5%;
+    background-color: #f2f2f2;
+    height: 70vh;
+    width: 70vw;
+    border-radius: 10px;
+    box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+.new-privacy-box img {
+    position: absolute;
+    top: -5%;
+}
+
+.new-privacy-box h3 {
+    margin-top: 20%;
+}
+
+.footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 20px;
+    background-color: #6610A6;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
+    z-index: 10;
+}
+
+.credit {
+    font-size: 0.7rem;
+    color: var(--font-color);
+    display: flex; 
+    align-items: center; 
+    gap: 4px; 
+    text-decoration: none; 
+    margin-right: 1vw;
+    white-space: nowrap;
+}
+
+.credit i {
+    font-size: 0.5rem;
+}
+
+.credit span {
+    font-size: 0.6rem; 
+}
+
+.footer-content {
+    width: 90%;
+    height: 20px;
+    max-width: 1200px;
+    margin: 0 20px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.social-icons {
+    display: flex;
+    gap: 15px;
+}
+
+.footer-icon img {
+    width: 12px;
+    height: 12px;
+    object-fit: contain;
+    transition: transform 0.3s;
+}
+
+.footer-icon:hover img {
+    transform: scale(1.2);
+}
+
+@media (max-width: 768px) {
+    .tab-button {
+        font-size: 0.9em;
+        padding: 10px;
+    }
+}

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>User Account Control - Security</title>
+    <link rel = "stylesheet" href = "../css/uac-security.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class = "header">
+                <img src = "../Assets/LET'SKONNECT.png">
+                <div class = "profile">
+                    <p>Home</p>
+                    <div class = "vl"></div>
+                    <img src = "../Assets/GUEST/Profile Picture icon.png" onclick = "toggleProfileBox()">
+                </div>
+            </div>
+            <div id="profileBox" class="profile-box">
+                <img src = "../Assets/BACKGROUND/Sangguniang Kabataan (blurred).png" class = "profile-bg">
+                <img src = "../Assets/GUEST/Profile Picture icon.png" class = "profile-image">
+
+                <h4>Juan Dela Cruz</h4>
+                <p class = "email">juanDC@gmail.com</p>
+                <button>Manage Your Account</button>
+                <hr>
+                <p class = "sign-out" onclick = "showSignOutModal()">Sign Out</p>
+            </div>
+            <div id="signOutModal" class="modal">
+                <div class="modal-content">
+                    <img src = "../Assets/GUEST/Sign out (user account).png">
+                    <h2>Are you sure you want to sign out?</h2>
+                    <p>You will be signed out of your account. Any unsaved changes will be lost.</p>
+                    <button class = "cancel" onclick="closeSignOutModal()">Cancel</button>
+                    <button class = "signOutbtn" onclick="confirmSignOut()">Sign out</button>
+                    
+                </div>
+            </div>
+        </nav>
+    </header>
+    
+    <section class = "welcome-section">
+        <div class = "image-container">
+            <img src = "../Assets/BACKGROUND/Sangguniang Kabataan.png" alt = "Welcome Image" class = "welcome-image">
+        </div>
+        <img src = "../Assets/GUEST/Banner photo icon.png" class = "empty-profile">
+        <h3 class = "centered-heading">Full Name</h3>
+    </section>
+
+    <section class = "uac-tabs">
+        <div class = "uac-menu">
+            <button class = "tab-button" onclick = "window.location.href = 'uac-profileinfo.html'">Profile Information</button>
+            <button class = "tab-button" onclick = "window.location.href = 'uac-security.html'">Security & Privacy</button>
+            <button class = "tab-button" onclick = "window.location.href = 'uac-privacy.html'">Privacy Settings</button>
+        </div>
+    </section>
+
+    <div class="main-content">
+        <img src="../Assets/BACKGROUND/Brgy. Sta Lucia.png" class="background-image">
+        <div class="security-box" id="securityBox">
+            <div class="security-box-captions">
+                <h1>SECURITY & PRIVACY</h1>
+                <img src="../Assets/GUEST/Change password secu & priva (User account).png">
+                <h3>Change your password</h3>
+            </div>
+            <div class="security-fields">
+                <form>
+                    <div class="form-group">
+                        <label for="currentPassword">Current Password</label>
+                        <input type="password" id="currentPassword" name="currentPassword" required>
+                        <a href="#" onclick="showForgotPasswordModal(event)">Forgot your password?</a>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="newPassword">New Password</label>
+                        <input type="password" id="newPassword" name="newPassword" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="confirmPassword">Confirm New Password</label>
+                        <input type="password" id="confirmPassword" name="confirmPassword" required>
+                    </div>
+                </form>
+                <div class="password-requirements">
+                    <p>Password Requirements:</p>
+                    <ul>
+                        <li>Lorem ipsum dolor sit amet, consectetur</li>
+                        <li>Lorem ipsum dolor sit amet, consectetur</li>
+                        <li>Lorem ipsum dolor sit amet, consectetur</li>
+                        <li>Lorem ipsum dolor sit amet, consectetur</li>
+                        <li>Lorem ipsum dolor sit amet, consectetur</li>
+                        <li>Lorem ipsum dolor sit amet, consectetur</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="button-group">
+                <button type="button">Change Password</button>
+                <button type="button">Cancel</button>
+            </div>
+        </div>
+    </div>
+    
+    <div id="forgot-password-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeForgotPasswordModal()">&times;</span>
+            <img src="../Assets/GUEST/Password Reset secu & priva (User acc).png">
+            <h3>Password Reset Request</h3>
+            <p class="caption">
+                To reset your password, we’ve sent a One-Time Password (OTP) to your
+                registered email address. Please enter the OTP below to verify your
+                identity and proceed with changing your password.
+            </p>
+            <p class="confirmation">Didn't receive the email? <a href="#">Resend OTP</a></p>
+    
+            <div class="otp-container">
+                <input type="text" id="otp-1" maxlength="1" class="otp-input" oninput="moveFocus(1)">
+                <input type="text" id="otp-2" maxlength="1" class="otp-input" oninput="moveFocus(2)">
+                <input type="text" id="otp-3" maxlength="1" class="otp-input" oninput="moveFocus(3)">
+                <input type="text" id="otp-4" maxlength="1" class="otp-input" oninput="moveFocus(4)">
+                <input type="text" id="otp-5" maxlength="1" class="otp-input" oninput="moveFocus(5)">
+                <input type="text" id="otp-6" maxlength="1" class="otp-input" oninput="moveFocus(6)">
+            </div>
+    
+            <div class="button-container">
+                <button type="button" id="verifyOtpButton" onclick="verifyOTP()">Verify OTP</button>
+            </div>
+        </div>
+    </div>
+    <footer class="footer">
+        <a class="credit">
+            <i class="fa-regular fa-copyright"></i>
+            <span>2024 Let'SKonnect</span>
+        </a>
+        <div class="footer-content">
+            <div class="social-icons">
+                <a href="#" class="footer-icon">
+                    <img src="../Assets/GUEST/telephone right side small footer.png" alt="Phone Icon">
+                </a>
+                <a href="https://facebook.com" target="_blank" class="footer-icon">
+                    <img src="../Assets/GUEST/facebook right side small footer.png" alt="Facebook Icon">
+                </a>
+                <a href="#" class="footer-icon">
+                    <img src="../Assets/GUEST/Email (Small Footer).png" alt="Email Icon">
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <script src = "../js-frntend/uac-security.js"></script>
+</body>
+</html>
