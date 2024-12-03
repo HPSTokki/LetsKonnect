@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Account Control - Profile Information</title>
+    <link rel = "stylesheet" href = "../css/uac-profileinfo.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class = "header">
+                <img src = "../Assets/LET'SKONNECT.png">
+                <div class = "profile">
+                    <p>Home</p>
+                    <div class = "vl"></div>
+                    <img src = "../Assets/GUEST/Profile Picture icon.png" onclick = "toggleProfileBox()">
+                </div>
+            </div>
+            <div id="profileBox" class="profile-box">
+                <img src = "../Assets/BACKGROUND/Sangguniang Kabataan (blurred).png" class = "profile-bg">
+                <img src = "../Assets/GUEST/Profile Picture icon.png" class = "profile-image">
+
+                <h4>Juan Dela Cruz</h4>
+                <p class = "email">juanDC@gmail.com</p>
+                <button>Manage Your Account</button>
+                <hr>
+                <p class = "sign-out" onclick = "showSignOutModal()">Sign Out</p>
+            </div>
+            <div id="signOutModal" class="modal">
+                <div class="modal-content">
+                    <img src = "../Assets/GUEST/Sign out (user account).png">
+                    <h2>Are you sure you want to sign out?</h2>
+                    <p>You will be signed out of your account. Any unsaved changes will be lost.</p>
+                    <button class = "cancel" onclick="closeSignOutModal()">Cancel</button>
+                    <button class = "signOutbtn" onclick="confirmSignOut()">Sign out</button>
+                    
+                </div>
+            </div>
+        </nav>
+    </header>
+    
+    <section class = "welcome-section">
+        <div class = "image-container">
+            <img src = "../Assets/BACKGROUND/Sangguniang Kabataan.png" alt = "Welcome Image" class = "welcome-image">
+        </div>
+        <img src = "../Assets/GUEST/Banner photo icon.png" class = "empty-profile">
+        <h3 class = "centered-heading">Full Name</h3>
+    </section>
+
+    <section class = " bs">
+        <div class = "uac-menu">
+            <button class = "tab-button" onclick = "window.location.href = 'uac-profileinfo.html'">Profile Information</button>
+            <button class = "tab-button" onclick = "window.location.href = 'uac-security.html'">Security & Privacy</button>
+            <button class = "tab-button" onclick = "window.location.href = 'uac-privacy.html'">Privacy Settings</button>
+        </div>
+    </section>
+    
+    <div class = "main-content">
+        <img src = "../Assets/BACKGROUND/Brgy. Sta Lucia.png">
+        <div class="profile-info-box">
+            <h1>PROFILE INFORMATION</h1>
+            <form>
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+        
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+        
+                <div class="form-group">
+                    <label for="gender">Gender</label>
+                    <select id="gender" name="gender">
+                        <option value="">Select Gender</option>
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                        <option value="lgbt">LGBTQ+</option>
+                        <option value="notToSay">Prefer not to say</option>
+                    </select>
+                </div>
+        
+                <div class="form-group">
+                    <label>Birthdate</label>
+                    <div class="birthdate">
+                        <select id="birth-month" name="birth-month">
+                            <option value="">Month</option>
+                            <option value="01">January</option>
+                            <option value="02">February</option>
+                            <option value="03">March</option>
+                            <option value="04">April</option>
+                            <option value="05">May</option>
+                            <option value="06">June</option>
+                            <option value="07">July</option>
+                            <option value="08">August</option>
+                            <option value="09">September</option>
+                            <option value="10">October</option>
+                            <option value="11">November</option>
+                            <option value="12">December</option>
+                        </select>
+                        <input type="text" id="birth-day" name="birth-day" placeholder="Day" maxlength="2" required>
+                        <input type="text" id="birth-year" name="birth-year" placeholder="Year" maxlength="4" required>
+                    </div>
+                </div>
+        
+                <div class="form-group">
+                    <label for="address">Home Address</label>
+                    <input type="text" id="address" name="address" required>
+                </div>
+        
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="text" id="phone" name="phone" required>
+                </div>
+        
+                <button type="submit">Edit Profile</button>
+            </form>
+        </div>
+    </div>
+
+
+    <footer class="footer">
+        <a class="credit">
+            <i class="fa-regular fa-copyright"></i>
+            <span>2024 Let'SKonnect</span>
+        </a>
+        <div class="footer-content">
+            <div class="social-icons">
+                <a href="#" class="footer-icon">
+                    <img src="../Assets/GUEST/telephone right side small footer.png" alt="Phone Icon">
+                </a>
+                <a href="https://facebook.com" target="_blank" class="footer-icon">
+                    <img src="../Assets/GUEST/facebook right side small footer.png" alt="Facebook Icon">
+                </a>
+                <a href="#" class="footer-icon">
+                    <img src="../Assets/GUEST/Email (Small Footer).png" alt="Email Icon">
+                </a>
+            </div>
+        </div>
+    </footer>
+    <script src = "../js-frntend/uac-profileinfo.js"></script>
+</body>
+</html>

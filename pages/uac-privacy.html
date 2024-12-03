@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Account Control - Profile Information</title>
+    <link rel = "stylesheet" href = "../css/uac-privacy.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class = "header">
+                <img src = "../Assets/LET'SKONNECT.png">
+                <div class = "profile">
+                    <p>Home</p>
+                    <div class = "vl"></div>
+                    <img src = "../Assets/GUEST/Profile Picture icon.png" onclick = "toggleProfileBox()">
+                </div>
+            </div>
+            <div id="profileBox" class="profile-box">
+                <img src = "../Assets/BACKGROUND/Sangguniang Kabataan (blurred).png" class = "profile-bg">
+                <img src = "../Assets/GUEST/Profile Picture icon.png" class = "profile-image">
+
+                <h4>Juan Dela Cruz</h4>
+                <p class = "email">juanDC@gmail.com</p>
+                <button>Manage Your Account</button>
+                <hr>
+                <p class = "sign-out" onclick = "showSignOutModal()">Sign Out</p>
+            </div>
+            <div id="signOutModal" class="modal">
+                <div class="modal-content">
+                    <img src = "../Assets/GUEST/Sign out (user account).png">
+                    <h2>Are you sure you want to sign out?</h2>
+                    <p>You will be signed out of your account. Any unsaved changes will be lost.</p>
+                    <button class = "cancel" onclick="closeSignOutModal()">Cancel</button>
+                    <button class = "signOutbtn" onclick="confirmSignOut()">Sign out</button>
+                    
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <section class = "welcome-section">
+        <div class = "image-container">
+            <img src = "../Assets/BACKGROUND/Sangguniang Kabataan.png" alt = "Welcome Image" class = "welcome-image">
+        </div>
+        <img src = "../Assets/GUEST/Banner photo icon.png" class = "empty-profile">
+        <h3 class = "centered-heading">Full Name</h3>
+    </section>
+
+    <section class = "uac-tabs">
+        <div class = "uac-menu">
+            <button class = "tab-button" onclick = "window.location.href = 'uac-profileinfo.html'">Profile Information</button>
+            <button class = "tab-button" onclick = "window.location.href = 'uac-security.html'">Security & Privacy</button>
+            <button class = "tab-button" onclick = "window.location.href = 'uac-privacy.html'">Privacy Settings</button>
+        </div>
+    </section>
+
+    <div class = "main-content">
+        <img src = "../Assets/BACKGROUND/Brgy. Sta Lucia.png" class = "background-image">
+        <div class = "flex-container">
+            <div class = "privacy-box">
+                <img src = "../Assets/GUEST/Privacy Settings - Data Security (user acc).png">
+                <h2>Data Security</h2>
+                <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas eleifend justo feugiat magna volutpat, 
+                    eu consequat elit hendrerit. Mauris malesuada in risus nec pretium. Etiam finibus risus non enim euismod, vitae 
+                    sodales turpis elementum. Vivamus commodo, leo at iaculis pulvinar, dui ex fringilla quam, sed rhoncus sapien sem et leo. 
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas eleifend justo feugiat magna volutpat, eu consequat elit 
+                    hendrerit.
+                </p>
+            </div>
+            <div class = "privacy-box">
+                <img src = "../Assets/GUEST/Privacy Settings (user account).png">
+                <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas eleifend justo feugiat magna volutpat, 
+                    eu consequat elit hendrerit. Mauris malesuada in risus nec pretium. Etiam finibus risus non enim euismod, vitae 
+                    sodales turpis elementum. Vivamus commodo, leo at iaculis pulvinar, dui ex fringilla quam, sed rhoncus sapien sem et leo. 
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas eleifend justo feugiat magna volutpat, eu consequat elit 
+                    hendrerit.
+                </p>
+                <a href = "#" class = "learn-more">Learn More</a>
+                <div class = "new-content" style = "display: none">
+                    <div class = "new-privacy-box">
+                        <img src = "../Assets/GUEST/learn more privacy settings (user account).png">
+                        <h3>Learn More About How We Protect Your Data</h3>
+                        <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas eleifend justo feugiat magna volutpat, 
+                            eu consequat elit hendrerit. Mauris malesuada in risus nec pretium. Etiam finibus risus non enim euismod, 
+                            vitae sodales turpis elementum. Vivamus commodo, leo at iaculis pulvinar, dui ex fringilla quam, sed 
+                            rhoncus sapien sem et leo. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas eleifend 
+                            justo feugiat magna volutpat, eu consequat elit hendrerit. Mauris malesuada in risus nec pretium. Etiam 
+                            finibus risus non enim euismod, vitae sodales turpis elementum. Vivamus commodo, leo at iaculis pulvinar, 
+                            dui ex fringilla quam, sed rhoncus sapien sem et leo. Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+                            Maecenas eleifend justo feugiat magna volutpat, eu consequat elit hendrerit. Mauris malesuada in risus nec pretium. 
+                            Etiam finibus risus non enim euismod, vitae sodales turpis elementum. Vivamus commodo, leo at iaculis pulvinar, dui ex 
+                            fringilla quam, sed rhoncus sapien sem et leo. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <a class="credit">
+            <i class="fa-regular fa-copyright"></i>
+            <span>2024 Let'SKonnect</span>
+        </a>
+        <div class="footer-content">
+            <div class="social-icons">
+                <a href="#" class="footer-icon">
+                    <img src="../Assets/GUEST/telephone right side small footer.png" alt="Phone Icon">
+                </a>
+                <a href="https://facebook.com" target="_blank" class="footer-icon">
+                    <img src="../Assets/GUEST/facebook right side small footer.png" alt="Facebook Icon">
+                </a>
+                <a href="#" class="footer-icon">
+                    <img src="../Assets/GUEST/Email (Small Footer).png" alt="Email Icon">
+                </a>
+            </div>
+        </div>
+    </footer>
+    <script src = "../js-frntend/uac-profileinfo.js"></script>
+</body>
+</html>
