@@ -208,6 +208,9 @@ app.post('/send-reset-code', (req, res)=>{
 app.post('/verify-reset-code', (req, res)=>{
     const {code, newPassword} = req.body
     const query = "SELECT * FROM tbl_usersacc WHERE reset_code = ? AND reset_code_expiration > NOW()"
+
+    console.log({code, newPassword})
+
     db.query(query, [code], (error, result)=>{
         if (error) {
             console.error("Error:", error)
@@ -223,7 +226,7 @@ app.post('/verify-reset-code', (req, res)=>{
             }
 
             const query2 = "UPDATE tbl_usersacc SET password = ?, reset_code = NULL, reset_code_expiration = NULL WHERE reset_code = ?"
-            db.query(query, [hashedPassword, code], (err)=>{
+            db.query(query2, [hashedPassword, code], (err)=>{
                 if (err) {
                     console.log("Error:", err)
                     return res.status(500).json({success: false, message: 'Database Error'})
@@ -249,7 +252,7 @@ app.post('/resend-reset-code', (req, res) => {
         const resetCode = crypto.randomInt(100000, 999999).toString();
 
         // Set new expiration time (e.g., 10 minutes from now)
-        const expirationTime = new Date(Date.now() + 10 * 60 * 1000); // 10 minutes
+        const expirationTime = new Date(Date.now() + 60 * 1000);
 
         // Update the reset code and expiration time in the database
         db.query('UPDATE tbl_usersacc SET reset_code = ?, reset_code_expiration = ? WHERE emailAddress = ?', [resetCode, expirationTime, email], (err) => {
