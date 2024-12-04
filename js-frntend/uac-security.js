@@ -27,7 +27,7 @@ function verifyOTP() {
     securityBox.innerHTML = `
         <div class="security-box-captions">
             <h1>SECURITY & PRIVACY</h1>
-            <img src="../Assets/Enter password Security & Privacy (user acc).png">
+            <img src="../Assets/GUEST/Password Reset secu & priva (User acc).png">
             <h3>Reset Your Password</h3>
         </div>
         <div class="security-fields">

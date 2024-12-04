@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin: Events</title>
+    <link rel = "stylesheet" href = "../css/admin-event.css">
+    <link rel="stylesheet" href="../css/slideshow.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+            <nav>
+                <div class = "header">
+                    <img src = "../Assets/LET'SKONNECT.png">
+                </div>
+            </nav>
+        </header>
+    
+        <section class = "welcome-section" id = "welcomeSection">
+            <div class = "image-container">
+                <img src = "../Assets/BACKGROUND/Sangguniang Kabataan.png" alt = "Welcome Image" class = "welcome-image">
+                <div class = "welcome-text">
+                    <h1>WELCOME TO</h1>
+                    <h2>LET'SKONNECT</h2>
+                    <p>KASAMA KA SA AKSYON, KASAMA KA SA SOLUSYON</p>
+                </div>
+            </div>
+        </section>
+        <section class = "navigation-tabs">
+            <div class = "nav-menu">
+                <button class = "tab-button active" onclick = "window.location.href='dashboard.html'">Home</button>
+                <button class="tab-button" onclick="openTab(event, 'Events')">Events</button>
+                <button class="tab-button" onclick="openTab(event, 'News')">News & Updates</button>
+                <button class="tab-button" onclick="window.location.href='scholarships.html'">Scholarships</button>
+                <button class="tab-button" onclick="openTab(event, 'JobFairs')">Job Fairs</button>
+                <button class="tab-button" onclick="openTab(event, 'KKProfiling')">KK Profiling</button>
+            </div>
+        </section>
+        <div class="Container">
+            <div class = "event-slideshow-container">
+        
+                <div class="eventSlides fade" onclick="changeImage(event)">
+                    <img src= "../Assets/ADMIN/mobile-legend.jpg" style="width: 100%; object-fit: cover;">
+                    <div class = "Text">UPCOMING EVENTS</div>
+                </div>
+        
+                <div class="eventSlides fade"onclick="changeImage(event)">
+                    <img src= "../Assets/ADMIN/volleyball-league.jpg" style="width: 100%; object-fit: cover;">
+                    <div class = "Text">UPCOMING EVENTS</div>
+                </div>
+        
+                <a class="prev" onclick="plusSlide(-1)">&#10094;</a>
+                <a class="next" onclick="plusSlide(1)">&#10095;</a>
+        
+            </div> 
+            <br> 
+            <div style="text-align: center;">
+                <span class="dot" onclick="currentSlide(1)"></span>
+                <span class="dot" onclick="currentSlide(2)"></span>
+            </div>  
+            
+        </div>
+        <section class = "main-content">
+            
+            <img src = "../Assets/BACKGROUND/Brgy. Sta Lucia.png">
+            
+            <div class = "create-post-section">
+                <h4>New Events available? Click 'CREATE POST' to edit and share it with Kabataang Lucians.</h4>
+                <button class = "create-post-btn" onclick = "openModal()">CREATE POST</button>
+            </div> 
+            <h3>Published Events</h3>
+            
+            <div class = "sort-section">
+                <i class="fa-solid fa-filter"></i>
+                <h4>2024</h4>
+            </div>
+        
+            <div class = "Event">
+                <div class = "Event-content">
+                    <div class = "Event-details">
+                        <img src="../Assets/ADMIN/EventPost1.png" alt="ep1" class="event1"> 
+                    </div>
+                    <div class = "Event-description">
+                        <div class="menu">
+                            <button class="menu-button" onclick="toggleMenu()">&#x22EE;</button>
+                            <div class="options" id="optionsMenu">
+                                <a href="#" onclick="alert('Option 1 selected')">Archive</a>
+                                <a href="#" onclick="alert('Option 2 selected')">Edit</a>
+                            </div>
+                        </div>
+        
+                        <br>
+                        <span>
+                        <p class="description-title-eo">Event Organizer</p>
+        
+                        </span>
+                        <br>
+                        <p class="description-title-dnt">Date & Time</p>
+                        <br>
+                        <hr>
+                        <br>
+                        <p class = "description-title">Category</p>
+                        <h1>Title</h1>
+                        <p class = "description-title">Headline</p>
+                        <hr>
+                        <br>
+                        <p class = "description-title">Brief Description</p>
+                        <br>
+                        <p class = "main-description">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas eleifend justo feugiat magna volutpat,
+                            eu corsequat elit hendrerit consectetur adipiscing elit. Maecenas eleifend...
+                        </p>
+                        <div class = "description-buttons">
+                            <button>Send Feedback Form</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class = "Event">
+                <div class = "Event-content">
+                    <div class = "Event-details">
+                        <img src="../Assets/ADMIN/EventPost1.png" alt="ep1" class="event1"> 
+                    </div>
+                    <div class = "Event-description">
+                        <div class="menu">
+                            <button class="menu-button" onclick="toggleMenu()">&#x22EE;</button>
+                            <div class="options" id="optionsMenu">
+                                <a href="#" onclick="alert('Option 1 selected')">Archive</a>
+                                <a href="#" onclick="alert('Option 2 selected')">Edit</a>
+                            </div>
+                        </div>
+        
+                        <br>
+                        <span>
+                        <p class="description-title-eo">Event Organizer</p>
+        
+                        </span>
+                        <br>
+                        <p class="description-title-dnt">Date & Time</p>
+                        <br>
+                        <hr>
+                        <br>
+                        <p class = "description-title">Category</p>
+                        <h1>Title</h1>
+                        <p class = "description-title">Headline</p>
+                        <hr>
+                        <br>
+                        <p class = "description-title">Brief Description</p>
+                        <br>
+                        <p class = "main-description">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas eleifend justo feugiat magna volutpat,
+                            eu corsequat elit hendrerit consectetur adipiscing elit. Maecenas eleifend...
+                        </p>
+                        <div class = "description-buttons">
+                            <button>Send Feedback Form</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <footer class = "footer">
+            <a class = "credit">
+                <i class="fa-regular fa-copyright"></i>
+                <span>2024 Let'SKonnect</span>
+            </a>
+            <div class = "footer-content">
+                <div class = "social-icons">
+                    <a href = "#" class = "footer-icon">
+                        <img src = "../Assets/GUEST/telephone right side small footer.png" alt = "Phone Icon">
+                    </a>
+                    <a href = "https://facebook.com" target="_blank" class="footer-icon">
+                        <img src = "../Assets/GUEST/facebook right side small footer.png" alt = "Facebook Icon">
+                    </a>
+                    <a href = "#" class = "footer-icon">
+                        <img src = "../Assets/GUEST/Email (Small Footer).png" alt = "Email Icon">
+                    </a>
+                </div>
+            </div>
+        </footer>
+        <div id = "modalbackdrop" class = "modal-backdrop">
+            <div class = "create-post-modal">
+                <h1>Job Fair Title</h1>
+                <hr>
+                <form class="form-grid" id="evt-post">
+                    <div class="subgrid-1">
+                        <div class = "date-and-time">
+                            <label for="date">Date & Time:</label>
+                            <input type="date" id="date" name="date" placeholder = none>
+                            <input type="time" id="time" name="time">
+                        </div>
+                        <div>
+                            <label for="location">Location/Venue</label>
+                            <textarea id="location" name="location"></textarea>
+                        </div>
+                        <div>
+                            <label for="requirements">Requirements/Documents Needed</label>
+                            <textarea id="requirements" name="requirements"></textarea>
+                        </div>
+                        <div>
+                            <label for="employer">Employer/Sponsor</label>
+                            <textarea id="employer" name="employer"></textarea>
+                        </div>
+                    </div>
+                    <div class="subgrid-2">
+                        <div>
+                            <label for="description">Description</label>
+                            <textarea id="description" name="description"></textarea>
+                        </div>
+                        <div>
+                            <label for="full_details">Full Details</label>
+                            <textarea id="full_details" name="full_details"></textarea>
+                        </div>
+                        <div class = "create-post-buttons">
+                            <button type = "button" class = "cancel" onclick = "closeModal()">Cancel</button>
+                            <button type = "submit" id = "submitBtn" class = "submit" >Submit</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    <script src = "../js-frntend/admin-event.js"></script>
+    <script src = "../js-frntend/slideshow.js"></script>
+</body>
+</html>

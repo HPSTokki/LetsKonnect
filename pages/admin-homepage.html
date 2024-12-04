@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - Admin</title>
+    <link rel = "stylesheet" href = "../css/admin-homepage.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+<!-- Header Section -->
+    <header>
+        <nav>
+            <div class="header">
+                <img src="Assets/Header logo UI Admin.png" alt="Let'sKonnect Logo">
+            </div>
+
+            <div class="logsignbutton">
+                <button type="button" class="logbutton">Log in</button>
+                <button type="button" class="signbutton">Sign up</button>
+            </div>
+        </nav>
+    </header>
+
+<section class="welcome-section">
+    <div class="image-container">
+        <img src="Assets/Announcements/News & Update/News & updates (Top part ng news and updates).png" alt="Welcome Image" class="welcome-image">
+        <div class="welcome-text">
+            <h1>WELCOME TO</h1>
+            <h2>LET'SKONNECT</h2>
+            <p>KASAMA KA SA AKSYON, KASAMA KA SA SOLUSYON</p>
+        </div>
+    </div>
+</section>
+
+<section class="navigation-tabs">
+    <div class="nav-menu">
+        <button class="tab-button active" onclick="openTab(event, 'Home')">Home</button>
+        <button class="tab-button" onclick="openTab(event, 'Events')">Events</button>
+        <button class="tab-button" onclick="openTab(event, 'News')">News & Updates</button>
+        <button class="tab-button" onclick="openTab(event, 'Scholarships')">Scholarships</button>
+        <button class="tab-button" onclick="openTab(event, 'JobFairs')">Job Fairs</button>
+        <button class="tab-button" onclick="openTab(event, 'KKProfiling')">KK Profiling</button>
+    </div>
+</section>
+<main class = "main-content">
+    <img src = "Assets/Background.png" alt = "background-image" class = "background-image">
+    <div class="about-skcouncil">
+        <img src="Assets/No image.png" class="no-image" id="noImage">
+        <div class="hover-text" id="hoverText">
+            <img src="Assets/upload photo (upcoming events).png">
+            <h4>Change Photo</h4>
+            <p>Please choose a photo to upload. <br>Supported formats: JPG and PNG. <br>Maximum size: 5MB.</p>
+            <input type="file" id="photoUpload" class="file-input" accept="image/*" style="display: none;">
+        </div>
+        <div class="about-header">
+            <h1 id="headerText" contenteditable="false">SANTA LUCIA SK COUNCIL</h1>
+            <i class="fas fa-edit" id="editIcon"></i>
+        </div>
+        <div class="about-intro">
+            <i class="fas fa-edit" id="editParagraphIcon"></i>
+            <button id="resetButton">Reset</button>
+            <p class="about-paragraph" id="aboutParagraph" contenteditable="false">
+                Brgy. Sta. Lucia SK Council: Your Youth, Your Voice, Your Future<br>
+                The Sangguniang Kabataan (SK) Council of Barangay Sta. Lucia is dedicated to empowering the youth and serving the community. We are committed to addressing the concerns and aspirations of the youth, and to working towards a brighter future for our barangay.<br>
+                <br>
+                <span>Our Mission:</span><br>
+                To uplift the lives of the youth of Brgy. Sta. Lucia through meaningful programs and initiatives.<br>
+                <br>
+                <span>Our Vision:</span><br>
+                A thriving and empowered youth, actively contributing to the development of our community.<br>
+            </p>
+        </div>
+        
+    </div>
+    <div class="skcouncil-members">
+        <div class="sk-chairperson">
+            <img src="Assets/SK_Xyrone.png" class="sk-xyrone" id="skChairpersonImage" class="editable-image">
+        </div>
+        <div class="sk-kagawad-header">
+            <hr>
+            <h3 contenteditable="true" id="skKagawadHeader">SK KAGAWAD</h3>
+            <hr>
+        </div>
+        <div class="sk-kagawad-members">
+            <div class="sk-kagawad" id="kagawad1">
+                <div class="sk-image-container">
+                    <img src="Assets/SK_Marj.jpg" class="editable-image">
+                </div>
+                <div class="sk-kagawad-text">
+                    <h2 contenteditable="true">MARJORIE MENDOZA</h2>
+                    <p contenteditable="true">Marjorie Mendoza is an SK Kagawad of Sta. Lucia, known for her dedication to serving the youth and fostering community growth. As a member of the Sangguniang Kabataan, she actively participates in initiatives that aim to improve the well-being and opportunities for young people in the barangay. With a passion for leadership, Marjorie collaborates with fellow SK officials to organize programs that address the needs of the youth, such as educational workshops, sports activities, and community outreach projects.</p>
+                </div>
+            </div>
+            <div class="sk-kagawad">
+                <div class="sk-image-container">
+                    <img src="Assets/SK_Nadzmah.jpg" class="editable-image">
+                </div>
+                <div class="sk-kagawad-text">
+                    <h2 contenteditable="true">NADZMAH AMBINOC</h2>
+                    <p contenteditable="true">Nadzmah Ambinoc is an SK Kagawad of Sta. Lucia, deeply committed to empowering the youth and enhancing community engagement. As part of the Sangguniang Kabataan, she focuses on creating programs that promote education, leadership, and social responsibility among the barangay's young residents. Nadzmah's dedication to her role is evident in her active involvement in organizing events, facilitating dialogues, and addressing concerns that affect the youth sector.</p>
+                </div>
+            </div>
+            <div class="sk-kagawad">
+                <div class="sk-image-container">
+                    <img src="Assets/SK_Ishang.jpg" class="editable-image">
+                </div>
+                <div class="sk-kagawad-text">
+                    <h2 contenteditable="true">ISHANG SANTUYO</h2>
+                    <p contenteditable="true">Ishang Santuyo is an SK Kagawad of Sta. Lucia, recognized for her enthusiasm and dedication to uplifting the youth in her community. With a strong sense of responsibility, she works closely with her fellow SK officials to design and implement programs that cater to the needs and aspirations of the young people in the barangay.</p>
+                </div>
+            </div>
+            <div class="sk-kagawad">
+                <div class="sk-image-container">
+                    <img src="Assets/SK_Fers.jpg" class="editable-image">
+                </div>
+                <div class="sk-kagawad-text">
+                    <h2 contenteditable="true">FERS MAE GALVEZ</h2>
+                    <p contenteditable="true">Fers Mae Galvez is an SK Kagawad of Sta. Lucia, known for her proactive leadership and commitment to the development of the youth in the community. She plays a vital role in crafting and implementing initiatives that promote education, sports, and civic engagement among young people. Fers Mae’s approachable demeanor and genuine concern for her peers make her an effective advocate for programs that address their needs and aspirations.</p>
+                </div>
+            </div>
+            <div class="sk-kagawad">
+                <div class="sk-image-container">
+                    <img src="Assets/SK_Sophia.jpg" class="editable-image">
+                </div>
+                <div class="sk-kagawad-text">
+                    <h2 contenteditable="true">SOPHIA PATRIARCA</h2>
+                    <p contenteditable="true">Sophia Patriarca is an SK Kagawad of Sta. Lucia, admired for her innovative approach to youth engagement and her unwavering dedication to community service. With a creative mindset, she introduces fresh ideas into projects that inspire the younger generation to actively participate in barangay initiatives. Sophia is particularly passionate about blending tradition and modernity, ensuring that cultural heritage is preserved while addressing contemporary challenges.</p>
+                </div>
+            </div>
+            <div class="sk-kagawad">
+                <div class="sk-image-container">
+                    <img src="Assets/SK_Rhod.jpg" class="editable-image">
+                </div>
+                <div class="sk-kagawad-text">
+                    <h2 contenteditable="true">RHOD IVAN DOCOT</h2>
+                    <p contenteditable="true">Rhod Ivan Docot is an SK Kagawad of Sta. Lucia and a passionate advocate for sports development within the community. His commitment to promoting physical fitness and teamwork among the youth has made him a driving force behind various sports programs and activities in the barangay. Rhod Ivan believes in the transformative power of sports to instill discipline, leadership, and a sense of camaraderie.</p>
+                </div>
+            </div>
+            <div class="sk-kagawad">
+                <div class="sk-image-container">
+                    <img src="Assets/SK_Airah.jpg" class="editable-image">
+                </div>
+                <div class="sk-kagawad-text">
+                    <h2 contenteditable="true">AIRAH SAGUN</h2>
+                    <p contenteditable="true">Airah Sagun is an SK Kagawad of Sta. Lucia, celebrated for her proactive leadership and deep commitment to the youth of the barangay. She brings a compassionate and dynamic approach to her role, focusing on programs that promote education, inclusivity, and personal growth. Known for her hands-on involvement, Airah actively engages with the community to understand their needs and translates those insights into impactful initiatives. Her resilience and dedication to creating meaningful change have earned her the respect of her peers, making her a trusted and inspiring figure in the Sangguniang Kabataan.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <button id="resetButton">Reset</button>
+    
+</main>
+<footer class="footer">
+    <a class="credit">
+        <i class="fa-regular fa-copyright"></i>
+        <span>2024 Let'SKonnect</span>
+    </a>
+    <div class="footer-content">
+        <div class="social-icons">
+            <a href="#" class="footer-icon">
+                <img src="Assets/footers/Phone Number (Small Footer).png" alt="Phone Icon">
+            </a>
+            <a href="https://facebook.com" target="_blank" class="footer-icon">
+                <img src="Assets/footers/Facebook (Small Footer).png" alt="Facebook Icon">
+            </a>
+            <a href="#" class="footer-icon">
+                <img src="Assets/footers/Email (Small Footer).png" alt="Email Icon">
+            </a>
+        </div>
+    </div>
+</footer>
+
+    <!-- JavaScript -->
+    <script src="../js-frntend/admin-homepage.js"></script>
+</body>
+</html>
+</body>
+</html>

@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css2?family=Pathway+Extreme:ital,opsz,wght@0,8..144,100..900;1,8..144,100..900&display=swap');
+
+*{
+    box-sizing: border-box;
+}
+
+body{
+    font-family: "Pathway Extreme" , serif;
+}
+
+.eventSlides{
+    display: none;
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+}
+
+img{
+    vertical-align: middle;
+    height: 280px;
+}
+
+.event-slideshow-container{
+    max-width: 90%;
+    position: relative;
+    padding-top: 35px;
+    margin: auto;
+}
+
+.prev, .next{
+    cursor: pointer;
+    position:absolute;
+    top: 50%;
+    width: auto;
+    padding: 16px;
+    margin-top: -22px;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+}
+
+.next{
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+.prev{
+    left:0;
+}
+
+.prev:hover, .next:hover{
+    background-color: rgba(0,0,0,0.8);
+}
+
+.eventSlides .Text {
+    color: white; 
+    font-size: 40px; 
+    position: absolute;
+    bottom: 20px; 
+    left: 40px; 
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); 
+  }
+
+  

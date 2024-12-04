@@ -1,17 +1,3 @@
-function toggleContent(event) {
-    console.log(event); // Log the event to see if it's being passed correctly
-    const moreContent = event.target.closest('.job-op').querySelector('.more-content');
-    const button = event.target;
-
-    if (!moreContent.classList.contains('show')) {
-        moreContent.classList.add('show');
-        button.textContent = 'See Less...';
-    } else {
-        moreContent.classList.remove('show');
-        button.textContent = 'Load More';
-    }
-}
-
 function openModal() {
     const modalBackdrop = document.getElementById('modalbackdrop');
     modalBackdrop.classList.add('visible');
@@ -21,8 +7,6 @@ function closeModal() {
     const modalBackdrop = document.getElementById('modalbackdrop')
     modalBackdrop.classList.remove('visible');
 }
-
-
 
 document.querySelectorAll('.fa-ellipsis-v').forEach((icon) => {
     icon.addEventListener('click', (e) => {
@@ -43,3 +27,11 @@ document.querySelectorAll('.fa-ellipsis-v').forEach((icon) => {
         }, { once: true });
     });
 });
+
+window.onclick = function(event) {
+    if (!event.target.matches('.fa-ellipsis-v')) {
+        document.querySelectorAll('.ellipsis-setting.visible').forEach((menu) => {
+            menu.classList.remove('visible');
+        });
+    }
+}
