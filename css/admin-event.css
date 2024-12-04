@@ -274,6 +274,29 @@ nav {
   font-weight: 400;
 }
 
+
+.hover-text {
+  position: absolute;
+  top: 20vh;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  z-index: 5;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.hover-text p {
+  text-align: center;
+}
+
 .Event {
   position: relative;
   height: auto;
@@ -327,7 +350,7 @@ nav {
   gap: 20px;
 }
 
-.Event-details .event1{
+.Event-details .event1 {
   position: relative;
     display:flex;
     align-items: center;
@@ -348,9 +371,6 @@ nav {
 .label {
   color: #908989;
 }
-
-
-
 .Event-description {
   margin-left:40px;
   margin-bottom: 50px;
@@ -383,7 +403,10 @@ nav {
   border: none;
   font-size: 24px;
   cursor: pointer;
-  
+}
+
+.menu-button:hover {
+  color: #A101A2;
 }
 
 .options {
@@ -434,6 +457,11 @@ nav {
   color: #f2f2f2;
   background-color: #A101A2;
   box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.description-buttons button:hover {
+  background-color: #6a0dad;
+  cursor: pointer;
 }
 
 .footer {

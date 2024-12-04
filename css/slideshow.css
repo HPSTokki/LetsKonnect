@@ -1,35 +1,37 @@
 @import url('https://fonts.googleapis.com/css2?family=Pathway+Extreme:ital,opsz,wght@0,8..144,100..900;1,8..144,100..900&display=swap');
 
-*{
+* {
     box-sizing: border-box;
 }
 
-body{
-    font-family: "Pathway Extreme" , serif;
+body {
+    font-family: "Pathway Extreme", serif;
 }
 
-.eventSlides{
+.eventSlides {
     display: none;
     width: 100%;
     height: 280px;
     object-fit: cover;
+    position: relative; /* Ensure hover-text is positioned relative to the image */
 }
 
-img{
+img {
     vertical-align: middle;
     height: 280px;
+    width: 100%; /* Ensure it takes up full width */
 }
 
-.event-slideshow-container{
+.event-slideshow-container {
     max-width: 90%;
     position: relative;
     padding-top: 35px;
     margin: auto;
 }
 
-.prev, .next{
+.prev, .next {
     cursor: pointer;
-    position:absolute;
+    position: absolute;
     top: 50%;
     width: auto;
     padding: 16px;
@@ -42,26 +44,54 @@ img{
     user-select: none;
 }
 
-.next{
+.next {
     right: 0;
     border-radius: 3px 0 0 3px;
 }
 
-.prev{
-    left:0;
+.prev {
+    left: 0;
 }
 
-.prev:hover, .next:hover{
-    background-color: rgba(0,0,0,0.8);
+.prev:hover, .next:hover {
+    background-color: rgba(0, 0, 0, 0.8);
 }
 
-.eventSlides .Text {
-    color: white; 
-    font-size: 40px; 
+.hover-text {
     position: absolute;
-    bottom: 20px; 
-    left: 40px; 
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); 
-  }
+    top: 50%; 
+    left: 50%; 
+    transform: translate(-50%, -50%); 
+    color: white;
+    font-size: 20px;
+    text-align: center;
+    opacity: 0; 
+    pointer-events: none; 
+    transition: opacity 0.3s ease; 
+    z-index: 2; 
+}
 
-  
+.hover-text img {
+    width: 20%;
+    height: 20%;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+.eventSlides:hover .hover-text {
+    opacity: 1; 
+}
+
+.Text {
+    color: white;
+    font-size: 40px;
+    position: absolute;
+    bottom: 20px;
+    left: 40px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    z-index: 1; 
+}
+
+.eventSlides img:hover {
+    filter: blur(5px) brightness(0.7);
+}

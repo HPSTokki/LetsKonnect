@@ -50,38 +50,6 @@ nav {
     height: 35px;
 }
 
-.logsignbutton {
-    position: absolute;
-    right: 0;
-    display: flex;
-    align-items: center;
-    height: 30px;
-
-}
-
-.logbutton {
-    background-color: transparent;
-    font-weight: bold;
-    cursor: pointer;
-    color: #FFFFFF;
-}
-
-.signbutton {
-    color: #9854cb;
-}
-
-.logsignbutton button {
-    margin-right: 5px;
-    padding: 0 5px;
-    height: 100%;
-    width: 70px;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    font-weight: bold;
-    font-size: 10px;
-}
-
 .welcome-section {
     position: relative;
     text-align: center;
@@ -196,7 +164,7 @@ nav {
     position: relative;
     background-color: white;
     width: 100vw;
-    height: 640vh;
+    height: 700vh;
     margin-bottom: 0;
     padding-bottom: 0;
     display: flex;
@@ -261,8 +229,8 @@ nav {
 
 .about-header i {
     position: absolute;
-    top: 44vh;
-    right: 23%;
+    top: 43.5vh;
+    right: 25%;
     cursor: pointer;
 }
 

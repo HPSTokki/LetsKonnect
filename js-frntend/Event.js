@@ -1,3 +1,54 @@
+// Select all slideshow images and their corresponding hover-text elements
+const slideshowImages = document.querySelectorAll('.event-images');
+const hoverTexts = document.querySelectorAll('.hover-text');
+
+slideshowImages.forEach((image, index) => {
+  const correspondingHoverText = hoverTexts[index]; // Match the hover-text with the image
+
+  // Apply hover effects
+  function applyEffects() {
+    image.style.filter = 'blur(5px) brightness(50%)';
+    correspondingHoverText.style.opacity = '1';
+  }
+
+  function removeEffects() {
+    image.style.filter = 'none';
+    correspondingHoverText.style.opacity = '0';
+  }
+
+  // Add hover event listeners
+  image.addEventListener('mouseenter', applyEffects);
+  image.addEventListener('mouseleave', removeEffects);
+});
+
+
+//File Input//
+const photoUpload = document.getElementById('photoUpload');
+const noImage = document.getElementById('noImage');
+const uploadIcon = document.querySelector('.hover-text img');
+
+if (localStorage.getItem('uploadedImage')) {
+    noImage.src = localStorage.getItem('uploadedImage');
+}
+
+uploadIcon.addEventListener('click', () => {
+    photoUpload.click();
+});
+
+photoUpload.addEventListener('change', (event) => {
+    const file = event.target.files[0];
+    if (file) {
+        const reader = new FileReader();
+
+        reader.onload = function(e) {
+            noImage.src = e.target.result;
+            localStorage.setItem('uploadedImage', e.target.result);
+        };
+
+        reader.readAsDataURL(file);
+    }
+});
+
 // Function to open a specific tab and hide the others
 function openTab(evt, tabName) {
   const contents = document.querySelectorAll('.tab-content');

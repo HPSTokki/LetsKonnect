@@ -41,12 +41,24 @@
             <div class = "event-slideshow-container">
         
                 <div class="eventSlides fade" onclick="changeImage(event)">
-                    <img src= "../Assets/ADMIN/mobile-legend.jpg" style="width: 100%; object-fit: cover;">
+                    <img src= "../Assets/ADMIN/mobile-legend.jpg" id = "event-images" style="width: 100%; object-fit: cover;">
+                    <div class="hover-text" id="hoverText">
+                        <img src="../Assets/ADMIN/upload photo (upcoming events).png">
+                        <h4>Change Photo</h4>
+                        <p>Please choose a photo to upload. <br>Supported formats: JPG and PNG. <br>Maximum size: 5MB.</p>
+                        <input type="file" id="photoUpload" class="file-input" accept="image/*" style="display: none;">
+                    </div>
                     <div class = "Text">UPCOMING EVENTS</div>
                 </div>
         
                 <div class="eventSlides fade"onclick="changeImage(event)">
-                    <img src= "../Assets/ADMIN/volleyball-league.jpg" style="width: 100%; object-fit: cover;">
+                    <img src= "../Assets/ADMIN/volleyball-league.jpg" id = "event-images" style="width: 100%; object-fit: cover;">
+                    <div class="hover-text" id="hoverText">
+                        <img src="../Assets/ADMIN/upload photo (upcoming events).png">
+                        <h4>Change Photo</h4>
+                        <p>Please choose a photo to upload. <br>Supported formats: JPG and PNG. <br>Maximum size: 5MB.</p>
+                        <input type="file" id="photoUpload" class="file-input" accept="image/*" style="display: none;">
+                    </div>
                     <div class = "Text">UPCOMING EVENTS</div>
                 </div>
         
