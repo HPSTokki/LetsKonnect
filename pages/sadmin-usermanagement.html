@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Dashboard</title>
-    <link rel = "stylesheet" href = "../css/admin-umanagement.css">
+    <title>Super Admin - User Management</title>
+    <link rel = "stylesheet" href = "../css/sadmin-usermanagement.css">
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+    <link rel="stylesheet" href="../css/modal.css">
 </head>
 <body>
     <header>
@@ -33,46 +34,37 @@
             <button class="tab-button" onclick="openTab(event, 'News')">News & Updates</button>
             <button class="tab-button" onclick="window.location.href='scholarships.html'">Scholarships</button>
             <button class="tab-button" onclick="openTab(event, 'JobFairs')">Job Fairs</button>
-            <button class="tab-button" onclick="openTab(event, 'Dashboard')">Dashboard</button>
+            <button class="tab-button" onclick="openTab(event, 'KKProfiling')">KK Profiling</button>
         </div>
     </section>
         <section id="section-1">
             <a href="/" class="Name">
-                <div class="admin-name">
-                    Placeholder Dot Name
+                <div class="admin-name" id = "adminName">
+                    <i class="fa-solid fa-user"></i>
+                    <p>Santa Lucia</p>
                 </div>
                </a>
             <div class="dashboard-title">
-                <h2>User Management</h2>
+                <h2>User Account Management</h2>
             </div>
            <aside class="dashboard-nav">
                 <ul>
-                    <li><a href="/"><span class="material-symbols-outlined">
-                        dashboard
-                        </span>Dashboard</a></li>
-                    <li><a href="/"><span class="material-symbols-outlined">
-                        rate_review
-                        </span>Feedback</a></li>
-                    <li><a href="/"><span class="material-symbols-outlined">
-                        settings
-                        </span>User Management</a></li>
-                    <li><a href="/"><span class="material-symbols-outlined">
-                        bookmark
-                        </span>Archive</a></li>
+                    <img src = "../Assets/SUPER ADMIN/user management.png">
+                    <button id = "userManagementBtn">User Account Management</button>
+                    <button id = "adminManagementBtn">Admin Account Management</button>
                 </ul>
             </aside>
             <div class = "main-container" id = "mainContainer">
                 <div class = "search-section" id = "searchSection">
-                    <div class = "search-section-text" id = "searchSectionText">
-                        <h1>Youth Accounts</h1>
-                        <p>The list below are the registered user of the system.</p>
-                    </div>
                     <div class = "search-section-actions" id = "searchSectionActions">
                         <input type="search" id ="searchBox">
                         <div class = "checkbox" id = "checkBox">
                             <input type="checkbox" name="option1" value="value1"> Select All
                         </div>
                         <i class="fa-solid fa-arrow-up-wide-short"></i>
+                        <button id="openModalBtn" style="background: none; border: none; cursor: pointer;">
+                            <i class="fas fa-plus"></i>
+                        </button>
                         <i class="fa-solid fa-trash-can"></i>
                     </div>
                 </div>
@@ -124,5 +116,6 @@
           src="https://kit.fontawesome.com/c225de6932.js"
           crossorigin="anonymous"
         ></script>
+        <script src="../js-frntend/modal.js"></script>
     </body>
     </html>

@@ -3,51 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin: Events</title>
-    <link rel = "stylesheet" href = "../css/admin-event.css">
+    <title>Events</title>
+    <link rel="stylesheet" href="../css/Event-guest.css">
     <link rel="stylesheet" href="../css/slideshow.css">
+    <link rel="stylesheet" href="../css/modal.css">
+    <link rel = "stylesheet" href = "../css/Event.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
     <header>
-        <nav>
-            <div class="header">
-                <img src= "../Assets/LET'SKONNECT.png" alt="Let'sKonnect Logo">
+            <nav>
+                <div class = "header">
+                    <img src = "../Assets/LET'SKONNECT.png">
+                </div>
+            </nav>
+        </header>
+    
+        <section class = "welcome-section" id = "welcomeSection">
+            <div class = "image-container">
+                <img src = "../Assets/BACKGROUND/Sangguniang Kabataan.png" alt = "Welcome Image" class = "welcome-image">
+                <div class = "welcome-text">
+                    <h1>WELCOME TO</h1>
+                    <h2>LET'SKONNECT</h2>
+                    <p>KASAMA KA SA AKSYON, KASAMA KA SA SOLUSYON</p>
+                </div>
             </div>
-        </nav>
-    </header>
+        </section>
+        <section class = "navigation-tabs">
+            <div class = "nav-menu">
+                <button class = "tab-button active" onclick = "window.location.href='dashboard.html'">Home</button>
+                <button class="tab-button" onclick="openTab(event, 'Events')">Events</button>
+                <button class="tab-button" onclick="openTab(event, 'News')">News & Updates</button>
+                <button class="tab-button" onclick="window.location.href='scholarships.html'">Scholarships</button>
+                <button class="tab-button" onclick="openTab(event, 'JobFairs')">Job Fairs</button>
+                <button class="tab-button" onclick="openTab(event, 'KKProfiling')">KK Profiling</button>
+            </div>
+        </section>
 
-    <section class="welcome-section">
-    <div class="image-container">
-        <img src="../Assets/BACKGROUND/Sangguniang Kabataan.png" alt="Welcome Image" class="welcome-image">
-        <div class="welcome-text">
-            <h1>WELCOME TO</h1>
-            <h2>LET'SKONNECT</h2>
-            <p>KASAMA KA SA AKSYON, KASAMA KA SA SOLUSYON</p>
-        </div>
-    </div>
-</section>
-<section class="navigation-tabs">
-    <div class="nav-menu">
-        <button class="tab-button active" onclick="openTab(event, 'Home')">Home</button>
-        <button class="tab-button" onclick="openTab(event, 'Events')">Events</button>
-        <button class="tab-button" onclick="openTab(event, 'News')">News & Updates</button>
-        <button class="tab-button" onclick="openTab(event, 'Scholarships')">Scholarships</button>
-        <button class="tab-button" onclick="openTab(event, 'JobFairs')">Job Fairs</button>
-        <button class="tab-button" onclick="openTab(event, 'KKProfiling')">KK Profiling</button>
-    </div>
-</section>
         <div class="Container">
             <div class = "event-slideshow-container">
         
                 <div class="eventSlides fade" onclick="changeImage(event)">
                     <img src= "../Assets/ADMIN/mobile-legend.jpg" id = "event-images" style="width: 100%; object-fit: cover;">
-                    <div class="hover-text" id="hoverText">
-                        <img src="../Assets/ADMIN/upload photo (upcoming events).png">
-                        <h4>Change Photo</h4>
-                        <p>Please choose a photo to upload. <br>Supported formats: JPG and PNG. <br>Maximum size: 5MB.</p>
-                        <input type="file" id="photoUpload" class="file-input" accept="image/*" style="display: none;">
-                    </div>
                     <div class = "Text">UPCOMING EVENTS</div>
                 </div>
         
@@ -77,10 +74,6 @@
             
             <img src = "../Assets/BACKGROUND/Brgy. Sta Lucia.png">
             
-            <div class = "create-post-section">
-                <h4>New Events available? Click 'CREATE POST' to edit and share it with Kabataang Lucians.</h4>
-                <button class = "create-post-btn" onclick = "openModal()">CREATE POST</button>
-            </div> 
             <h3>Published Events</h3>
             
             <div class = "sort-section">
@@ -124,7 +117,7 @@
                             eu corsequat elit hendrerit consectetur adipiscing elit. Maecenas eleifend...
                         </p>
                         <div class = "description-buttons">
-                            <button>Send Feedback Form</button>
+                            <button id = "registerButton">Register</button>
                         </div>
                     </div>
                 </div>
@@ -138,8 +131,8 @@
                         <div class="menu">
                             <button class="menu-button" onclick="toggleMenu()">&#x22EE;</button>
                             <div class="options" id="optionsMenu">
-                                <a href="#" onclick="alert('Option 1 selected')">Archive</a>
-                                <a href="#" onclick="alert('Option 2 selected')">Edit</a>
+                                <a href="#">Archive</a>
+                                <a href="#">Edit</a>
                             </div>
                         </div>
         
@@ -165,12 +158,51 @@
                             eu corsequat elit hendrerit consectetur adipiscing elit. Maecenas eleifend...
                         </p>
                         <div class = "description-buttons">
-                            <button>Send Feedback Form</button>
+                            <button id = "registerButton">Register</button>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
+        <div id="myModal" class="modal" style="display: none;">
+            <div class="modal-content">
+                <div class = "modal-title">
+                    <h3>Register</h3>
+                </div>
+                <div class = "modal-info">
+                    <div class = "modal-dataprivacy">
+                        <h3>Data Privacy Consent</h3>
+                        <img src = "../Assets/GUEST/secure-data.png">
+                        <p>
+                            In compliance with the Data Privacy Act of 2012 (RA 10173), we value and respect your privacy. By submitting your information, 
+                            you agree to the collection, processing, and storage of your personal data for the purpose of event registration.
+                            Your personal information will only be used as necessary and will not be shared with third parties without your explicit consent, 
+                            unless required by law. You have the right to access, update, or withdraw your consent at any time by contacting Brgy. Sta. Lucia.
+                            <br>
+                            <br>
+                            By checking the box below, you confirm that you have read, understood, and agreed to this Data Privacy Consent.
+                        </p>
+                        <label for = "dataPrivacy">I agree to the Data Privacy Consent</label>
+                        <input type = "checkbox" id = "dataPrivacy">
+                    </div>
+                    <div class = "modal-fields">
+                       <form>
+                            <label for = "name">Full Name</label>
+                            <input type = "text" id = "name" placeholder = "Enter your full name">
+                            <label for = "email">Email Address</label>
+                            <input type = "email" id = "email" placeholder = "Enter your email address">
+                            <label for = "contact">Contact Number</label>
+                            <input type = "text" id = "contact" placeholder = "Enter your contact number">
+                            <label for = "address">Address</label>
+                            <input type = "text" id = "address" placeholder = "Enter your address">
+                            <button id = "registerButton">Register</button>
+                       </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+          
+
         <footer class = "footer">
             <a class = "credit">
                 <i class="fa-regular fa-copyright"></i>
@@ -190,48 +222,8 @@
                 </div>
             </div>
         </footer>
-        <div id = "modalbackdrop" class = "modal-backdrop">
-            <div class = "create-post-modal">
-                <h1>Job Fair Title</h1>
-                <hr>
-                <form class="form-grid" id="evt-post">
-                    <div class="subgrid-1">
-                        <div class = "date-and-time">
-                            <label for="date">Date & Time:</label>
-                            <input type="date" id="date" name="date" placeholder = none>
-                            <input type="time" id="time" name="time">
-                        </div>
-                        <div>
-                            <label for="location">Location/Venue</label>
-                            <textarea id="location" name="location"></textarea>
-                        </div>
-                        <div>
-                            <label for="requirements">Requirements/Documents Needed</label>
-                            <textarea id="requirements" name="requirements"></textarea>
-                        </div>
-                        <div>
-                            <label for="employer">Employer/Sponsor</label>
-                            <textarea id="employer" name="employer"></textarea>
-                        </div>
-                    </div>
-                    <div class="subgrid-2">
-                        <div>
-                            <label for="description">Description</label>
-                            <textarea id="description" name="description"></textarea>
-                        </div>
-                        <div>
-                            <label for="full_details">Full Details</label>
-                            <textarea id="full_details" name="full_details"></textarea>
-                        </div>
-                        <div class = "create-post-buttons">
-                            <button type = "button" class = "cancel" onclick = "closeModal()">Cancel</button>
-                            <button type = "submit" id = "submitBtn" class = "submit" >Submit</button>
-                        </div>
-                    </div>
-                </form>
-            </div>
-        </div>
-    <script src = "../js-frntend/admin-event.js"></script>
-    <script src = "../js-frntend/slideshow.js"></script>
+    <script src="../js-frntend/Event-Guest.js"></script>
+    <script src="../js-frntend/slideshow.js"></script>
+    <script src="../js-frntend/Event-modal.js"></script>
 </body>
 </html>
