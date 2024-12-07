@@ -1,45 +1,191 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Pathway+Extreme:ital,opsz,wght@0,8..144,100..900;1,8..144,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Pathway+Extreme:ital,opsz,wght@0,8..144,100..900;1,8..144,100..900&display=swap');
 
-/* Global Styles */
-* {
-    box-sizing: border-box;
+*,
+*::before,
+*::after {
+    padding: 0;
     margin: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --bg-color1: #6610A6;
+    --bg-color2: #FFFFFF;
+    --font-color: #f2f2f2;
 }
 
 body {
+    font-family: "Pathway Extreme", serif;
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+}
+
+body::-webkit-scrollbar {
+  display: none; 
+}
+
+header {
+    display: flex;
+}
+
+nav {
+    display: grid;
     width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-}
-
-/* Header */
-#header {
-    display: flex;
-    justify-content: space-between;
+    height: 50px;
+    background: linear-gradient(to right, var(--bg-color2), var(--bg-color1));
+    grid-template-columns: 0.1rem 1fr 3fr;
+    justify-content: center;
     align-items: center;
-    background: linear-gradient(to right, #fff, #6610a6);
-    font-family: 'Pathway Extreme', sans-serif;
-    padding: 0 1rem;
+    top: 0;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
 }
 
-#header div {
-    background: linear-gradient(to right, #6610a6, #03b0c1);
-    background-clip: text;
-    -webkit-background-clip: text;
-    color: transparent;
+.header img {
+    margin-left: 30px;
+    margin-top: 5px;
+    height: 35px;
 }
 
-#header div h1 {
-    padding: 0 1rem;
+.logsignbutton {
+    position: absolute;
+    right: 0;
+    display: flex;
+    align-items: center;
+    height: 30px;
+
 }
 
-#header #logIn {
-    font-size: 1rem;
-    border-radius: 25px;
-    border: none;
-    padding: 0.5rem 1rem;
+.logbutton {
+    background-color: transparent;
+    font-weight: bold;
     cursor: pointer;
+    color: #FFFFFF;
+}
+
+.signbutton {
+  color: #9854cb;
+}
+
+.logsignbutton button {
+    margin-right: 5px;
+    padding: 0 5px;
+    height: 100%;
+    width: 70px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 10px;
+}
+
+.welcome-section {
+  position: relative;
+  text-align: center;
+  width: 100%;
+}
+
+.image-container {
+  position: relative;
+  width: 100%;
+}
+
+.welcome-section {
+  position: relative;
+  text-align: center;
+  width: 100%;
+}
+
+.image-container {
+  position: relative;
+  width: 100%;
+  height: 40vh; 
+  overflow: hidden;
+}
+
+.welcome-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: blur(2.5px);
+  -webkit-filter: blur(2.5px);
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.welcome-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  text-align: center;
+  width: 100%;
+  padding: 0 10px;
+}
+
+.welcome-text h1,
+.welcome-text h2,
+.welcome-text p {
+  margin: 0;
+  padding: 0;
+}
+
+.welcome-text h1 {
+  font-size: 2.083vw; 
+  font-family: "Pathway Extreme", serif;
+  font-weight: 600;
+}
+
+.welcome-text h2 {
+  font-size: 4.792vw;
+  font-family: "Pathway Extreme", serif;
+  font-weight: bold;
+}
+
+.welcome-text p {
+  font-size: 1.26vw; 
+  font-family: "Pathway Extreme", serif;
+  font-weight: 600;
+}
+
+.navigation-tabs {
+  width: 100%;
+  background-color: #6a0dad;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.nav-menu {
+  display: flex;
+  justify-content: center;
+  width: 100%; 
+}
+
+.tab-button {
+  flex: 1; 
+  padding: 14.3px;
+  cursor: pointer;
+  background-color: #9e4bdc; 
+  color: white;
+  border: none;
+  font-size: 0.937vw;
+  font-family: "Pathway Extreme", serif;
+  font-weight: 600;
+  text-align: center;
+  transition: background-color 0.3s;
+}
+
+.tab-button:hover {
+  background-color: #8751c7;
+}
+
+.tab-content {
+  width: 100%;
+  padding: 20px;
+  background-color: #f9f9f9;
+  text-align: center;
+  display: none; 
 }
 
 /* Main Section */
@@ -49,7 +195,7 @@ body {
     align-items: center;
     font-family: 'Pathway Extreme', sans-serif;
     position: relative;
-    background-image: url("../Assets/BACKGROUND/Sangguniang\ Kabataan.png");
+    background-image: url("../Assets/BACKGROUND/Sangguniang Kabataan.png");
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -320,33 +466,59 @@ td i:hover {
     margin: 0;
 }
 
-#footer {
+.footer {
     position: fixed;
     bottom: 0;
     width: 100%;
+    height: 20px;
+    background-color: #6610A6;
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
     align-items: center;
-    padding: 0 0.5em;
-    font-family: Montserrat, sans-serif;
-    background: #03b0c1;
-}
-
-#footer div {
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
+    z-index: 10;
+  }
+  
+  .credit {
+    font-size: 0.7rem;
+    color: var(--font-color);
+    display: flex; 
+    align-items: center; 
+    gap: 4px; 
+    text-decoration: none; 
+    margin-right: 1vw;
+    white-space: nowrap;
+  }
+  
+  .credit i {
+    font-size: 0.5rem;
+  }
+  
+  .credit span {
+    font-size: 0.6rem; 
+  }
+  
+  .footer-content {
+    width: 90%;
+    height: 20px;
+    max-width: 1200px;
+    margin: 0 20px;
     display: flex;
-    align-items: center;
-}
-
-#footer div h3 {
-    margin: 0 1rem;
-}
-
-#footer ul {
+    justify-content: flex-end;
+  }
+  
+  .social-icons {
     display: flex;
-    list-style: none;
-}
-
-#footer ul li i {
-    margin: 0 1rem;
-    cursor: pointer;
-}
+    gap: 15px;
+  }
+  
+  .footer-icon img {
+    width: 12px;
+    height: 12px;
+    object-fit: contain;
+    transition: transform 0.3s;
+  }
+  
+  .footer-icon:hover img {
+    transform: scale(1.2);
+  }
