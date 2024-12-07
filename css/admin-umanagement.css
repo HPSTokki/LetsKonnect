@@ -47,38 +47,6 @@ nav {
     height: 35px;
 }
 
-.logsignbutton {
-    position: absolute;
-    right: 0;
-    display: flex;
-    align-items: center;
-    height: 30px;
-
-}
-
-.logbutton {
-    background-color: transparent;
-    font-weight: bold;
-    cursor: pointer;
-    color: #FFFFFF;
-}
-
-.signbutton {
-  color: #9854cb;
-}
-
-.logsignbutton button {
-    margin-right: 5px;
-    padding: 0 5px;
-    height: 100%;
-    width: 70px;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    font-weight: bold;
-    font-size: 10px;
-}
-
 .welcome-section {
   position: relative;
   text-align: center;

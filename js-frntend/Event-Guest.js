@@ -18,28 +18,6 @@ function openTab(evt, tabName) {
 }
 
 
-document.addEventListener("DOMContentLoaded", function () {
-  const loadMoreButtons = document.querySelectorAll(".event-button"); // Select all "Load More" buttons
-
-  loadMoreButtons.forEach((button, index) => {
-    const moreContent = document.getElementById(`moreContent${index + 1}`); // Select corresponding "more content" for each card
-
-    if (moreContent) { // Check if the element exists
-      button.addEventListener("click", function () {
-        console.log('Button ${index + 1} clicked')
-        if (moreContent.style.display === "none") {
-          moreContent.style.display = "block";
-          button.textContent = "Show Less";
-        } else {
-          moreContent.style.display = "none";
-          button.textContent = "Load More";
-        }
-      });
-    } else {
-      console.error(`Element #moreContent${index + 1} not found`);
-    }
-  });
-});
 
 
 
