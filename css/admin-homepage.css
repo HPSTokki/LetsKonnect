@@ -171,6 +171,7 @@ nav {
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
+    margin-bottom: 50px;
 }
 
 .background-image {
@@ -386,6 +387,96 @@ nav {
     text-align: justify;
 }
 
+.bigfooter {
+    height: 60vh;
+    width: 100%;
+    background: rgb(220,75,219);
+    background: linear-gradient(90deg, rgba(220,75,219,1) 38%, rgba(85,40,118,1) 100%);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;     
+    align-items: center;
+}
+
+.contact-with-us {
+    height: 100%;
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.contact-with-us h3 {
+    font-family: 'Pathway Extreme', sans-serif;
+    font-size: 1.5em;
+    color: #FFFFFF;
+}
+
+.contact-with-us p {
+    font-family: 'Pathway Extreme', sans-serif;
+    font-size: 1em;
+    color: white;
+    margin-bottom: 10px;
+}
+
+.social-links {
+    height: 100%;
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.social-links-container {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    gap: 5px;
+}
+
+.social-links-container button {
+    width: 70%;
+    background-color: #FFFFFF;
+    border: none;
+    border-radius: 20px;
+    padding: 5px;
+    cursor: pointer;
+    box-shadow:rgba(0, 0, 0, 0.2) 5px 5px 10px;
+    font-family: 'Pathway Extreme', sans-serif;
+    font-weight: bold;
+    color: #0C3262;
+}
+
+.about-this-website {
+    height: 100%;
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.about-this-website h3 {
+    font-family: 'Pathway Extreme', sans-serif;
+    font-size: 1.5em;
+    color: #FFFFFF;
+}
+
+.about-this-website p {
+    font-family: 'Pathway Extreme', sans-serif;
+    font-size: 1em;
+    color: white;
+    margin-bottom: 10px;
+}
+
+
 .footer {
     position: fixed;
     bottom: 0;
@@ -443,10 +534,6 @@ nav {
 
 .footer-icon:hover img {
     transform: scale(1.2);
-}
-
-body {
-    margin-bottom: 50px; 
 }
 
 @media (max-width: 768px) {

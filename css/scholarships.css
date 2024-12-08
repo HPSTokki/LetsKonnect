@@ -493,10 +493,6 @@ nav {
   transform: scale(1.2);
 }
 
-body {
-  margin-bottom: 50px; 
-}
-
 @media (max-width: 768px) {
   .tab-button {
       font-size: 0.9em;
