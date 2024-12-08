@@ -187,3 +187,31 @@ function hideModal() {
   doneModal.classList.add("hidden");
   donepostModal.classList.add("hidden");
 }
+
+document.querySelectorAll('.fa-ellipsis-v').forEach((icon) => {
+  icon.addEventListener('click', (e) => {
+      // Close other open menus first
+      document.querySelectorAll('.ellipsis-setting.visible').forEach((menu) => {
+          menu.classList.remove('visible');
+      });
+
+      // Toggle visibility for the current one
+      const ellipsisMenu = e.target.closest('.ellipsis-setting');
+      ellipsisMenu.classList.toggle('visible');
+
+      // Close menu if user clicks outside
+      document.addEventListener('click', (event) => {
+          if (!ellipsisMenu.contains(event.target) && !icon.contains(event.target)) {
+              ellipsisMenu.classList.remove('visible');
+          }
+      }, { once: true });
+  });
+});
+
+window.onclick = function(event) {
+  if (!event.target.matches('.fa-ellipsis-v')) {
+      document.querySelectorAll('.ellipsis-setting.visible').forEach((menu) => {
+          menu.classList.remove('visible');
+      });
+  }
+}
