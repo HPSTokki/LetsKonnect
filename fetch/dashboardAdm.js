@@ -13,15 +13,15 @@ fetch('http://localhost:6001/chart-api')
                 label: 'Status Counts',
                 data: counts,
                 background: [
-                    '#FF6384', // College Graduate
-                    '#36A2EB', // Senior Highschool Graduate
-                    '#FFCE56', // Junior Highschool Graduate
-                    '#4BC0C0', // Undergraduate
-                    '#9966FF', // Solo Parent
-                    '#FF9F40', // Person with Disability
-                    '#FF6384', // LGBT
-                    '#36A2EB', // Indigenous
-                    '#FFCE56'  // Employed
+                    '#FF6384', 
+                    '#36A2EB', 
+                    '#FFCE56', 
+                    '#4BC0C0', 
+                    '#9966FF', 
+                    '#FF9F40', 
+                    '#FF6384', 
+                    '#36A2EB', 
+                    '#FFCE56'  
                 ]
             }]
         },
