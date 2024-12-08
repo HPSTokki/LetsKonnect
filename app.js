@@ -101,13 +101,14 @@ app.post('/upload', (req, res)=>{
 
 app.post('/register', (req, res)=>{
     const {email, age, password} = req.body;
+    const date = new Date()
 
     if (!email || !password) {
         return res.status(400).json({message: 'Email, Password and Age Required'})
     }
 
-    const query = 'INSERT INTO tbl_usersacc (emailAddress, password, age) VALUES (?, ?, ?)'
-    db.query(query, [email, password, age], (err, results)=>{
+    const query = 'INSERT INTO tbl_usersacc (emailAddress, password, age, dateOfReg) VALUES (?, ?, ?, ?)'
+    db.query(query, [email, password, age, date], (err, results)=>{
         if (err) {
             console.log('Error Inserting Data:', err)
             return res.status(500).json({message: 'Error Registering User'})
@@ -553,7 +554,37 @@ app.get('/chart-api', (req, res)=>{
     })
 })
 
+// Number of Registrants Endpoint
 
+app.get('/get-participants', (req, res)=>{
+
+    const query = "SELECT COUNT(*) AS total FROM tbl_usersacc";
+    const query2 = "SELECT DATE_FORMAT(dateOfReg, '%Y-%m') AS month, COUNT(*) AS count FROM tbl_usersacc GROUP BY month ORDER BY month DESC"
+
+    db.query(query, (err, result)=>{
+        if (err) {
+            console.log("Error: ", error)
+            return res.status(500).json({message: 'Error Connecting To Database'})
+        } 
+        db.query(query2, (err, results1)=>{
+            if (err) {
+                console.log("Error: ", error)
+                return res.status(500).json({message: 'Error Connecting To Database'})
+            } 
+
+            res.json({
+                total: result[0].total,
+                monthly: results1
+            })
+            console.log({
+                total: result[0].total,
+                monthly: results1
+            })
+        })
+    })
+
+
+})
 
 // Event Posts Endpoints Here
 

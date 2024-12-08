@@ -75,7 +75,6 @@ function displayPosts(posts) {
                 <p class="main-description">${post.description}</p>
                 <div class="description-buttons">
                     <button>Send Feedback Form</button>
-                    <button id="loadmoreBtn" onclick="toggleContent()">Load More</button>
                 </div>
             </div>
         </div>

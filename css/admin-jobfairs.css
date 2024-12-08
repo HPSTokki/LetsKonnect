@@ -250,7 +250,7 @@ nav {
 .job-op {
   position: relative;
   height: auto;
-  width: 90vw;
+  width: 60%;
   background-color: #f2f2f2;
   box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
   margin: 10px;
@@ -295,8 +295,8 @@ nav {
 .job-op-details {
   background-color:#DEDEDE;
   padding: 30px;
-  height: 150%;
-  width: 150vw;
+  height: 100%;
+  width: 50%;
   border-radius: 10px;
   box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
   display: flex;
@@ -318,6 +318,7 @@ nav {
 .job-op-description {
   margin-left: 20px;
   margin-bottom: 50px;
+  width: 50%;
 }
 
 .description-title {

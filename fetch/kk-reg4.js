@@ -17,6 +17,7 @@ document.getElementById('some-form5').addEventListener('submit', async (e)=>{
         });
         const result = await response.text();
         alert(result)
+        window.location.href = "../pages/jobFair-usr.html"
     } catch (err) {
         console.log("Error uploading data:", err)
     }
