@@ -1,0 +1,393 @@
+@import url('https://fonts.googleapis.com/css2?family=Pathway+Extreme:ital,opsz,wght@0,8..144,100..900;1,8..144,100..900&display=swap');
+
+*,
+*::before,
+*::after {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    transition: all 0.3s ease-in-out;
+}
+
+:root {
+    --bg-color1: #6610A6;
+    --bg-color2: #FFFFFF;
+    --font-color: #f2f2f2;
+}
+
+
+header, .Container {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: "Pathway Extreme", sans-serif;
+    overflow-x: hidden;
+    margin-bottom: 50px;
+}
+
+body::-webkit-scrollbar {
+    display: none;
+}
+
+header {
+    display: flex;
+}
+
+nav {
+    display: grid;
+    width: 100%;
+    height: 50px;
+    background: linear-gradient(to right, var(--bg-color2), var(--bg-color1));
+    grid-template-columns: 0.1rem 1fr 3fr;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.header img {
+    margin-left: 30px;
+    margin-top: 5px;
+    height: 35px;
+}
+
+.welcome-section {
+  position: relative;
+  text-align: center;
+  width: 100%;
+}
+
+.image-container {
+  position: relative;
+  width: 100%;
+}
+
+.welcome-section {
+  position: relative;
+  text-align: center;
+  width: 100%;
+}
+
+.image-container {
+  position: relative;
+  width: 100%;
+  height: 40vh; 
+  overflow: hidden;
+}
+
+.welcome-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: blur(2.5px);
+  -webkit-filter: blur(2.5px);
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.welcome-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  text-align: center;
+  width: 100%;
+  padding: 0 10px;
+}
+
+.welcome-text h1,
+.welcome-text h2,
+.welcome-text p {
+  margin: 0;
+  padding: 0;
+}
+
+.welcome-text h1 {
+  font-size: 2.083vw; 
+  font-family: "Pathway Extreme", serif;
+  font-weight: 600;
+}
+
+.welcome-text h2 {
+  font-size: 4.792vw;
+  font-family: "Pathway Extreme", serif;
+  font-weight: bold;
+}
+
+.welcome-text p {
+  font-size: 1.26vw; 
+  font-family: "Pathway Extreme", serif;
+  font-weight: 600;
+}
+
+.navigation-tabs {
+  width: 100%;
+  background-color: #6a0dad;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.nav-menu {
+  display: flex;
+  justify-content: center;
+  width: 100%; 
+}
+
+.tab-button {
+  flex: 1; 
+  padding: 14.3px;
+  cursor: pointer;
+  background-color: #9e4bdc; 
+  color: white;
+  border: none;
+  font-size: 0.937vw;
+  font-family: "Pathway Extreme", serif;
+  font-weight: 600;
+  text-align: center;
+  transition: background-color 0.3s;
+}
+
+.tab-button:hover {
+  background-color: #8751c7;
+}
+
+.tab-content {
+  width: 100%;
+  padding: 20px;
+  background-color: #f9f9f9;
+  text-align: center;
+  display: none; 
+}
+
+.nu-card {
+    position: relative;
+    display: flex;
+    align-items: center;
+    background-color: white;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    overflow: hidden;
+    max-width: 2000px;
+    margin: 30px;
+    padding: 30px;
+}
+
+.nu-image { 
+    flex: 2;
+    height: 100%;
+}
+
+.nu-image img {
+    position: absolute;
+    left: 60px;
+    top: 120px;
+    width: 40%;
+    height: 250px;
+    object-fit:cover;
+}
+
+.nu-content-1 {
+    flex: 2;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.nu-content-1 h1 {
+    font-size: 3rem;
+    font-weight: bold;
+    color: black;
+    margin-bottom: 0.5rem;
+}
+
+.nu-content-1 h2 {
+    font-size: 1.25rem;
+    font-weight: normal;
+    color: gray;
+    margin-bottom: 0.75rem;
+}
+
+.nu-meta {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.9rem;
+    color: #908989;
+    margin-bottom: 1rem;
+}
+
+.nu-description {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 1.5rem;
+    line-height: 1.5;
+}
+
+.nu-button {
+    padding: 5px 40px; 
+    font-size: 0.8em; 
+    font-family: 'Pathway Extreme', sans-serif;
+    font-weight: 500;
+    background-color: #A101A2; 
+    color: white; 
+    border: none; 
+    border-radius: 10px; 
+    cursor: pointer; 
+}
+
+
+.nu-button:hover, .register-button:hover {
+    background-color: #8d0182;
+}
+
+/* Initially hide the content */
+.more-content {
+    display: none;
+  }
+  
+  /* When the content is revealed, show it */ 
+  .more-content.show {
+    display: block;
+  }
+  
+  /* Button group styling (optional) */
+  .button-group.moved {
+    margin-top: 10px; /* You can adjust this based on your design */
+  }
+  
+
+.Container {
+    background-image: url("../Assets/BACKGROUND/Brgy.\ Sta\ Lucia.png");
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat; 
+    height: 100vh; 
+    width: 100%;
+    position: absolute;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+
+.button-group {
+    display: flex;
+    gap: 10px; 
+    justify-content: center; 
+    align-items: center; 
+
+}
+
+
+.nu-button {
+    flex: 1; 
+    max-width: 150px; 
+}
+
+/* Styles for Event Card 1 */
+#nuCard1 {
+    background-color: #f8f9fa; /* Example background color */
+
+}
+
+
+/* Styles for Event Card 2 */
+#nuCard2 {
+    background-color: #f8f9fa;
+  
+}
+
+
+
+/* Styles for Event Card 3 */
+#nuCard3 {
+    background-color: #f8f9fa;
+  
+}
+
+
+
+
+.footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 20px;
+    background-color: #6610A6;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
+    z-index: 10;
+  }
+  
+  .credit {
+    font-size: 0.7rem;
+    color: var(--font-color);
+    display: flex; 
+    align-items: center; 
+    gap: 4px; 
+    text-decoration: none; 
+    margin-right: 1vw;
+    white-space: nowrap;
+  }
+  
+  .credit i {
+    font-size: 0.5rem;
+  }
+  
+  .credit span {
+    font-size: 0.6rem; 
+  }
+  
+  .footer-content {
+    width: 90%;
+    height: 20px;
+    max-width: 1200px;
+    margin: 0 20px;
+    display: flex;
+    justify-content: flex-end;
+  }
+  
+  .social-icons {
+    display: flex;
+    gap: 15px;
+  }
+  
+  .footer-icon img {
+    width: 12px;
+    height: 12px;
+    object-fit: contain;
+    transition: transform 0.3s;
+  }
+  
+  .footer-icon:hover img {
+    transform: scale(1.2);
+  }
+
+@media (max-width: 768px) {
+    .nu-card {
+        flex-direction: column;
+    }
+
+    .nu-image {
+        width: 100%;
+        height: auto;
+    }
+
+    .nu-content-1 {
+        text-align: center;
+    }
+
+    .nu-button {
+        align-self: center;
+    }
+
+    .tab-button {
+        font-size: 0.9em;
+        padding: 10px;
+    }
+}
+

@@ -248,116 +248,102 @@ nav {
   font-weight: 400;
 }
 
-.job-op {
-  position: relative;
-  height: auto;
-  width: 60%;
-  background-color: #f2f2f2;
-  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
-  margin: 10px;
-  padding-top: 20px 0 0 0;
-  z-index: 10;
-  overflow: hidden;
+.nu-card {
+    position: relative;
+    display: flex;
+    align-items: center;
+    background-color: white;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    overflow: hidden;
+    max-width: 2000px;
+    margin: 30px;
+    padding: 30px;
 }
 
-.job-op h1 {
-  font-size: 2.5em;
-  font-weight: 400;
-  color: #444444;
-  text-align: center;
-  margin-top: 10px;
+.nu-image {
+    position: relative;
+    flex: 2;
+    height: 70vh;
+    width: 100%;
 }
 
-.job-op i {
-  position: absolute;
-  top: 25px;
-  right: 20px;
+.nu-image img {
+    width: 100%;
+    height: 100%;
+    object-fit:cover;
 }
 
-.job-op i:hover {
-  color: #A101A2;
-  cursor: pointer;
+.nu-content-1 {
+    flex: 2;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
-.job-op hr {
-  width: 90%;
-  margin: auto;
+.nu-content-1 h1 {
+    font-size: 3rem;
+    font-weight: bold;
+    color: black;
+    margin-bottom: 0.5rem;
 }
 
-.job-op-content {
-  height: auto;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  padding: 50px;
+.nu-content-1 h2 {
+    font-size: 1.25rem;
+    font-weight: normal;
+    color: gray;
+    margin-bottom: 0.75rem;
 }
 
-.job-op-details {
-  background-color:#DEDEDE;
-  padding: 30px;
-  height: 100%;
-  width: 50%;
-  border-radius: 10px;
-  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: start;
-  gap: 15px;
+.nu-meta {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.9rem;
+    color: #908989;
+    margin-bottom: 1rem;
 }
 
-.label {
-  color: #908989;
+.nu-description {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 1.5rem;
+    line-height: 1.5;
 }
 
-.job-op-details hr {
-  width: 100%;
-  margin: auto;
+.nu-button {
+    align-self: flex-start;
+    padding: 10px 20px;
+    font-size: 1rem;
+    color: #f2f2f2;
+    background-color: #A101A2;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease;
+    margin: 1 auto; 
 }
 
-.job-op-description {
-  margin-left: 20px;
-  margin-bottom: 50px;
-  width: 50%;
+
+.nu-button:hover, .register-button:hover {
+    background-color: #8d0182;
 }
 
-.description-title {
-  color: #908989;
-}
-
-.main-description {
-  text-align: justify;
-}
-
-.description-buttons {
-  position: relative;
-  top: 50px;
-  left: 20px;
-  display: flex;
-  justify-content: space-around;
-  gap: 10px;
-  transition: height 0.5s ease;
-}
-
-.description-buttons button {
-  border-radius: 50px;
-  border: none;
-  height: 25px;
-  width: 170px;
-  padding: 0 10px 0 10px;
-  font-family: 'Pathway Extreme', sans-serif;
-  font-weight: 500;
-  font-size: 0.7em;
-  color: #f2f2f2;
-  background-color: #A101A2;
-  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
-}
-
-.description-buttons button:hover {
-  background-color: #6a0dad;
-  cursor: pointer;
-}
+/* Initially hide the content */
+.more-content {
+    display: none;
+  }
+  
+  /* When the content is revealed, show it */ 
+  .more-content.show {
+    display: inline;
+  }
+  
+  /* Button group styling (optional) */
+  .button-group.moved {
+    margin-top: 10px; /* You can adjust this based on your design */
+  }
 
 .footer {
   position: fixed;

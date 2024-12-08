@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home - Admin</title>
-    <link rel = "stylesheet" href = "../css/admin-homepage.css">
+    <title>Dashboard</title>
+    <link rel = "stylesheet" href = "../css/guest-dashboard.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
@@ -29,33 +29,24 @@
 </section>
 
 <section class="navigation-tabs">
-    <div class="nav-menu">
-        <button class="tab-button active" onclick= "window.location.href = 'admin-homepage.html'">Home</button>
-        <button class="tab-button" onclick= "window.location.href = 'admin-event.html'">Events</button>
-        <button class="tab-button" onclick= "window.location.href = 'admin-news&updates.html'">News & Updates</button>
-        <button class="tab-button" onclick= "window.location.href = 'admin-scholarships.html'">Scholarships</button>
-        <button class="tab-button" onclick= "window.location.href = 'admin-jobfairs.html'">Job Fairs</button>
-        <button class="tab-button" onclick= "window.location.href = 'dashboardAdm.html'">Dashboard</button>
+    <div class = "nav-menu">
+        <button class = "tab-button active" onclick = "window.location.href='guest-dashboard.html'">Home</button>
+        <button class="tab-button" onclick="window.location.href = 'Events-guest.html'">Events</button>
+        <button class="tab-button" onclick="window.location.href = 'news&updates.html'">News & Updates</button>
+        <button class="tab-button" onclick="window.location.href = 'scholarships.html'">Scholarships</button>
+        <button class="tab-button" onclick="window.location.href = 'jobFair-usr.html'">Job Fairs</button>
+        <button class="tab-button" onclick="window.location.href = 'user-kkprofile.html'">KK Profiling</button>
     </div>
 </section>
 <main class = "main-content">
     <img src = "../Assets/BACKGROUND/Brgy. Sta Lucia.png" alt = "background-image" class = "background-image">
     <div class="about-skcouncil">
         <img src="../Assets/ADMIN/No image.png" class="no-image" id="noImage">
-        <div class="hover-text" id="hoverText">
-            <img src="../Assets/ADMIN/upload photo (upcoming events).png">
-            <h4>Change Photo</h4>
-            <p>Please choose a photo to upload. <br>Supported formats: JPG and PNG. <br>Maximum size: 5MB.</p>
-            <input type="file" id="photoUpload" class="file-input" accept="image/*" style="display: none;">
-        </div>
         <div class="about-header">
-            <h1 id="headerText" contenteditable="false">SANTA LUCIA SK COUNCIL</h1>
-            <i class="fas fa-edit" id="editIcon"></i>
+            <h1 id="headerText">SANTA LUCIA SK COUNCIL</h1>
         </div>
         <div class="about-intro">
-            <i class="fas fa-edit" id="editParagraphIcon"></i>
-            <button id="resetButton">Reset</button>
-            <p class="about-paragraph" id="aboutParagraph" contenteditable="false">
+            <p class="about-paragraph" id="aboutParagraph">
                 Brgy. Sta. Lucia SK Council: Your Youth, Your Voice, Your Future<br>
                 The Sangguniang Kabataan (SK) Council of Barangay Sta. Lucia is dedicated to empowering the youth and serving the community. We are committed to addressing the concerns and aspirations of the youth, and to working towards a brighter future for our barangay.<br>
                 <br>
@@ -178,6 +169,7 @@
         </p>
     </div>
 </section>
+
 <footer class="footer">
     <a class="credit">
         <i class="fa-regular fa-copyright"></i>
@@ -198,9 +190,6 @@
     </div>
 </footer>
 
-    <!-- JavaScript -->
-    <script src="../js-frntend/admin-homepage.js"></script>
-</body>
-</html>
+    
 </body>
 </html>

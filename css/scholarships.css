@@ -6,6 +6,7 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    transition: all 0.3s ease-in-out;
 }
 
 :root {
@@ -491,10 +492,6 @@ nav {
 
 .footer-icon:hover img {
   transform: scale(1.2);
-}
-
-body {
-  margin-bottom: 50px; 
 }
 
 @media (max-width: 768px) {
