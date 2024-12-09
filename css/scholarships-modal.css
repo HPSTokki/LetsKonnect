@@ -4,12 +4,6 @@ body {
   font-family: "Pathway Extreme", serif;
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Pathway+Extreme:ital,opsz,wght@0,8..144,100..900;1,8..144,100..900&display=swap');
-
-body {
-  font-family: "Pathway Extreme", serif;
-}
-
 /* The Modal (background) */
 #myModal {
   display: none; /* Hidden by default */
@@ -27,30 +21,14 @@ body {
 .modal-content {
   background-color: #fff;
   margin-left: 350px;
-  margin-top: 200px;
+  margin-top: 55px;
   padding: 20px;
   border: 1px solid #888;
   height: 80%;
   width: 50%;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  opacity: 0; /* Initially invisible */
-  transform: translateY(-30px); /* Start from above */
-  animation: fadeIn 0.5s ease forwards; /* Apply animation */
 }
-
-/* Keyframes for Fade-In */
-@keyframes fadeIn {
-  0% {
-    opacity: 0;
-    transform: translateY(-30px); /* Start from above */
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0); /* End in the final position */
-  }
-}
-
 
 .modal-title {
   height: 10%;
@@ -82,7 +60,7 @@ body {
 
 .modal-dataprivacy img {
   height: 25%;
-  width: 32%;
+  width: 35%;
   object-fit: cover;
   margin-top: 20px;
 }

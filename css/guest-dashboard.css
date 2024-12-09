@@ -352,7 +352,7 @@ nav {
     position: relative;
     left: 0px;
     height: 100%;
-    width: 50%;
+    width: 45%;
     background-color: white;
 }
 
@@ -361,6 +361,11 @@ nav {
     height: 100%;
     width: 100%;
     border: solid 5px #6a0dad;
+    transform: transform 0.3s ease-in-out;
+}
+
+.sk-image-container img:hover {
+    transform: scale(1.1);
 }
 
 
@@ -442,7 +447,13 @@ nav {
     box-shadow:rgba(0, 0, 0, 0.2) 5px 5px 10px;
     font-family: 'Pathway Extreme', sans-serif;
     font-weight: bold;
-    color: #0C3262;
+    color: #333;
+    transition: background-color 0.3s;
+}
+
+.social-links-container button:hover {
+    background-color: #9e4bdc;
+    color: white;
 }
 
 .about-this-website {

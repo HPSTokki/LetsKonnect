@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Scholarships</title>
     <link rel = "stylesheet" href = "../css/scholarships.css">
+    <link rel="stylesheet" href="../css/scholarships-modal.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
@@ -90,8 +91,45 @@
                     </div>
                     <div class = "buttons" id = "button-1">
                         <button onclick = "toggleMoreContent()">See More...</button>
-                        <button>Apply Now</button>
+                        <button id = "applyNow">Apply Now</button>
                     </div>  
+                </div>
+            </div>
+            <div id="myModal" class="modal" style="display: none;">
+                <div class="modal-content">
+                    <div class = "modal-title">
+                        <h3>Register</h3>
+                    </div>
+                    <div class = "modal-info">
+                        <div class = "modal-dataprivacy">
+                            <h3>Data Privacy Consent</h3>
+                            <img src = "../Assets/GUEST/secure-data.png">
+                            <p>
+                                In compliance with the Data Privacy Act of 2012 (RA 10173), we value and respect your privacy. By submitting your information, 
+                                you agree to the collection, processing, and storage of your personal data for the purpose of event registration.
+                                Your personal information will only be used as necessary and will not be shared with third parties without your explicit consent, 
+                                unless required by law. You have the right to access, update, or withdraw your consent at any time by contacting Brgy. Sta. Lucia.
+                                <br>
+                                <br>
+                                By checking the box below, you confirm that you have read, understood, and agreed to this Data Privacy Consent.
+                            </p>
+                            <label for = "dataPrivacy">I agree to the Data Privacy Consent</label>
+                            <input type = "checkbox" id = "dataPrivacy">
+                        </div>
+                        <div class = "modal-fields">
+                           <form>
+                                <label for = "name">Full Name</label>
+                                <input type = "text" id = "name" placeholder = "Enter your full name">
+                                <label for = "email">Email Address</label>
+                                <input type = "email" id = "email" placeholder = "Enter your email address">
+                                <label for = "contact">Contact Number</label>
+                                <input type = "text" id = "contact" placeholder = "Enter your contact number">
+                                <label for = "address">Address</label>
+                                <input type = "text" id = "address" placeholder = "Enter your address">
+                                <button id = "registerButton">Register</button>
+                           </form>
+                        </div>
+                    </div>
                 </div>
             </div>
         <footer class = "footer">
@@ -99,16 +137,16 @@
                 <i class="fa-regular fa-copyright"></i>
                 <span>2024 Let'SKonnect</span>
             </a>
-            <div class = "footer-content">
-                <div class = "social-icons">
-                    <a href = "#" class = "footer-icon">
-                        <img src = "../Assets/GUEST/telephone right side small footer.png" alt = "Phone Icon">
+            <div class="footer-content">
+                <div class="social-icons">
+                    <a href="tel:+639084112492" class="footer-icon">
+                        <img src="../Assets/GUEST/telephone right side small footer.png" alt="Phone Icon">
                     </a>
-                    <a href = "https://facebook.com" target="_blank" class="footer-icon">
-                        <img src = "../Assets/GUEST/facebook right side small footer.png" alt = "Facebook Icon">
+                    <a href="https://www.facebook.com/SKStaLuciaQC" target="_blank" class="footer-icon">
+                        <img src="../Assets/GUEST/facebook right side small footer.png" alt="Facebook Icon">
                     </a>
-                    <a href = "#" class = "footer-icon">
-                        <img src = "../Assets/GUEST/Email (Small Footer).png" alt = "Email Icon">
+                    <a href="mailto:SKStaLuciaQC@gmail.com" class="footer-icon">
+                        <img src="../Assets/GUEST/Email (Small Footer).png" alt="Email Icon">
                     </a>
                 </div>
             </div>
