@@ -15,6 +15,7 @@ const bcrypt = require('bcrypt')
 const mailer = require('nodemailer')
 const crypto = require('crypto')
 const { error } = require('console')
+const { constants } = require('buffer')
 
 
 
@@ -585,6 +586,60 @@ app.get('/get-participants', (req, res)=>{
 
 
 })
+
+// Users
+
+app.delete('/end/users', (req, res) => {
+    const email = req.query.email;
+
+    if (!email) {
+        return res.status(400).send('Email is required');
+    }
+
+    const query = `
+        DELETE FROM tbl_usersacc
+        WHERE emailAddress = ?
+    `;
+
+    db.query(query, [email], (err, results) => {
+        if (err) {
+            console.error("Error deleting user: ", err);
+            return res.status(500).send(err);
+        }
+
+        if (results.affectedRows === 0) {
+            return res.status(404).send('User not found');
+        }
+
+        res.status(200).send('User deleted successfully');
+    });
+});
+
+// API endpoint to get user data with optional search
+app.get('/end/users', (req, res) => {
+    const searchQuery = req.query.search || '';
+    const query = `
+        SELECT 
+            u.userAcc_ID AS id, 
+            CONCAT(p.givenName, ' ', p.middleName, ' ', p.lastName) AS name, 
+            u.emailAddress AS email, 
+            u.age 
+        FROM 
+            tbl_usersacc u 
+        JOIN 
+            kk_personalinfo p ON u.userAcc_ID = p.userAcc_ID
+        WHERE 
+            CONCAT(p.givenName, ' ', p.middleName, ' ', p.lastName) LIKE ? OR 
+            u.emailAddress LIKE ?
+    `;
+    
+    const values = [`%${searchQuery}%`, `%${searchQuery}%`];
+
+    db.query(query, values, (err, results) => {
+        if (err) return res.status(500).send(err);
+        res.json(results);
+    });
+});
 
 // Event Posts Endpoints Here
 

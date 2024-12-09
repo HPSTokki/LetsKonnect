@@ -1,3 +1,5 @@
+
+
 fetch("http://localhost:6001/chart-api")
   .then((response) => response.json())
   .then((data) => {
@@ -55,21 +57,24 @@ document.addEventListener("DOMContentLoaded", (e) => {
       return response.json();
     })
     .then((data) => {
-      const totalreg = document.getElementById("group-total-reg");
-      totalreg.textContent = data.total
-        
+      const totalReg = document.getElementById("group-total-reg")
+      totalReg.textContent = ''
+      console.log(totalReg.textContent)
+      totalReg.textContent = data.total
+      console.log(document.getElementById('group-total-reg').textContent)
+
       const monthlyCounts = data.monthly
-        .map((registrant) => `${registrant.count}`)
-        .join(", ");
-      document.getElementById("curr-reg").textContent = monthlyCounts;
-      document.getElementById("curr-month").textContent =
-        "Registrants as of: " + getMonth();
+      .map((registrant) => `${registrant.count}`)
+      .join(', ')
+      console.log(monthlyCounts)
+      document.getElementById('curr-reg').textContent = monthlyCounts
+      document.getElementById('curr-month').innerHTML = "Registrants as of: " + getMonth()      
     })
     .catch(error => {
       console.error("Error Fetching Data: ", error);
       document.getElementById("group-total-reg").textContent =
         "Error loading data";
-      document.getElementById("current-reg").textContent = "Error loading data";
+      document.getElementById("curr-reg").textContent = "Error loading data";
       document.getElementById("curr-month").textContent = "Error loading data";
     });
 });
@@ -79,3 +84,7 @@ function getMonth() {
   const option = { month: "long" };
   return date.toLocaleString("default", option);
 }
+
+
+console.log(document.getElementById('curr-reg'))
+console.log(document.getElementById('curr-month'))

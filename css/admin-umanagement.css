@@ -72,6 +72,10 @@ nav {
   overflow: hidden;
 }
 
+.highlight {
+  background-color: yellow;
+}
+
 .welcome-image {
   width: 100%;
   height: 100%;
