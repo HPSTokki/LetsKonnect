@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback</title>
+    <link rel = "stylesheet" href = "../css/feedback.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="header">
+                <img src= "../Assets/LET'SKONNECT.png" alt="Let'sKonnect Logo">
+            </div>
+        </nav>
+    </header>
+
+<section class="welcome-section">
+    <div class="image-container">
+        <img src="../Assets/BACKGROUND/Sangguniang Kabataan.png" alt="Welcome Image" class="welcome-image">
+        <div class="welcome-text">
+            <h1>WELCOME TO</h1>
+            <h2>LET'SKONNECT</h2>
+            <p>KASAMA KA SA AKSYON, KASAMA KA SA SOLUSYON</p>
+        </div>
+    </div>
+</section>
+<section class="navigation-tabs">
+    <div class="nav-menu">
+        <h1>FEEDBACK</h1>
+    </div>
+</section>
+<section class = "main-content">
+    <img src = "../Assets/BACKGROUND/Brgy. Sta Lucia.png">
+    <div class = "feedback-box">
+        <form>
+            <div class = "feedback-item" id = "categorySelection">
+                <label for = "category"><span>CATEGORY</span></label>
+                <select name = "category-options">
+                    <option value = "For Education">For Education</option>
+                    <option value = "For High School Graduate">For High School Graduate</option>
+                    <option value = "For College Graduate">For College Graduate</option>
+                    <option value = "For Undergraduate">For Undergraduate</option>
+                    <option value = "For Solo Parent">For Solo Parent</option>
+                    <option value = "For Person with Disability">For Person with Disability</option>
+                    <option value = "For LGBTQIA+ Individual">For LGBTQIA+ Individual</option>
+                    <option value = "For Indigenous People">For Indigenous People</option>
+                    <option value = "For Employed Individual">For Employed Individual</option>
+                </select>
+            </div>
+            <div class = "feedback-item">
+                <label for = "question">Was your participation during this opportunity was helpful?</label><br>
+                <input type = "radio" name = "participation" value = "Yes">&nbsp;&nbsp;Yes<br>
+                <input type = "radio" name = "participation" value = "No">&nbsp;&nbsp;No
+            </div>
+            <div class = "feedback-item">
+                <label for = "question">Do you feel that your recently involvement activity has a room for further improvement?</label><br>
+                <input type = "radio" name = "participation" value = "Yes">&nbsp;&nbsp;Yes<br>
+                <input type = "radio" name = "participation" value = "No">&nbsp;&nbsp;No
+            </div>
+        </form>
+        <div class = "submit-button-container">
+            <button id = "submitBtn">Submit</button>
+        </div>
+    </div>
+</section>
+<div class="modal-backdrop" id="modalBackdrop">
+    <div class="modal">
+        <i class="fa-regular fa-circle-check"></i>
+        <span>
+            <h3>Sent Successfully!</h3>
+            <p>Your feedback has been submitted.</p>
+        </span>
+        <div class="button-container">
+            <button class="button" id="goToHomeBtn" onclick = "windows.location.href='LinkToDashboardGoesHere';">Go to Home</button>
+            <button class="button" id="okayBtn">Okay</button>
+        </div>
+    </div>
+</div>    
+<footer class="footer">
+    <a class="credit">
+        <i class="fa-regular fa-copyright"></i>
+        <span>2024 Let'SKonnect</span>
+    </a>
+    <div class="footer-content">
+        <div class="social-icons">
+            <a href="#" class="footer-icon">
+                <img src="../Assets/GUEST/telephone right side small footer.png" alt="Phone Icon">
+            </a>
+            <a href="https://facebook.com" target="_blank" class="footer-icon">
+                <img src="../Assets/GUEST/facebook right side small footer.png" alt="Facebook Icon">
+            </a>
+            <a href="#" class="footer-icon">
+                <img src="../Assets/GUEST/Email (Small Footer).png" alt="Email Icon">
+            </a>
+        </div>
+    </div>
+</footer>
+<script src = "../js-frntend/feedback.js"></script>
+</body>
+</html>
