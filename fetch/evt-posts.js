@@ -73,9 +73,7 @@ function displayPosts(posts) {
             <div class="job-op-description">
                 <p class="description-title">Description</p>
                 <p class="main-description">${post.description}</p>
-                <div class="description-buttons">
-                    <button>Send Feedback Form</button>
-                </div>
+                
             </div>
         </div>
         <div class="more-content">
