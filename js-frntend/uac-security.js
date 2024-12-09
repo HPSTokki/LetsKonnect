@@ -1,3 +1,21 @@
+document.addEventListener("DOMContentLoaded", () => {
+    const tabs = {
+      "admin-homepage.html": "home",
+      "admin-event.html": "events",
+      "admin-news&updates.html": "news",
+      "admin-scholarships.html": "scholarships",
+      "admin-jobfairs.html": "jobfairs",
+      "dashboardAdm.html": "dashboard",
+    };
+  
+    const currentPage = window.location.pathname.split("uac-security.html").pop();
+    const activeTabId = tabs[currentPage];
+  
+    if (activeTabId) {
+      document.getElementById(activeTabId).classList.add("active");
+    }
+  });
+
 function showForgotPasswordModal(event) {
     event.preventDefault();
     const modal = document.getElementById('forgot-password-modal');

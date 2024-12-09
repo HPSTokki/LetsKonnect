@@ -1,59 +1,74 @@
+document.addEventListener("DOMContentLoaded", () => {
+  const tabs = {
+    "admin-homepage.html": "home",
+    "admin-event.html": "events",
+    "admin-news&updates.html": "news",
+    "admin-scholarships.html": "scholarships",
+    "admin-jobfairs.html": "jobfairs",
+    "dashboardAdm.html": "dashboard",
+  };
+
+  const currentPage = window.location.pathname.split("admin-homepage.html").pop();
+  const activeTabId = tabs[currentPage];
+
+  if (activeTabId) {
+    document.getElementById(activeTabId).classList.add("active");
+  }
+});
+
 //For hovering the image//
 
-const image = document.querySelector('.no-image');
-const hoverText = document.querySelector('.hover-text');
-
+const image = document.querySelector(".no-image");
+const hoverText = document.querySelector(".hover-text");
 
 function applyEffects() {
-    image.style.filter = 'blur(5px) brightness(50%)';
-    hoverText.style.opacity = '1';  
+  image.style.filter = "blur(5px) brightness(50%)";
+  hoverText.style.opacity = "1";
 }
 
 function removeEffects() {
-    image.style.filter = 'none';  
-    hoverText.style.opacity = '0';  
+  image.style.filter = "none";
+  hoverText.style.opacity = "0";
 }
 
+image.addEventListener("mouseenter", applyEffects);
+hoverText.addEventListener("mouseenter", applyEffects);
 
-image.addEventListener('mouseenter', applyEffects);
-hoverText.addEventListener('mouseenter', applyEffects);
-
-
-image.addEventListener('mouseleave', removeEffects);
-hoverText.addEventListener('mouseleave', removeEffects);
+image.addEventListener("mouseleave", removeEffects);
+hoverText.addEventListener("mouseleave", removeEffects);
 
 //File Input//
-const photoUpload = document.getElementById('photoUpload');
-const noImage = document.getElementById('noImage');
-const uploadIcon = document.querySelector('.hover-text img');
+const photoUpload = document.getElementById("photoUpload");
+const noImage = document.getElementById("noImage");
+const uploadIcon = document.querySelector(".hover-text img");
 
-if (localStorage.getItem('uploadedImage')) {
-    noImage.src = localStorage.getItem('uploadedImage');
+if (localStorage.getItem("uploadedImage")) {
+  noImage.src = localStorage.getItem("uploadedImage");
 }
 
-uploadIcon.addEventListener('click', () => {
-    photoUpload.click();
+uploadIcon.addEventListener("click", () => {
+  photoUpload.click();
 });
 
-photoUpload.addEventListener('change', (event) => {
-    const file = event.target.files[0];
-    if (file) {
-        const reader = new FileReader();
+photoUpload.addEventListener("change", (event) => {
+  const file = event.target.files[0];
+  if (file) {
+    const reader = new FileReader();
 
-        reader.onload = function(e) {
-            noImage.src = e.target.result;
-            localStorage.setItem('uploadedImage', e.target.result);
-        };
+    reader.onload = function (e) {
+      noImage.src = e.target.result;
+      localStorage.setItem("uploadedImage", e.target.result);
+    };
 
-        reader.readAsDataURL(file);
-    }
+    reader.readAsDataURL(file);
+  }
 });
 
-const headerText = document.getElementById('headerText');
-const editIcon = document.getElementById('editIcon');
-const resetButton = document.getElementById('resetButton');
-const aboutParagraph = document.getElementById('aboutParagraph');
-const editParagraphIcon = document.getElementById('editParagraphIcon');
+const headerText = document.getElementById("headerText");
+const editIcon = document.getElementById("editIcon");
+const resetButton = document.getElementById("resetButton");
+const aboutParagraph = document.getElementById("aboutParagraph");
+const editParagraphIcon = document.getElementById("editParagraphIcon");
 
 const originalHeaderText = "SANTA LUCIA SK COUNCIL";
 const originalParagraphText = `
@@ -67,75 +82,69 @@ const originalParagraphText = `
     A thriving and empowered youth, actively contributing to the development of our community.<br>
 `;
 
-if (localStorage.getItem('headerText')) {
-    headerText.textContent = localStorage.getItem('headerText');
+if (localStorage.getItem("headerText")) {
+  headerText.textContent = localStorage.getItem("headerText");
 }
 
-if (localStorage.getItem('aboutParagraph')) {
-    aboutParagraph.innerHTML = localStorage.getItem('aboutParagraph');
+if (localStorage.getItem("aboutParagraph")) {
+  aboutParagraph.innerHTML = localStorage.getItem("aboutParagraph");
 }
 
-editIcon.addEventListener('click', () => {
-    if (headerText.contentEditable === 'false') {
-        headerText.contentEditable = 'true';
-        headerText.classList.add('editing');
-        headerText.focus();
-        editIcon.classList.add('editing-icon');
-    } else {
-        headerText.contentEditable = 'false';
-        headerText.classList.remove('editing');
-        const newText = headerText.textContent.trim();
-        localStorage.setItem('headerText', newText);
-    }
+editIcon.addEventListener("click", () => {
+  if (headerText.contentEditable === "false") {
+    headerText.contentEditable = "true";
+    headerText.classList.add("editing");
+    headerText.focus();
+    editIcon.classList.add("editing-icon");
+  } else {
+    headerText.contentEditable = "false";
+    headerText.classList.remove("editing");
+    const newText = headerText.textContent.trim();
+    localStorage.setItem("headerText", newText);
+  }
 });
 
-headerText.addEventListener('keydown', (event) => {
-    if (event.key === 'Enter') {
-        event.preventDefault();
-        headerText.contentEditable = 'false';
-        headerText.classList.remove('editing');
-        const newText = headerText.textContent.trim();
-        localStorage.setItem('headerText', newText);
-    }
+headerText.addEventListener("keydown", (event) => {
+  if (event.key === "Enter") {
+    event.preventDefault();
+    headerText.contentEditable = "false";
+    headerText.classList.remove("editing");
+    const newText = headerText.textContent.trim();
+    localStorage.setItem("headerText", newText);
+  }
 });
 
-editParagraphIcon.addEventListener('click', () => {
-    if (aboutParagraph.contentEditable === 'false') {
-        aboutParagraph.contentEditable = 'true';
-        aboutParagraph.classList.add('editing');
-        aboutParagraph.focus();
-    } else {
-        aboutParagraph.contentEditable = 'false';
-        aboutParagraph.classList.remove('editing');
-        const newText = aboutParagraph.innerHTML.trim();
-        localStorage.setItem('aboutParagraph', newText);
-    }
+editParagraphIcon.addEventListener("click", () => {
+  if (aboutParagraph.contentEditable === "false") {
+    aboutParagraph.contentEditable = "true";
+    aboutParagraph.classList.add("editing");
+    aboutParagraph.focus();
+  } else {
+    aboutParagraph.contentEditable = "false";
+    aboutParagraph.classList.remove("editing");
+    const newText = aboutParagraph.innerHTML.trim();
+    localStorage.setItem("aboutParagraph", newText);
+  }
 });
 
-aboutParagraph.addEventListener('keydown', (event) => {
-    if (event.key === 'Enter') {
-        event.preventDefault();
-        aboutParagraph.contentEditable = 'false';
-        aboutParagraph.classList.remove('editing');
-        const newText = aboutParagraph.innerHTML.trim();
-        localStorage.setItem('aboutParagraph', newText);
-    }
+aboutParagraph.addEventListener("keydown", (event) => {
+  if (event.key === "Enter") {
+    event.preventDefault();
+    aboutParagraph.contentEditable = "false";
+    aboutParagraph.classList.remove("editing");
+    const newText = aboutParagraph.innerHTML.trim();
+    localStorage.setItem("aboutParagraph", newText);
+  }
 });
 
-resetButton.addEventListener('click', () => {
-    headerText.textContent = originalHeaderText;
-    aboutParagraph.innerHTML = originalParagraphText;
-    localStorage.removeItem('headerText');
-    localStorage.removeItem('aboutParagraph');
-    headerText.contentEditable = 'false';
-    headerText.classList.remove('editing');
-    editIcon.classList.remove('editing-icon');
-    aboutParagraph.contentEditable = 'false';
-    aboutParagraph.classList.remove('editing');
+resetButton.addEventListener("click", () => {
+  headerText.textContent = originalHeaderText;
+  aboutParagraph.innerHTML = originalParagraphText;
+  localStorage.removeItem("headerText");
+  localStorage.removeItem("aboutParagraph");
+  headerText.contentEditable = "false";
+  headerText.classList.remove("editing");
+  editIcon.classList.remove("editing-icon");
+  aboutParagraph.contentEditable = "false";
+  aboutParagraph.classList.remove("editing");
 });
-
-
-
-
-
-

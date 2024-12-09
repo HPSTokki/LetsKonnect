@@ -1,21 +1,20 @@
-function openTab(evt, tabName) {
-    const contents = document.querySelectorAll('.tab-content');
-    contents.forEach(content => content.style.display = 'none');
-
-    const buttons = document.querySelectorAll('.tab-button');
-    buttons.forEach(button => button.classList.remove('active'));
-
-    document.getElementById(tabName).style.display = 'block';
-    evt.currentTarget.classList.add('active');
-}
-
-document.addEventListener("DOMContentLoaded", function() {
-    const scholarshipsButton = document.querySelector(".tab-button[onclick=\"openTab(event, 'Scholarships')\"]");
-    openTab({ currentTarget: scholarshipsButton }, 'Scholarships');
-    scholarshipsButton.classList.add("active");
-
-    
-});
+document.addEventListener("DOMContentLoaded", () => {
+    const tabs = {
+      "admin-homepage.html": "home",
+      "admin-event.html": "events",
+      "admin-news&updates.html": "news",
+      "admin-scholarships.html": "scholarships",
+      "admin-jobfairs.html": "jobfairs",
+      "dashboardAdm.html": "dashboard",
+    };
+  
+    const currentPage = window.location.pathname.split("scholarships.html").pop();
+    const activeTabId = tabs[currentPage];
+  
+    if (activeTabId) {
+      document.getElementById(activeTabId).classList.add("active");
+    }
+  });
 
 function toggleMoreContent() {
     const moreContent = document.querySelector('.more-content');
