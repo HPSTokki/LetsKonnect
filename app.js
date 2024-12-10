@@ -100,58 +100,65 @@ app.post('/upload', (req, res)=>{
 
 // Register Endpoint
 
-app.post('/register', (req, res)=>{
-    const {email, age, password} = req.body;
-    const date = new Date()
+app.post('/register', (req, res) => {
+    const { email, age, password } = req.body;
+    const date = new Date();
 
-    if (!email || !password) {
-        return res.status(400).json({message: 'Email, Password and Age Required'})
+    if (!email || !password || !age) {
+        return res.status(400).json({ message: 'Email, Password, and Age are required' });
     }
 
-    const query = 'INSERT INTO tbl_usersacc (emailAddress, password, age, dateOfReg) VALUES (?, ?, ?, ?)'
-    db.query(query, [email, password, age, date], (err, results)=>{
+    const query = 'INSERT INTO tbl_usersacc (emailAddress, password, age, dateOfReg) VALUES (?, ?, ?, ?)';
+    db.query(query, [email, password, age, date], (err, results) => {
         if (err) {
-            console.log('Error Inserting Data:', err)
-            return res.status(500).json({message: 'Error Registering User'})
+            console.log('Error Inserting Data:', err);
+            return res.status(500).json({ message: 'Error Registering User' });
         } else {
-            res.status(201).json({message: "Registered Succesfully"})
+            const userAcc_ID = results.insertId; // Get the newly inserted user ID
+            return res.status(201).json({
+                message: 'Registered Successfully',
+                userAcc_ID, // Send the ID back to the frontend
+            });
         }
-    })
-
-})
+    });
+});
 
 // Login Endpoint
 
-app.post('/login', (req, res)=>{
-    const {email, password} = req.body;
+app.post('/login', (req, res) => {
+    const { email, password } = req.body;
 
     if (!email || !password) {
-        return res.status(400).json({ message: 'Email and Password are required'})
+        return res.status(400).json({ message: 'Email and Password are required' });
     }
 
-    const query = 'SELECT userAcc_ID, password FROM tbl_usersacc WHERE emailAddress = ?'
-    db.query(query, [email], (err, results)=>{
+    const query = 'SELECT userAcc_ID, password FROM tbl_usersacc WHERE emailAddress = ?';
+    db.query(query, [email], (err, results) => {
         if (err) {
-            console.log('Error Querying Database:',err)
-            return res.status(500).json({ message: 'Error Logging In'})
+            console.log('Error Querying Database:', err);
+            return res.status(500).json({ message: 'Error Logging In' });
         }
 
         if (results.length === 0) {
-            return res.status(401).json({message: 'User Doesn\'t Exists'})
+            return res.status(401).json({ message: "User Doesn't Exist" });
         }
 
         const user = results[0];
 
-        if (user.password != password) {
-            return res.status(401).json({ message:'Invalid Email or password'})
+        if (user.password !== password) {
+            return res.status(401).json({ message: 'Invalid Email or Password' });
         }
+
+        // Save user ID to session (optional, if needed for server-side session tracking)
         req.session.userAcc_ID = user.userAcc_ID;
-        
-        res.status(200).json({ message: 'Login Succesfully', userAcc_ID: user.userAcc_ID})
 
-    })
-
-})
+        // Respond with success and the userAcc_ID
+        return res.status(200).json({
+            message: 'Login Successfully',
+            userAcc_ID: user.userAcc_ID,
+        });
+    });
+});
 
 // Reset Password for User
 
@@ -679,12 +686,92 @@ app.get('/evt-posts', (req, res)=>{
 })
 
 
+app.post('/admin-reg', (req, res)=>{
+    const {name, username, email, password} = req.body
+    const query = "INSERT INTO tbl_kkadmin (name, userName, emailAddress, password) VALUES (?, ?, ?, ?)"
+
+    console.log({
+        'Before query': name, username, email, password
+    })
+
+    db.query(query, [name, username, email, password], (err)=>{
+        if (err) {
+            console.log('Error: ', err)
+            return res.status(400).json({Message: 'Error Inserting into Database'})
+        }
+        console.log({
+            name, username, email, password
+        })
+        return res.status(200).json({message: 'The SK Admin is Registered'})
+    })
+
+})
 
 
+app.post('/submit-feedback', (req, res) => {
+    const { category, question1, question2 } = req.body;
 
+    if (!category || !question1 || !question2) {
+        return res.status(400).json({ success: false, message: 'All fields are required.' });
+    }
 
+    // Insert the feedback into the database
+    const query = 'INSERT INTO tbl_survey (question1, question2, category) VALUES (?, ?, ?)';
+    const values = [question1, question2, category];
 
+    db.query(query, values, (err, results) => {
+        if (err) {
+            console.error('Error inserting feedback: ', err);
+            return res.status(500).json({ success: false, message: 'Error saving feedback' });
+        }
 
+        res.status(200).json({ success: true, message: 'Feedback submitted successfully!' });
+    });
+});
+
+app.get('/api/survey-data', (req, res) => {
+    const query = `
+        SELECT category, 
+               SUM(question1 = 'Yes') AS totalYesQ1,
+               SUM(question2 = 'Yes') AS totalYesQ2
+        FROM tbl_survey
+        GROUP BY category;
+    `;
+    db.query(query, (err, results) => {
+        if (err) {
+            console.error(err)
+            return res.status(500).json({message: 'Error Loading Data'})
+        }
+        res.json(results);
+        console.log(results)
+    });
+});
+
+app.get('/api/user-details/:userAcc_ID', (req, res) => {
+    const userAcc_ID = req.params.userAcc_ID;
+    const query = `
+        SELECT 
+            pi.givenName,
+            pi.middleName,
+            pi.lastName,
+            pi.suffix,
+            pi.age,
+            pi.dateOfBirth,
+            pi.sex,
+            pi2.blk_street,
+            pi2.sitio,
+            pi2.emailAddress,
+            pi2.contacts
+        FROM kk_personalinfo pi
+        INNER JOIN kk_personalinfo2 pi2 ON pi.userAcc_ID = pi2.userAcc_ID
+        WHERE pi.userAcc_ID = ?`;
+
+    db.query(query, [userAcc_ID], (err, result) => {
+        if (err) return res.status(500).send(err);
+        if (result.length === 0) return res.status(404).send({ message: 'User not found' });
+        res.send(result[0]);
+    });
+});
 
 
 

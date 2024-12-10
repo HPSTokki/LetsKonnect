@@ -312,6 +312,34 @@ body {
 
         }
 
+        .charts {
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            width: 100%;
+            max-height: max-content;
+            height: max-content;
+
+            .chart-wrap {
+
+                padding: 1rem 0;
+
+            }
+
+            .chart-wrap:nth-child(2) {
+
+                height: 90%;
+
+                canvas {
+                    width: max-content;
+                    height: max-content;
+                }
+
+
+            }
+
+        }
+
         .registrants {
             display: flex;
             // flex: 1 1 auto;
