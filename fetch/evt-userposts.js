@@ -1,27 +1,3 @@
-document.getElementById('evt-post').addEventListener('submit', function(event) {
-    event.preventDefault();
-
-    const formData = new FormData(event.target);
-
-    fetch('http://localhost:6001/create-event', {
-        method: 'POST',
-        body: formData,  // Send form data with file
-    })
-    .then(response => response.json())
-    .then(data => {
-        if (data.message === 'Event successfully created!') {
-            alert('Event created successfully');
-            loadEvents(); // Reload events
-        } else {
-            alert('Error creating event');
-        }
-    })
-    .catch(error => {
-        console.error('Error creating event:', error);
-    });
-});
-
-
 function loadEvents() {
     fetch('http://localhost:6001/get-events')  // Make a request to fetch event data from the server
         .then(response => response.json())

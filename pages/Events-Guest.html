@@ -1,229 +1,322 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Events</title>
-    <link rel="stylesheet" href="../css/Event-guest.css">
-    <link rel="stylesheet" href="../css/slideshow.css">
-    <link rel="stylesheet" href="../css/modal.css">
-    <link rel = "stylesheet" href = "../css/Event.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-</head>
-<body>
+    <link rel="stylesheet" href="../css/Event-guest.css" />
+    <link rel="stylesheet" href="../css/slideshow.css" />
+    <link rel="stylesheet" href="../css/modal.css" />
+    <link rel="stylesheet" href="../css/Event.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+  </head>
+  <body>
     <header>
-            <nav>
-                <div class = "header">
-                    <img src = "../Assets/LET'SKONNECT.png">
-                </div>
-            </nav>
-        </header>
-    
-        <section class = "welcome-section" id = "welcomeSection">
-            <div class = "image-container">
-                <img src = "../Assets/BACKGROUND/Sangguniang Kabataan.png" alt = "Welcome Image" class = "welcome-image">
-                <div class = "welcome-text">
-                    <h1>WELCOME TO</h1>
-                    <h2>LET'SKONNECT</h2>
-                    <p>KASAMA KA SA AKSYON, KASAMA KA SA SOLUSYON</p>
-                </div>
-            </div>
-        </section>
-        <section class = "navigation-tabs">
-            <div class = "nav-menu">
-                <button class = "tab-button" onclick = "window.location.href='guest-dashboard.html'">Home</button>
-                <button class="tab-button active" onclick="window.location.href = 'Events-guest.html'">Events</button>
-                <button class="tab-button" onclick="window.location.href = 'news&updates.html'">News & Updates</button>
-                <button class="tab-button" onclick="window.location.href = 'scholarships.html'">Scholarships</button>
-                <button class="tab-button" onclick="window.location.href = 'jobFair-usr.html'">Job Fairs</button>
-                <button class="tab-button" onclick="window.location.href = 'uac-profileinfo.html'">User Accounts</button>
-            </div>
-        </section>
-
-        <div class="Container">
-            <div class = "event-slideshow-container">
-        
-                <div class="eventSlides fade" onclick="changeImage(event)">
-                    <img src= "../Assets/ADMIN/mobile-legend.jpg" id = "event-images" style="width: 100%; object-fit: cover;">
-                    <div class = "Text">UPCOMING EVENTS</div>
-                </div>
-        
-                <div class="eventSlides fade"onclick="changeImage(event)">
-                    <img src= "../Assets/ADMIN/volleyball-league.jpg" id = "event-images" style="width: 100%; object-fit: cover;">
-                    <div class="hover-text" id="hoverText">
-                        <img src="../Assets/ADMIN/upload photo (upcoming events).png">
-                        <h4>Change Photo</h4>
-                        <p>Please choose a photo to upload. <br>Supported formats: JPG and PNG. <br>Maximum size: 5MB.</p>
-                        <input type="file" id="photoUpload" class="file-input" accept="image/*" style="display: none;">
-                    </div>
-                    <div class = "Text">UPCOMING EVENTS</div>
-                </div>
-        
-                <a class="prev" onclick="plusSlide(-1)">&#10094;</a>
-                <a class="next" onclick="plusSlide(1)">&#10095;</a>
-        
-            </div> 
-            <br> 
-            <div style="text-align: center;">
-                <span class="dot" onclick="currentSlide(1)"></span>
-                <span class="dot" onclick="currentSlide(2)"></span>
-            </div>  
-            
+      <nav>
+        <div class="header">
+          <img src="../Assets/LET'SKONNECT.png" />
         </div>
-        <section class = "main-content">
-            
-            <img src = "../Assets/BACKGROUND/Brgy. Sta Lucia.png">
-            
-            <h3>Published Events</h3>
-            
-            <div class = "sort-section">
-                <i class="fa-solid fa-filter"></i>
-                <h4>2024</h4>
-            </div>
-        
-            <div class = "Event">
-                <div class = "Event-content">
-                    <div class = "Event-details">
-                        <img src="../Assets/ADMIN/EventPost1.png" alt="ep1" class="event1"> 
-                    </div>
-                    <div class = "Event-description">
-                        <div class="menu">
-                            <button class="menu-button" onclick="toggleMenu()">&#x22EE;</button>
-                            <div class="options" id="optionsMenu">
-                                <a href="#" onclick="alert('Option 1 selected')">Archive</a>
-                                <a href="#" onclick="alert('Option 2 selected')">Edit</a>
-                            </div>
-                        </div>
-        
-                        <br>
-                        <span>
-                        <p class="description-title-eo">Event Organizer</p>
-        
-                        </span>
-                        <br>
-                        <p class="description-title-dnt">Date & Time</p>
-                        <br>
-                        <hr>
-                        <br>
-                        <p class = "description-title">Category</p>
-                        <h1>Title</h1>
-                        <p class = "description-title">Headline</p>
-                        <hr>
-                        <br>
-                        <p class = "description-title">Brief Description</p>
-                        <br>
-                        <p class = "main-description">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas eleifend justo feugiat magna volutpat,
-                            eu corsequat elit hendrerit consectetur adipiscing elit. Maecenas eleifend...
-                        </p>
-                        <div class = "description-buttons">
-                            <button id = "registerButton">Register</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class = "Event">
-                <div class = "Event-content">
-                    <div class = "Event-details">
-                        <img src="../Assets/ADMIN/EventPost1.png" alt="ep1" class="event1"> 
-                    </div>
-                    <div class = "Event-description">
-                        <div class="menu">
-                            <button class="menu-button" onclick="toggleMenu()">&#x22EE;</button>
-                            <div class="options" id="optionsMenu">
-                                <a href="#">Archive</a>
-                                <a href="#">Edit</a>
-                            </div>
-                        </div>
-        
-                        <br>
-                        <span>
-                        <p class="description-title-eo">Event Organizer</p>
-        
-                        </span>
-                        <br>
-                        <p class="description-title-dnt">Date & Time</p>
-                        <br>
-                        <hr>
-                        <br>
-                        <p class = "description-title">Category</p>
-                        <h1>Title</h1>
-                        <p class = "description-title">Headline</p>
-                        <hr>
-                        <br>
-                        <p class = "description-title">Brief Description</p>
-                        <br>
-                        <p class = "main-description">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas eleifend justo feugiat magna volutpat,
-                            eu corsequat elit hendrerit consectetur adipiscing elit. Maecenas eleifend...
-                        </p>
-                        <div class = "description-buttons">
-                            <button id = "registerButton">Register</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <div id="myModal" class="modal" style="display: none;">
-            <div class="modal-content">
-                <div class = "modal-title">
-                    <h3>Register</h3>
-                </div>
-                <div class = "modal-info">
-                    <div class = "modal-dataprivacy">
-                        <h3>Data Privacy Consent</h3>
-                        <img src = "../Assets/GUEST/secure-data.png">
-                        <p>
-                            In compliance with the Data Privacy Act of 2012 (RA 10173), we value and respect your privacy. By submitting your information, 
-                            you agree to the collection, processing, and storage of your personal data for the purpose of event registration.
-                            Your personal information will only be used as necessary and will not be shared with third parties without your explicit consent, 
-                            unless required by law. You have the right to access, update, or withdraw your consent at any time by contacting Brgy. Sta. Lucia.
-                            <br>
-                            <br>
-                            By checking the box below, you confirm that you have read, understood, and agreed to this Data Privacy Consent.
-                        </p>
-                        <label for = "dataPrivacy">I agree to the Data Privacy Consent</label>
-                        <input type = "checkbox" id = "dataPrivacy">
-                    </div>
-                    <div class = "modal-fields">
-                       <form>
-                            <label for = "name">Full Name</label>
-                            <input type = "text" id = "name" placeholder = "Enter your full name">
-                            <label for = "email">Email Address</label>
-                            <input type = "email" id = "email" placeholder = "Enter your email address">
-                            <label for = "contact">Contact Number</label>
-                            <input type = "text" id = "contact" placeholder = "Enter your contact number">
-                            <label for = "address">Address</label>
-                            <input type = "text" id = "address" placeholder = "Enter your address">
-                            <button id = "registerButton">Register</button>
-                       </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-          
+      </nav>
+    </header>
 
-        <footer class = "footer">
-            <a class = "credit">
-                <i class="fa-regular fa-copyright"></i>
-                <span>2024 Let'SKonnect</span>
-            </a>
-            <div class="footer-content">
-                <div class="social-icons">
-                    <a href="tel:+639084112492" class="footer-icon">
-                        <img src="../Assets/GUEST/telephone right side small footer.png" alt="Phone Icon">
-                    </a>
-                    <a href="https://www.facebook.com/SKStaLuciaQC" target="_blank" class="footer-icon">
-                        <img src="../Assets/GUEST/facebook right side small footer.png" alt="Facebook Icon">
-                    </a>
-                    <a href="mailto:SKStaLuciaQC@gmail.com" class="footer-icon">
-                        <img src="../Assets/GUEST/Email (Small Footer).png" alt="Email Icon">
-                    </a>
+    <section class="welcome-section" id="welcomeSection">
+      <div class="image-container">
+        <img
+          src="../Assets/BACKGROUND/Sangguniang Kabataan.png"
+          alt="Welcome Image"
+          class="welcome-image"
+        />
+        <div class="welcome-text">
+          <h1>WELCOME TO</h1>
+          <h2>LET'SKONNECT</h2>
+          <p>KASAMA KA SA AKSYON, KASAMA KA SA SOLUSYON</p>
+        </div>
+      </div>
+    </section>
+    <section class="navigation-tabs">
+      <div class="nav-menu">
+        <button
+          class="tab-button"
+          onclick="window.location.href='guest-dashboard.html'"
+        >
+          Home
+        </button>
+        <button
+          class="tab-button active"
+          onclick="window.location.href = 'Events-guest.html'"
+        >
+          Events
+        </button>
+        <button
+          class="tab-button"
+          onclick="window.location.href = 'news&updates.html'"
+        >
+          News & Updates
+        </button>
+        <button
+          class="tab-button"
+          onclick="window.location.href = 'scholarships.html'"
+        >
+          Scholarships
+        </button>
+        <button
+          class="tab-button"
+          onclick="window.location.href = 'jobFair-usr.html'"
+        >
+          Job Fairs
+        </button>
+        <button
+          class="tab-button"
+          onclick="window.location.href = 'uac-profileinfo.html'"
+        >
+          User Accounts
+        </button>
+      </div>
+    </section>
+
+    <div class="Container">
+      <div class="event-slideshow-container">
+        <div class="eventSlides fade" onclick="changeImage(event)">
+          <img
+            src="../Assets/ADMIN/mobile-legend.jpg"
+            id="event-images"
+            style="width: 100%; object-fit: cover"
+          />
+          <div class="Text">UPCOMING EVENTS</div>
+        </div>
+
+        <div class="eventSlides fade" onclick="changeImage(event)">
+          <img
+            src="../Assets/ADMIN/volleyball-league.jpg"
+            id="event-images"
+            style="width: 100%; object-fit: cover"
+          />
+          <div class="hover-text" id="hoverText">
+            <img src="../Assets/ADMIN/upload photo (upcoming events).png" />
+            <h4>Change Photo</h4>
+            <p>
+              Please choose a photo to upload. <br />Supported formats: JPG and
+              PNG. <br />Maximum size: 5MB.
+            </p>
+            <input
+              type="file"
+              id="photoUpload"
+              class="file-input"
+              accept="image/*"
+              style="display: none"
+            />
+          </div>
+          <div class="Text">UPCOMING EVENTS</div>
+        </div>
+
+        <a class="prev" onclick="plusSlide(-1)">&#10094;</a>
+        <a class="next" onclick="plusSlide(1)">&#10095;</a>
+      </div>
+      <br />
+      <div style="text-align: center">
+        <span class="dot" onclick="currentSlide(1)"></span>
+        <span class="dot" onclick="currentSlide(2)"></span>
+      </div>
+    </div>
+    <section class="main-content">
+      <img src="../Assets/BACKGROUND/Brgy. Sta Lucia.png" />
+
+      <h3>Published Events</h3>
+
+      <div class="sort-section">
+        <i class="fa-solid fa-filter"></i>
+        <h4>2024</h4>
+      </div>
+      <div id="events-container">
+            <div class="Event">
+                <div class="Event-content">
+                    <div class="Event-details">
+                        <img
+                        src="../Assets/ADMIN/EventPost1.png"
+                        alt="ep1"
+                        class="event1"
+                        />
+                    </div>
+                <div class="Event-description">
+              <div class="menu">
+                <button class="menu-button" onclick="toggleMenu()">
+                  &#x22EE;
+                </button>
+                <div class="options" id="optionsMenu">
+                  <a href="#" onclick="alert('Option 1 selected')">Archive</a>
+                  <a href="#" onclick="alert('Option 2 selected')">Edit</a>
                 </div>
+              </div>
+
+              <br />
+              <span>
+                <p class="description-title-eo">Event Organizer</p>
+              </span>
+              <br />
+              <p class="description-title-dnt">Date & Time</p>
+              <br />
+              <hr />
+              <br />
+              <p class="description-title">Category</p>
+              <h1>Title</h1>
+              <p class="description-title">Headline</p>
+              <hr />
+              <br />
+              <p class="description-title">Brief Description</p>
+              <br />
+              <p class="main-description">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                Maecenas eleifend justo feugiat magna volutpat, eu corsequat
+                elit hendrerit consectetur adipiscing elit. Maecenas eleifend...
+              </p>
+              <div class="description-buttons">
+                <button id="registerButton">Register</button>
+              </div>
             </div>
-        </footer>
+          </div>
+            </div>
+                <div class="Event">
+          <div class="Event-content">
+            <div class="Event-details">
+              <img
+                src="../Assets/ADMIN/EventPost1.png"
+                alt="ep1"
+                class="event1"
+              />
+            </div>
+            <div class="Event-description">
+              <div class="menu">
+                <button class="menu-button" onclick="toggleMenu()">
+                  &#x22EE;
+                </button>
+                <div class="options" id="optionsMenu">
+                  <a href="#">Archive</a>
+                  <a href="#">Edit</a>
+                </div>
+              </div>
+
+              <br />
+              <span>
+                <p class="description-title-eo">Event Organizer</p>
+              </span>
+              <br />
+              <p class="description-title-dnt">Date & Time</p>
+              <br />
+              <hr />
+              <br />
+              <p class="description-title">Category</p>
+              <h1>Title</h1>
+              <p class="description-title">Headline</p>
+              <hr />
+              <br />
+              <p class="description-title">Brief Description</p>
+              <br />
+              <p class="main-description">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                Maecenas eleifend justo feugiat magna volutpat, eu corsequat
+                elit hendrerit consectetur adipiscing elit. Maecenas eleifend...
+              </p>
+              <div class="description-buttons">
+                <button id="registerButton">Register</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <div id="myModal" class="modal" style="display: none">
+      <div class="modal-content">
+        <div class="modal-title">
+          <h3>Register</h3>
+        </div>
+        <div class="modal-info">
+          <div class="modal-dataprivacy">
+            <h3>Data Privacy Consent</h3>
+            <img src="../Assets/GUEST/secure-data.png" />
+            <p>
+              In compliance with the Data Privacy Act of 2012 (RA 10173), we
+              value and respect your privacy. By submitting your information,
+              you agree to the collection, processing, and storage of your
+              personal data for the purpose of event registration. Your personal
+              information will only be used as necessary and will not be shared
+              with third parties without your explicit consent, unless required
+              by law. You have the right to access, update, or withdraw your
+              consent at any time by contacting Brgy. Sta. Lucia.
+              <br />
+              <br />
+              By checking the box below, you confirm that you have read,
+              understood, and agreed to this Data Privacy Consent.
+            </p>
+            <label for="dataPrivacy">I agree to the Data Privacy Consent</label>
+            <input type="checkbox" id="dataPrivacy" />
+          </div>
+          <div class="modal-fields">
+            <form>
+              <label for="name">Full Name</label>
+              <input type="text" id="name" placeholder="Enter your full name" />
+              <label for="email">Email Address</label>
+              <input
+                type="email"
+                id="email"
+                placeholder="Enter your email address"
+              />
+              <label for="contact">Contact Number</label>
+              <input
+                type="text"
+                id="contact"
+                placeholder="Enter your contact number"
+              />
+              <label for="address">Address</label>
+              <input
+                type="text"
+                id="address"
+                placeholder="Enter your address"
+              />
+              <button id="registerButton">Register</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer class="footer">
+      <a class="credit">
+        <i class="fa-regular fa-copyright"></i>
+        <span>2024 Let'SKonnect</span>
+      </a>
+      <div class="footer-content">
+        <div class="social-icons">
+          <a href="tel:+639084112492" class="footer-icon">
+            <img
+              src="../Assets/GUEST/telephone right side small footer.png"
+              alt="Phone Icon"
+            />
+          </a>
+          <a
+            href="https://www.facebook.com/SKStaLuciaQC"
+            target="_blank"
+            class="footer-icon"
+          >
+            <img
+              src="../Assets/GUEST/facebook right side small footer.png"
+              alt="Facebook Icon"
+            />
+          </a>
+          <a href="mailto:SKStaLuciaQC@gmail.com" class="footer-icon">
+            <img
+              src="../Assets/GUEST/Email (Small Footer).png"
+              alt="Email Icon"
+            />
+          </a>
+        </div>
+      </div>
+    </footer>
     <script src="../js-frntend/Event-Guest.js"></script>
     <script src="../js-frntend/slideshow.js"></script>
     <script src="../js-frntend/Event-modal.js"></script>
-</body>
+    <script src="../fetch/evt-userposts.js"></script>
+  </body>
 </html>

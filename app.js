@@ -707,6 +707,20 @@ app.post('/admin-reg', (req, res)=>{
 
 })
 
+app.get('/admins', (req, res) => {
+    const query = "SELECT kk_adminID, name, emailAddress FROM tbl_kkadmin"; // Adjust column names as per your table schema
+
+    db.query(query, (err, results) => {
+        if (err) {
+            console.log('Error fetching admins:', err);
+            return res.status(500).json({ message: 'Error retrieving admin list' });
+        }
+        res.status(200).json(results); // Send the admin list to the client
+        console.log(results)
+    });
+});
+
+
 
 app.post('/submit-feedback', (req, res) => {
     const { category, question1, question2 } = req.body;
@@ -773,6 +787,61 @@ app.get('/api/user-details/:userAcc_ID', (req, res) => {
     });
 });
 
+app.post('/create-event', (req, res) => {
+    upload(req, res, (err) => {
+        if (err) {
+            console.log("Error: ", err);
+            return res.status(400).send(err);
+        }
+
+        // Ensure a file is uploaded
+        if (!req.file) {
+            return res.status(400).send('No file upload');
+        }
+
+        // Extract other form data
+        const { date, time, requirements, sponsor, description, fulldetails } = req.body;
+        const imgName = req.file.filename;  // The uploaded file's name
+        const imgPath = `/uploads/${imgName}`; // Path to access the uploaded image
+
+        // Prepare data for database insertion
+        const data = {
+            date: date,
+            time: time,
+            requirements: requirements,
+            sponsor: sponsor,
+            description: description,
+            fulldetails: fulldetails,
+            imgName: imgName,
+            imgPath: imgPath
+        };
+
+        // SQL query to insert data into the database
+        const query = "INSERT INTO tbl_eventsposts1 (date, time, requirements, sponsor, description, fulldetails, imgName, imgPath) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+
+        // Insert event data into the database
+        db.query(query, [data.date, data.time, data.requirements, data.sponsor, data.description, data.fulldetails, data.imgName, data.imgPath], (err, results) => {
+            if (err) {
+                console.error("Database error:", err);
+                return res.status(500).send('Error inserting event into database');
+            }
+
+            // Send success response
+            res.status(200).send("Event successfully created and uploaded into Database");
+        });
+    });
+});
+
+app.get('/get-events', (req, res) => {
+    const query = "SELECT * FROM tbl_eventsposts1";  // Adjust your SQL query as needed
+    db.query(query, (err, results) => {
+        if (err) {
+            console.error(err);
+            return res.status(500).json({ message: 'Error fetching events from the database' });
+        }
+        res.json(results);  // Send the event data as JSON response
+    });
+});
 
 
 
