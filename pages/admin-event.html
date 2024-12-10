@@ -88,6 +88,7 @@
                 <h4>2024</h4>
             </div>
         
+            <div id="events-container">
             <div class = "Event">
                 <div class = "Event-content">
                     <div class = "Event-details">
@@ -170,6 +171,7 @@
                     </div>
                 </div>
             </div>
+        </div>
         </section>
         <footer class = "footer">
             <a class = "credit">
@@ -192,7 +194,7 @@
         </footer>
         <div id = "modalbackdrop" class = "modal-backdrop">
             <div class = "create-post-modal">
-                <h1>Job Fair Title</h1>
+                <h1>Event</h1>
                 <hr>
                 <form class="form-grid" id="evt-post">
                     <div class="subgrid-1">
@@ -210,8 +212,8 @@
                             <textarea id="requirements" name="requirements"></textarea>
                         </div>
                         <div>
-                            <label for="employer">Employer/Sponsor</label>
-                            <textarea id="employer" name="employer"></textarea>
+                            <label for="sponsor">Employer/Sponsor</label>
+                            <textarea id="sponsor" name="sponsor"></textarea>
                         </div>
                     </div>
                     <div class="subgrid-2">
@@ -220,8 +222,12 @@
                             <textarea id="description" name="description"></textarea>
                         </div>
                         <div>
-                            <label for="full_details">Full Details</label>
-                            <textarea id="full_details" name="full_details"></textarea>
+                            <label for="fulldetails">Full Details</label>
+                            <textarea id="fulldetails" name="fulldetails"></textarea>
+                        </div>
+                        <div>
+                            <label for="image">Add Picture</label>
+                            <input type="file" name="image" id="image">
                         </div>
                         <div class = "create-post-buttons">
                             <button type = "button" class = "cancel" onclick = "closeModal()">Cancel</button>
@@ -233,5 +239,6 @@
         </div>
     <script src = "../js-frntend/admin-event.js"></script>
     <script src = "../js-frntend/slideshow.js"></script>
+    <script src="../fetch/evt-posts1.js"></script>
 </body>
 </html>

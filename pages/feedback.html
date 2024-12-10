@@ -34,10 +34,10 @@
 <section class = "main-content">
     <img src = "../Assets/BACKGROUND/Brgy. Sta Lucia.png">
     <div class = "feedback-box">
-        <form>
+        <form id="feedback-form">
             <div class = "feedback-item" id = "categorySelection">
                 <label for = "category"><span>CATEGORY</span></label>
-                <select name = "category-options">
+                <select name = "category-options" id="category-options">
                     <option value = "For Education">For Education</option>
                     <option value = "For High School Graduate">For High School Graduate</option>
                     <option value = "For College Graduate">For College Graduate</option>
@@ -51,13 +51,13 @@
             </div>
             <div class = "feedback-item">
                 <label for = "question">Was your participation during this opportunity was helpful?</label><br>
-                <input type = "radio" name = "participation" value = "Yes">&nbsp;&nbsp;Yes<br>
-                <input type = "radio" name = "participation" value = "No">&nbsp;&nbsp;No
+                <input type = "radio" name = "question1" value = "Yes">&nbsp;&nbsp;Yes<br>
+                <input type = "radio" name = "question1" value = "No">&nbsp;&nbsp;No
             </div>
             <div class = "feedback-item">
                 <label for = "question">Do you feel that your recently involvement activity has a room for further improvement?</label><br>
-                <input type = "radio" name = "participation" value = "Yes">&nbsp;&nbsp;Yes<br>
-                <input type = "radio" name = "participation" value = "No">&nbsp;&nbsp;No
+                <input type = "radio" name = "question2" value = "Yes">&nbsp;&nbsp;Yes<br>
+                <input type = "radio" name = "question2" value = "No">&nbsp;&nbsp;No
             </div>
         </form>
         <div class = "submit-button-container">
@@ -98,5 +98,6 @@
     </div>
 </footer>
 <script src = "../js-frntend/feedback.js"></script>
+<script src="../fetch/feedback.js"></script>
 </body>
 </html>
