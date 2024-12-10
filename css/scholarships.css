@@ -171,20 +171,22 @@ nav {
     position: relative;
     display: flex;
     justify-content: center;
-    height: 100vh;
+    height: 200vh;
     width: 100vw;
     z-index: 2;
 }
 
 .main-content {
     position: relative;
-    height: 100vh;
+    height: 200vh;
     width: 100vw;
     z-index: 3;
     overflow-x: hidden;
     overflow-y: scroll;
     display: flex;
     flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
     gap: 1rem;
 }
 
@@ -193,15 +195,13 @@ nav {
     top: 0;
     left: 0;
     width: 100%;
-    height: auto;
+    height: 150%;
     object-fit: cover;
 }
 
 .scholarship {
   position: relative;
-  top: 3rem;
-  left: 2.5rem;
-  height: 60vh;
+  height: 70vh;
   width: 90vw;
   padding: 1.25rem;
   margin: 1.25rem;
@@ -223,15 +223,14 @@ nav {
   height: 20rem;
   width: 20rem;
   object-fit: contain;
-  border: solid black;
 }
 
 .scholarship h1 {
   position: relative;
   bottom: 20.5rem;
-  left: 35rem;
+  left: 30%;
   font-weight: 300;
-  font-size: 3rem;
+  font-size: 2rem;
   
 }
 
@@ -266,7 +265,7 @@ nav {
 
 .desc-box {
   position: relative;
-  bottom: 27vh;
+  bottom: 30vh;
   left: 27.5vw;
   height: 27vh;
   width: 36.5%;
@@ -294,7 +293,7 @@ nav {
 
 .more-content hr {
   position: absolute;
-  top: 41%;
+  top: 40%;
   left: 32%;
   border: none;
   height: 1px;
@@ -366,7 +365,10 @@ nav {
   bottom: 95%;
   height: 50vh;
   width: 38vw;
-  text-align: justify;
+}
+
+.more-desc-right p {
+  font-size: 0.75em;
 }
 
 .fulldetails {

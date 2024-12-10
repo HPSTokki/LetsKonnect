@@ -162,7 +162,7 @@ nav {
 }
 
 .main-content {
-  height: auto;
+  height: 200vh;
   width: 100vw;
   margin: 0;
   padding: 0;
@@ -175,7 +175,7 @@ nav {
 .main-content img {
   position: absolute;
   width: 100%;
-  height: auto;
+  height: 200%;
   object-fit: cover;
   z-index: 0;
 }
