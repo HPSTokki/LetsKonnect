@@ -18,7 +18,7 @@ document.getElementById('some-form5').addEventListener('submit', async (e)=>{
         const result = await response.text();
         alert(result)
         setTimeout(() => {
-            window.location.href = "../pages/news&updates.html"; // Redirect after a short delay
+            window.location.href = "../pages/uac-profileinfo.html"; // Redirect after a short delay
         }, 500);
     } catch (err) {
         console.log("Error uploading data:", err)
