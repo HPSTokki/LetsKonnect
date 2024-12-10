@@ -843,7 +843,23 @@ app.get('/get-events', (req, res) => {
     });
 });
 
+app.post('/event/register', (req, res)=>{
 
+    const {postID, name, email, contact, address} = req.body
+    const query = 'INSERT INTO tbl_registrants (post_ID, fullName, email, contact, address, dateOfReg) VALUES (?, ?, ?, ?, ?, ?)'
+    const date = new Date()
+
+    db.query(query, [postID, name, email, contact, address, date], (err, result)=>{
+        if (err) {
+            console.error("Error: ", err)
+            return res.status(400).json({message: 'Error Registering'})
+        } 
+        res.status(200).json({success: true, message: 'Registered Succesfull'})
+
+
+    })
+
+})
 
 // Server Port 
 
