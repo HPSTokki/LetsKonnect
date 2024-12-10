@@ -238,20 +238,20 @@ nav {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  padding: 50px;
 }
 
 .Event-details {
   background-color: transparent;
   padding: 1px;
   max-height: 50%;
-  width: 95%;
+  width: 150%;
   border-radius: 20px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 20px;
+  background-color: aqua;
 }
 
 .Event-details .event1 {

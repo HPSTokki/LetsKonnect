@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events</title>
+    <link rel = "stylesheet" href = "../css/guest-events.css">
+    <link rel = "stylesheet" href = "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    
+    <!--Top Header-->
+    <header>
+        <nav>
+            <div class = "header">
+                <img src = "../Assets/LET'SKONNECT.png">
+            </div>
+            <div class = "profile">
+                <p onclick = "window.location.href = 'guest-dashboard.html'">Home</p>
+                <div class = "vl"></div>
+                <img src = "../Assets/GUEST/Profile Picture icon.png" onclick = "toggleProfileBox()">
+            </div>
+            <div id="profileBox" class="profile-box">
+                <img src = "../Assets/BACKGROUND/Sangguniang Kabataan (blurred).png" class = "profile-bg">
+                <img src = "../Assets/GUEST/Profile Picture icon.png" class = "profile-image">
+
+                <h4>Juan Dela Cruz</h4>
+                <p class = "email">juanDC@gmail.com</p>
+                <button>Manage Your Account</button>
+                <hr>
+                <p class = "sign-out" onclick = "showSignOutModal()">Sign Out</p>
+            </div>
+            <div id = "signOutModal" class = "signOutModal">
+                <div class="signOut-modalContent">
+                    <img src = "../Assets/GUEST/Sign out (user account).png">
+                    <h2>Are you sure you want to sign out?</h2>
+                    <p>You will be signed out of your account. Any unsaved changes will be lost.</p>
+                    <button class = "cancel" onclick = "closeSignOutModal()">Cancel</button>
+                    <button class = "signOutbtn" onclick = "confirmSignOut()">Sign out</button>
+                    
+                </div>
+            </div>
+        </nav>
+    </header>
+    
+    <!--Welcome Banner-->
+    <section class = "welcome-section">
+        <div class = "image-container">
+            <img src = "../Assets/BACKGROUND/Sangguniang Kabataan.png">
+            <div class = "welcome-text">
+                <h1>WELCOME TO</h1>
+                <h2>LET'SKONNECT</h2>
+                <p>KASAMA KA SA AKSYON, KASAMA KA SA SOLUSYON</p>
+            </div>
+        </div>
+    </section>
+
+    <!--Navigation Tabs-->
+    <section class = "navigation-tabs">
+        <button class = "tab-button" onclick = "window.location.href='guest-dashboard.html'">Home</button>
+        <button class = "tab-button active" onclick = "window.location.href = 'Events-guest.html'">Events</button>
+        <button class = "tab-button" onclick = "window.location.href = 'news&updates.html'">News & Updates</button>
+        <button class = "tab-button" onclick = "window.location.href = 'scholarships.html'">Scholarships</button>
+        <button class = "tab-button" onclick = "window.location.href = 'jobFair-usr.html'">Job Fairs</button>
+        <button class = "tab-button" onclick = "window.location.href = 'uac-profileinfo.html'">User Account</button>
+    </section>
+
+    <!--Event Slideshow-->
+    <section class = "event-slideshow">
+        <div class = "marquee-bar">
+            <marquee class = "marquee-content">
+                <span>ATTENTION, KABATAANG LUCIANS! Here are the upcoming events for this month: </span>
+                <img src = "../Assets/LET'SKONNECT.png">
+                <span>Mobile Legends Tournament</span>
+                <img src = "../Assets/LET'SKONNECT.png">
+                <span>Barkada Kontra Droga</span>
+                <img src = "../Assets/LET'SKONNECT.png">
+                <span>Volleyball League</span>
+                <img src = "../Assets/LET'SKONNECT.png">
+                <span>Rebyu-Juan</span>
+                <img src = "../Assets/LET'SKONNECT.png">
+                <span>Webinar: Mental Health</span>
+                <img src = "../Assets/LET'SKONNECT.png">
+            </marquee>
+        </div>
+        <div class = "eventSlides" onclick="changeImage(event)">
+            <img src= "../Assets/ADMIN/mobile-legend.jpg" id = "event-images" style = "width: 100%; object-fit: cover;">
+            <div class = "text">UPCOMING EVENTS</div>
+        </div>
+
+        <div class = "eventSlides" onclick="changeImage(event)">
+            <img src = "../Assets/ADMIN/volleyball-league.jpg" id = "event-images" style = "width: 100%; object-fit: cover;">
+            <div class = "text">UPCOMING EVENTS</div>
+        </div>
+
+        <div style="text-align:center">
+            <span class="dot" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+            <span class="dot" onclick="currentSlide(3)"></span>
+        </div>
+
+        <a class="prev" onclick="plusSlide(-1)">&#10094;</a>
+        <a class="next" onclick="plusSlide(1)">&#10095;</a>
+    </section>
+
+    <!--Main Content-->
+    <main class = "main-content">
+    
+        <!--Event Cards-->
+        <div class = "event">
+
+            <div class = "event-image">
+                <img src = "../Assets/GUEST/1_Events.jpg">
+            </div>
+            
+            <div class = "event-details">
+                <div class = "span-labels">
+                    <span>SK Sta. Lucia</span>
+                    <span>October 19, 2024 | 1:00 PM</span>
+                </div>
+                
+                <hr class = "event-hr">
+                
+                <div class = "event-title">
+                    <span>Youths/Kabataan</span>
+                    <h1>Barkada Kontra Droga</h1>
+                    <h4>DRUGS ON VAPE AND RAPE CASE SEMINAR and SPORTS FESTIVAL ORIENTATION</h4>
+                </div>
+                
+                <hr class = "event-hr">
+
+                <div class = "event-description">
+                    <span>Description</span>
+                    <p class = "brief-description" id = "eventDescription">
+                        Pinatatawag ng Sangguniang Kabataan ng Sta. Lucia ang bawat Teritoryo ng Pitong Sitio 
+                        sa Santa Lucia Parish Hall (3rd floor) ngayong Sabado, Oktubre 19 ng 1:00 PM, para siguruhin 
+                        na magiging kaisa ang mga manlalaro sa Giyera Kontra Droga sa buong kaharian.<br><br>
+                        Tatalakayin ng Quezon City Anti Drug Abuse Council (QCADAC) ang pagiging mapanuri ng mga 
+                        Kabataan sa ginagamit na Vape sapagkat may ilang kaso na nahahaluan umano ng ipinagbabawal 
+                        na gamot ang likido nito. Gayundin, sasamahan tayo ng Quezon City Police District Station 5 
+                        (QCPD S5) para tutukan ang ilang kaso ng pang aabusong sekswal na dapat ikampanya ang paggalang sa 
+                        templo ng kapwa. 
+
+
+                    </p>
+                    <div class = "description-buttons">
+                        <button class = "event-button" id = "registerBtn">Register</button>
+                    </div>
+                
+                </div>
+            </div>
+        </div>
+
+        <div class = "event">
+
+            <div class = "event-image">
+                <img src = "../Assets/GUEST/2_Events.jpg">
+            </div>
+            
+            <div class = "event-details">
+                <div class = "span-labels">
+                    <span>SK Sta. Lucia</span>
+                    <span>October 14 - 18, 2024 | 2:00 PM - 3:00 PM</span>
+                </div>
+                
+                <hr class = "event-hr">
+                
+                <div class = "event-title">
+                    <span>Youths/Kabataan</span>
+                    <h1>Rebyu-Juan</h1>
+                    <h4>COLLEGE ENTRANCE EXAM FREE REVIEW SESSION</h4>
+                </div>
+                
+                <hr class = "event-hr">
+
+                <div class = "event-description">
+                    <span>Description</span>
+                    <p class = "brief-description" id = "eventDescription">
+                        Nahihirapan sa CET? Sagot kita bes! 📝 Sa proyektong Rebyu-Juan ng Sangguniang 
+                        Kabataan ng Barangay Sta. Lucia sa pangunguna nila SK Chairperson Xyrone Pelayo 
+                        at SK Kagawad and Committee on Education Sophia Patriarca ay patuloy tayong naghahatid 
+                        ng review courses katuwang ang Sta. Lucia Senior High School mula Oktubre 14 hanggang 18 
+                        para bigyan sila nang paghahanda sa CET nang susunod na taon.<br><br>
+                        Nagbigay din tayo ng Practice Test Module, Learning Kits, at Snacks na 
+                        gagamitin nila para mahasa ang kanilang kaalaman pagkatapos ng rebyu. Andito ang SK Sta Lucia QC patuloy na 
+                        itaas ang antas ng edukasyon sa Barangay Sta. Lucia! #maySaysayKayXY #TayoAngQC #QC85th #RebyuJuan #SKStaLucia2024 
+                    </p>
+                    <div class = "description-buttons">
+                        <button class = "event-button" id = "registerBtn">Register</button>
+                    </div>
+                
+                </div>
+            </div>
+        </div>
+        <div class = "event">
+
+            <div class = "event-image">
+                <img src = "../Assets/GUEST/3_Events.jpg">
+            </div>
+            
+            <div class = "event-details">
+                <div class = "span-labels">
+                    <span>SK Sta. Lucia</span>
+                    <span>October 18, 2024 | 9:00 AM - 3:00 PM</span>
+                </div>
+                
+                <hr class = "event-hr">
+                
+                <div class = "event-title">
+                    <span>Youths/Kabataan</span>
+                    <h1>Trade Your Cash to Trash!</h1>
+                    <h4>KABATAANG ECO WARRIORS, HALINA'T TUMULONG SA KALIKASAN!</h4>
+                </div>
+                
+                <hr class = "event-hr">
+
+                <div class = "event-description">
+                    <span>Description</span>
+                    <p class = "brief-description" id = "eventDescription">
+                        Dadayuhin ng Sangguniang Kabataan ng Sta. Lucia sa pangunguna ni 
+                        SK Chairperson Xyrone Pelayo at Quezon City Climate Change and Environmental 
+                        Sustainability Department ang San Gabriel Elementary School para sa kauna-unahang 
+                        Trading Booth ngayong Oktubre 18 mula 9:00 AM hanggang 3:00 PM.<br><br>
+                        Maaaring ipalit ang environmental points sa basic utilities, groceries, at iba pang goods and services. 
+                        Anong Elementary Year Level kaya ang magkakaroon ng malaking puntos ngayong Oktubre? Mag-ipon ng Environmental Points, 
+                        Kabataang Lucians! 🤩 
+                    </p>
+                    <div class = "description-buttons">
+                        <button class = "event-button" id = "registerBtn">Register</button>
+                    </div>
+                
+                </div>
+            </div>
+        </div>
+    
+    </main>
+
+    <!--Modal-->
+    <div id = "myModal" class = "modal" style = "display: none;">
+        <div class = "modal-content">
+            <div class = "modal-title">
+                <h3>Register</h3>
+            </div>
+            <div class = "modal-info">
+                <div class = "modal-dataprivacy">
+                    <h3>Data Privacy Consent</h3>
+                    <img src="../Assets/GUEST/secure-data.png">
+                    <p>
+                        In compliance with the Data Privacy Act of 2012 (RA 10173), we value and respect your privacy. By submitting your information, 
+                        you agree to the collection, processing, and storage of your personal data for the purpose of event registration.
+                        Your personal information will only be used as necessary and will not be shared with third parties without your explicit consent, 
+                        unless required by law. You have the right to access, update, or withdraw your consent at any time by contacting Brgy. Sta. Lucia.
+                        <br><br>
+                        By checking the box below, you confirm that you have read, understood, and agreed to this Data Privacy Consent.
+                    </p>
+                    <label for = "dataPrivacy">I agree to the Data Privacy Consent</label>
+                    <input type = "checkbox" id="dataPrivacy">
+                </div>
+                <div class = "modal-fields">
+                    <form>
+                        <label for = "name">Full Name</label>
+                        <input type = "text" id="name" placeholder="Enter your full name">
+                        <label for = "email">Email Address</label>
+                        <input type = "email" id="email" placeholder="Enter your email address">
+                        <label for = "contact">Contact Number</label>
+                        <input type = "text" id="contact" placeholder="Enter your contact number">
+                        <label for = "address">Address</label>
+                        <input type = "text" id="address" placeholder="Enter your address">
+                        <button id = "registerButton">Register</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+    <!--Footer-->
+    <footer class = "footer">
+        <a class="credit">
+            <i class="fa-regular fa-copyright"></i>
+            <span>2024 Let'SKonnect</span>
+        </a>
+        
+        <!--Footer Social Media Icons-->
+        <div class = "footer-content">
+            <div class="social-icons">
+                <a href = "tel:+639084112492" class="footer-icon">
+                    <img src = "../Assets/GUEST/telephone right side small footer.png" alt = "Phone Icon">
+                </a>
+                <a href = "https://www.facebook.com/SKStaLuciaQC" target = "_blank" class = "footer-icon">
+                    <img src = "../Assets/GUEST/facebook right side small footer.png" alt = "Facebook Icon">
+                </a>
+                <a href = "mailto:SKStaLuciaQC@gmail.com" class = "footer-icon">
+                    <img src = "../Assets/GUEST/Email (Small Footer).png" alt = "Email Icon">
+                </a>
+            </div>
+        </div>
+    </footer>
+    <script src = "../js-frntend/guest-events.js"></script>
+</body>
+</html>

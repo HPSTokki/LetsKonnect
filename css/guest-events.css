@@ -1,0 +1,810 @@
+@import url("https://fonts.googleapis.com/css2?family=Pathway+Extreme:ital,opsz,wght@0,8..144,100..900;1,8..144,100..900&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  transition: all 0.3s ease-in-out;
+}
+
+:root {
+  --bg-color1: #6610a6;
+  --bg-color2: #ffffff;
+  --font-color: #f2f2f2;
+}
+
+body {
+  font-family: "Pathway Extreme", sans-serif;
+  overflow-x: hidden;
+  margin-bottom: 0;
+}
+
+body::-webkit-scrollbar {
+  display: none;
+}
+
+header {
+  display: flex;
+}
+
+.profile {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  gap: 20px;
+  padding: 20px;
+}
+
+.profile p {
+  font-size: 0.9em;
+  color: #f2f2f2;
+}
+
+.profile p:hover {
+  cursor: pointer;
+  color:aqua;
+  font-weight: 500;
+}
+
+.vl {
+  margin: auto;
+  height: 25px;
+  border-left: solid 1px #f2f2f2;
+}
+
+.profile img {
+  height: 35px;
+  width: 35px;
+  transition: transform 0.3s ease;
+}
+
+.profile img:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+}
+
+.profile-box {
+  display: none;
+  position: absolute;
+  top: 50px; 
+  right: 0;
+  background-color: white;
+  border: 1px solid #ccc;
+  box-shadow: 0 5px 2px rgba(0, 0, 0, 0.1);
+  width: 200px;
+  height: 260px;
+  z-index: 1000;
+  opacity: 0; /* Initially invisible */
+  transform: translateY(-10px); /* Start slightly above */
+  transition: opacity 0.5s ease, transform 0.5s ease; /* Smooth transition */
+}
+
+.profile-box.show {
+  display: block;
+  opacity: 1; /* Fully visible */
+  transform: translateY(0); /* Move to original position */
+}
+
+.profile-bg {
+  width: 200px;
+  height: 100px;
+  padding: 0;
+  margin: 0;
+  object-fit: cover;
+}
+
+.profile-image {
+  position: absolute;
+  top: 5%;
+  left: 37%;
+  height: 60px;
+  width: 60px;
+}
+
+.profile-box h4 {
+  color: #00064D;
+  font-weight: 600;
+  margin-left: 20%;
+}
+
+.email {
+  font-size: 0.7em;
+  margin-left: 25%;
+  color: #5E5E5E;
+}
+
+.profile-box button {
+  margin-left: 6%;
+  margin-top: 5%;
+  padding: 5px 20px;
+  font-size: 16px;
+  background-color: #A101A2;
+  font-family: 'Pathway Extreme', sans-serif;
+  font-size: 0.8em;
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.1);
+  color: white;
+  border: none;
+  border-radius: 7px;
+  cursor: pointer;
+}
+
+.profile-box button:hover {
+  background-color: #8751c7;
+}
+
+.profile-box hr {
+  margin-left: 15%;
+  margin-top: 10%;
+  color: #5E5E5E;
+  width: 70%;
+  opacity: 0.4;
+}
+
+.sign-out {
+  font-size: 0.7em;
+  margin-left: 36%;
+  margin-top: 10%;
+  color: #5E5E5E;
+}
+
+.sign-out:hover {
+  cursor: pointer;
+  color: #383737;
+}
+
+.signOutModal {
+  display: none; 
+  position: fixed; 
+  z-index: 1000; 
+  left: 0;
+  top: 0;
+  width: 100%; 
+  height: 100%; 
+  backdrop-filter: blur(5px);
+  justify-content: center; 
+  align-items: center; 
+  opacity: 0; 
+  transition: opacity 0.5s ease; 
+}
+
+.signOutModal.show {
+  display: flex;
+  opacity: 1; 
+}
+
+.signOut-modalContent {
+  background-color: #f2f2f2; 
+  padding: 20px;
+  width: 500px; 
+  height: 50vh; 
+  text-align: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  transform: translateY(-30px); 
+  transition: transform 0.5s ease; 
+}
+
+.signOutModal.show .signOut-modalContent {
+  transform: translateY(0); 
+}
+
+.signOut-modalContent img {
+  height: 35%;
+  width: 35%;
+  object-fit: contain;
+}
+
+.signOut-modalContent h2 {
+  font-weight: 600;
+  font-size: 1.2em;
+}
+
+.signOut-modalContent p {
+  margin-top: 2%;
+  margin-bottom: 10%;
+  font-size: 0.75em;
+}
+
+.signOutbtn {
+  margin-left: 6%;
+  margin-top: 5%;
+  padding: 5px 20px;
+  font-size: 16px;
+  background-color: #A101A2;
+  font-family: 'Pathway Extreme', sans-serif;
+  font-size: 0.8em;
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.1);
+  color: white;
+  border: none;
+  border-radius: 7px;
+  cursor: pointer;
+}
+
+.signOutbtn:hover {
+  background-color: #8751c7;
+}
+
+.cancel {
+  margin: 10px;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  font-family: 'Pathway Extreme', sans-serif;
+}
+
+.cancel:hover {
+  text-decoration: underline;
+}
+
+nav {
+  display: grid;
+  width: 100%;
+  height: 50px;
+  background: linear-gradient(to right, var(--bg-color2), var(--bg-color1));
+  grid-template-columns: 0.1rem 1fr 3fr;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header img {
+  margin-left: 30px;
+  margin-top: 5px;
+  height: 35px;
+  width: auto;
+}
+
+.image-container {
+  position: relative;
+  width: 100%;
+}
+
+.welcome-section {
+  position: relative;
+  text-align: center;
+  width: 100%;
+  transition: opacity 0.5s ease;
+}
+
+.welcome-section.hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.image-container {
+  position: relative;
+  width: 100%;
+  height: 40vh;
+  overflow: hidden;
+}
+
+.welcome-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: blur(2.5px);
+  -webkit-filter: blur(2.5px);
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.welcome-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  text-align: center;
+  width: 100%;
+  padding: 0 10px;
+}
+
+.welcome-text h1,
+.welcome-text h2,
+.welcome-text p {
+  margin: 0;
+  padding: 0;
+}
+
+.welcome-text h1 {
+  font-size: 2.083vw;
+  font-family: "Pathway Extreme", serif;
+  font-weight: 600;
+}
+
+.welcome-text h2 {
+  font-size: 4.792vw;
+  font-family: "Pathway Extreme", serif;
+  font-weight: bold;
+}
+
+.welcome-text p {
+  font-size: 1.26vw;
+  font-family: "Pathway Extreme", serif;
+  font-weight: 600;
+}
+
+.navigation-tabs {
+  width: 100%;
+  background-color: #6a0dad;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.nav-menu {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.tab-button {
+  flex: 1;
+  padding: 14.3px;
+  cursor: pointer;
+  background-color: #9e4bdc;
+  color: white;
+  border: none;
+  font-size: 0.937vw;
+  font-family: "Pathway Extreme", serif;
+  font-weight: 600;
+  text-align: center;
+  transition: background-color 0.3s;
+}
+
+.tab-button:hover {
+  background-color: #8751c7;
+  cursor: pointer;
+}
+
+.tab-button.active {
+  background-color: #8751c7;
+}
+
+.tab-content {
+  width: 100%;
+  padding: 20px;
+  background-color: #f9f9f9;
+  text-align: center;
+  display: none;
+}
+
+/* Events Slideshow Styles */
+.event-slideshow {
+  max-width: 100%;
+  position: relative;
+  margin: auto;
+}
+
+.marquee-bar {
+  height: 30px;
+  width: 100%;
+  background-color: #FFFFFF;
+  border: solid 3px #9e4bdc;
+}
+
+.marquee-content {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Montserrat', 'sans-serif';
+  font-weight: 600;
+  text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
+  color: #6610a6
+}
+
+.marquee-content img {
+  height: 30px;
+  width: auto;
+  object-fit: contain;
+}
+
+.eventSlides {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+  position: relative; 
+  cursor: pointer;
+  transition: opacity 1s ease-in-out;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+img {
+  vertical-align: middle;
+  height: 280px;
+  width: 100%; 
+  object-fit: cover;
+}
+
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -22px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+.prev {
+  left: 0;
+}
+
+.prev:hover, .next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.eventSlides:hover .hover-text {
+  opacity: 1; 
+}
+
+.text {
+  color: white;
+  font-size: 40px;
+  position: absolute;
+  bottom: 20px;
+  left: 40px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  z-index: 1; 
+}
+
+.eventSlides img:hover {
+  filter: blur(5px);
+}
+/* End of Events Slideshow Styles */
+
+main {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  height: 230vh;
+  background-image: url("../Assets/BACKGROUND/Brgy.\ Sta\ Lucia.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.event {
+  height: 70vh;
+  width: 85%;
+  background-color: #FFFFFF;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  margin-top: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start; 
+  gap: 50px;
+  padding: 20px;
+}
+
+.event-description {
+  transition: padding-bottom 0.3s ease; /* For smooth transition of padding */
+}
+
+.event-image {
+  width: 40%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.event-image img {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.event-details {
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start; 
+  gap: 10px; 
+}
+
+.span-labels {
+  width: 100%;
+  display: flex;
+  justify-content: space-between; 
+  align-items: center; 
+}
+
+.span-labels span {
+  color: #908989;
+}
+
+.event-hr {
+  width: 100%;
+  height: 1px;
+  border: 0;
+  border-top: 2px solid #ccc;
+  margin-top: 10px; 
+  margin-bottom: 10px;
+}
+
+.event-title span {
+  color: #908989;
+}
+
+.event-title h1 {
+  font-size: 2.5rem;
+}
+
+.event-title h4 {
+  color: #908989;
+  font-weight: 400;
+}
+
+.event-description span {
+  color: #908989;
+}
+
+.brief-description {
+  font-size: 0.7em;
+  text-align: justify;
+}
+
+.description-buttons {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+}
+
+.description-buttons button {
+  border-radius: 50px;
+  border: none;
+  height: 25px;
+  width: 150px;
+  font-family: 'Pathway Extreme', sans-serif;
+  color: #f2f2f2;
+  background-color: #A101A2;
+  transition: all 0.3s ease-in-out;
+}
+
+.description-buttons button:hover {
+  color: #A101A2;
+  background-color: #f2f2f2;
+  transition: all 0.3 ease-in-out;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+}
+
+/* Modal Style */
+#myModal {
+  display: none; 
+  position: fixed;
+  z-index: 9999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-color: rgba(0, 0, 0, 0.4); 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background-color: #fff;
+  padding: 20px;
+  border: 1px solid #888;
+  height: 80%;
+  width: 50%;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  opacity: 0; 
+  transform: translateY(-30px); 
+  transition: opacity 0.5s ease, transform 0.5s ease; 
+}
+
+#myModal.show .modal-content {
+  opacity: 1; 
+  transform: translateY(0); 
+}
+
+.modal-title {
+  height: 10%;
+  width: 100%;  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-info {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  gap: 5px;
+}
+
+.modal-dataprivacy {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 5px;
+}
+
+.modal-dataprivacy img {
+  height: 25%;
+  width: 32%;
+  object-fit: cover;
+  margin-top: 20px;
+}
+
+.modal-dataprivacy p {
+  font-size: 0.6em;
+  color: black;
+  text-align: justify;
+  margin-top: 20px;
+}
+
+.modal-dataprivacy label {
+  font-size: 0.6em;
+  color: black;
+  font-weight: bold;
+  text-align: justify;
+  margin-top: 20px;
+}
+
+.modal-dataprivacy label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.modal-dataprivacy input[type="checkbox"] {
+  margin-top: 10px;
+}
+
+.modal-fields {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 5px;
+}
+
+.modal-fields form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+}
+
+.modal-fields label {
+  font-size: 0.7em;
+}
+
+.modal-fields input[type="text"],
+.modal-fields input[type="email"] {
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 0.9em;
+  font-family: 'Pathway Extreme', sans-serif;
+  width: 100%;
+}
+
+.modal-fields button {
+  padding: 5px 40px; 
+  font-size: 0.8em; 
+  font-family: 'Pathway Extreme', sans-serif;
+  font-weight: 500;
+  background-color: #A101A2; 
+  color: white; 
+  border: none; 
+  border-radius: 5px; 
+  cursor: pointer; 
+  margin-top: 35px;
+}
+
+.modal-fields button:hover {
+  background-color: #4b0a7a;
+}
+
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 20px;
+  background-color: #6610a6;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
+  z-index: 10;
+}
+
+.credit {
+  font-size: 0.7rem;
+  color: var(--font-color);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  text-decoration: none;
+  margin-right: 1vw;
+  white-space: nowrap;
+}
+
+.credit i {
+  font-size: 0.5rem;
+}
+
+.credit span {
+  font-size: 0.6rem;
+}
+
+.footer-content {
+  width: 90%;
+  height: 20px;
+  max-width: 1200px;
+  margin: 0 20px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.social-icons {
+  display: flex;
+  gap: 15px;
+}
+
+.footer-icon img {
+  width: 12px;
+  height: 12px;
+  object-fit: contain;
+  transition: transform 0.3s;
+}
+
+.footer-icon:hover img {
+  transform: scale(1.2);
+}
+
+@media (max-width: 768px) {
+  .tab-button {
+    font-size: 0.9em;
+    padding: 10px;
+  }
+}
