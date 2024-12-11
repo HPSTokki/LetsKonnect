@@ -1,5 +1,5 @@
 function fetchSurveys() {
-    fetch('http://localhost:6001/api/surveys')
+    fetch('http://localhost:6001/api/survey-data')
         .then(response => response.json())
         .then(data => {
             const tableBody = document.querySelector('#respondentTables tbody');
@@ -9,8 +9,8 @@ function fetchSurveys() {
                 row.innerHTML = `
                     <td>${survey.surveyID}</td>
                     <td>${survey.category}</td>
-                    <td>${survey.total_question1_responses}</td>
-                    <td>${survey.total_question2_responses}</td>
+                    <td>${survey.totalYesQ1}</td>
+                    <td>${survey.totalYesQ2}</td>
                     <td><button class="delete-button" onclick="deleteSurvey(${survey.surveyID})">Delete</button></td>
                 `;
                 tableBody.appendChild(row);

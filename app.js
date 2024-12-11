@@ -745,7 +745,7 @@ app.post('/submit-feedback', (req, res) => {
 
 app.get('/api/survey-data', (req, res) => {
     const query = `
-        SELECT category, 
+        SELECT surveyID, category, 
                SUM(question1 = 'Yes') AS totalYesQ1,
                SUM(question2 = 'Yes') AS totalYesQ2
         FROM tbl_survey
