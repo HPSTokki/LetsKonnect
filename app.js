@@ -100,58 +100,65 @@ app.post('/upload', (req, res)=>{
 
 // Register Endpoint
 
-app.post('/register', (req, res)=>{
-    const {email, age, password} = req.body;
-    const date = new Date()
+app.post('/register', (req, res) => {
+    const { email, age, password } = req.body;
+    const date = new Date();
 
-    if (!email || !password) {
-        return res.status(400).json({message: 'Email, Password and Age Required'})
+    if (!email || !password || !age) {
+        return res.status(400).json({ message: 'Email, Password, and Age are required' });
     }
 
-    const query = 'INSERT INTO tbl_usersacc (emailAddress, password, age, dateOfReg) VALUES (?, ?, ?, ?)'
-    db.query(query, [email, password, age, date], (err, results)=>{
+    const query = 'INSERT INTO tbl_usersacc (emailAddress, password, age, dateOfReg) VALUES (?, ?, ?, ?)';
+    db.query(query, [email, password, age, date], (err, results) => {
         if (err) {
-            console.log('Error Inserting Data:', err)
-            return res.status(500).json({message: 'Error Registering User'})
+            console.log('Error Inserting Data:', err);
+            return res.status(500).json({ message: 'Error Registering User' });
         } else {
-            res.status(201).json({message: "Registered Succesfully"})
+            const userAcc_ID = results.insertId; // Get the newly inserted user ID
+            return res.status(201).json({
+                message: 'Registered Successfully',
+                userAcc_ID, // Send the ID back to the frontend
+            });
         }
-    })
-
-})
+    });
+});
 
 // Login Endpoint
 
-app.post('/login', (req, res)=>{
-    const {email, password} = req.body;
+app.post('/login', (req, res) => {
+    const { email, password } = req.body;
 
     if (!email || !password) {
-        return res.status(400).json({ message: 'Email and Password are required'})
+        return res.status(400).json({ message: 'Email and Password are required' });
     }
 
-    const query = 'SELECT userAcc_ID, password FROM tbl_usersacc WHERE emailAddress = ?'
-    db.query(query, [email], (err, results)=>{
+    const query = 'SELECT userAcc_ID, password FROM tbl_usersacc WHERE emailAddress = ?';
+    db.query(query, [email], (err, results) => {
         if (err) {
-            console.log('Error Querying Database:',err)
-            return res.status(500).json({ message: 'Error Logging In'})
+            console.log('Error Querying Database:', err);
+            return res.status(500).json({ message: 'Error Logging In' });
         }
 
         if (results.length === 0) {
-            return res.status(401).json({message: 'User Doesn\'t Exists'})
+            return res.status(401).json({ message: "User Doesn't Exist" });
         }
 
         const user = results[0];
 
-        if (user.password != password) {
-            return res.status(401).json({ message:'Invalid Email or password'})
+        if (user.password !== password) {
+            return res.status(401).json({ message: 'Invalid Email or Password' });
         }
+
+        // Save user ID to session (optional, if needed for server-side session tracking)
         req.session.userAcc_ID = user.userAcc_ID;
-        
-        res.status(200).json({ message: 'Login Succesfully', userAcc_ID: user.userAcc_ID})
 
-    })
-
-})
+        // Respond with success and the userAcc_ID
+        return res.status(200).json({
+            message: 'Login Successfully',
+            userAcc_ID: user.userAcc_ID,
+        });
+    });
+});
 
 // Reset Password for User
 
@@ -679,15 +686,180 @@ app.get('/evt-posts', (req, res)=>{
 })
 
 
+app.post('/admin-reg', (req, res)=>{
+    const {name, username, email, password} = req.body
+    const query = "INSERT INTO tbl_kkadmin (name, userName, emailAddress, password) VALUES (?, ?, ?, ?)"
+
+    console.log({
+        'Before query': name, username, email, password
+    })
+
+    db.query(query, [name, username, email, password], (err)=>{
+        if (err) {
+            console.log('Error: ', err)
+            return res.status(400).json({Message: 'Error Inserting into Database'})
+        }
+        console.log({
+            name, username, email, password
+        })
+        return res.status(200).json({message: 'The SK Admin is Registered'})
+    })
+
+})
+
+app.get('/admins', (req, res) => {
+    const query = "SELECT kk_adminID, name, emailAddress FROM tbl_kkadmin"; // Adjust column names as per your table schema
+
+    db.query(query, (err, results) => {
+        if (err) {
+            console.log('Error fetching admins:', err);
+            return res.status(500).json({ message: 'Error retrieving admin list' });
+        }
+        res.status(200).json(results); // Send the admin list to the client
+        console.log(results)
+    });
+});
 
 
 
+app.post('/submit-feedback', (req, res) => {
+    const { category, question1, question2 } = req.body;
+
+    if (!category || !question1 || !question2) {
+        return res.status(400).json({ success: false, message: 'All fields are required.' });
+    }
+
+    // Insert the feedback into the database
+    const query = 'INSERT INTO tbl_survey (question1, question2, category) VALUES (?, ?, ?)';
+    const values = [question1, question2, category];
+
+    db.query(query, values, (err, results) => {
+        if (err) {
+            console.error('Error inserting feedback: ', err);
+            return res.status(500).json({ success: false, message: 'Error saving feedback' });
+        }
+
+        res.status(200).json({ success: true, message: 'Feedback submitted successfully!' });
+    });
+});
+
+app.get('/api/survey-data', (req, res) => {
+    const query = `
+        SELECT surveyID, category, 
+               SUM(question1 = 'Yes') AS totalYesQ1,
+               SUM(question2 = 'Yes') AS totalYesQ2
+        FROM tbl_survey
+        GROUP BY category;
+    `;
+    db.query(query, (err, results) => {
+        if (err) {
+            console.error(err)
+            return res.status(500).json({message: 'Error Loading Data'})
+        }
+        res.json(results);
+        console.log(results)
+    });
+});
+
+app.get('/api/user-details/:userAcc_ID', (req, res) => {
+    const userAcc_ID = req.params.userAcc_ID;
+    const query = `
+        SELECT 
+            pi.givenName,
+            pi.middleName,
+            pi.lastName,
+            pi.suffix,
+            pi.age,
+            pi.dateOfBirth,
+            pi.sex,
+            pi2.blk_street,
+            pi2.sitio,
+            pi2.emailAddress,
+            pi2.contacts
+        FROM kk_personalinfo pi
+        INNER JOIN kk_personalinfo2 pi2 ON pi.userAcc_ID = pi2.userAcc_ID
+        WHERE pi.userAcc_ID = ?`;
+
+    db.query(query, [userAcc_ID], (err, result) => {
+        if (err) return res.status(500).send(err);
+        if (result.length === 0) return res.status(404).send({ message: 'User not found' });
+        res.send(result[0]);
+    });
+});
+
+app.post('/create-event', (req, res) => {
+    upload(req, res, (err) => {
+        if (err) {
+            console.log("Error: ", err);
+            return res.status(400).send(err);
+        }
+
+        // Ensure a file is uploaded
+        if (!req.file) {
+            return res.status(400).send('No file upload');
+        }
+
+        // Extract other form data
+        const { date, time, requirements, sponsor, description, fulldetails } = req.body;
+        const imgName = req.file.filename;  // The uploaded file's name
+        const imgPath = `/uploads/${imgName}`; // Path to access the uploaded image
+
+        // Prepare data for database insertion
+        const data = {
+            date: date,
+            time: time,
+            requirements: requirements,
+            sponsor: sponsor,
+            description: description,
+            fulldetails: fulldetails,
+            imgName: imgName,
+            imgPath: imgPath
+        };
+
+        // SQL query to insert data into the database
+        const query = "INSERT INTO tbl_eventsposts1 (date, time, requirements, sponsor, description, fulldetails, imgName, imgPath) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+
+        // Insert event data into the database
+        db.query(query, [data.date, data.time, data.requirements, data.sponsor, data.description, data.fulldetails, data.imgName, data.imgPath], (err, results) => {
+            if (err) {
+                console.error("Database error:", err);
+                return res.status(500).send('Error inserting event into database');
+            }
+
+            // Send success response
+            res.status(200).send("Event successfully created and uploaded into Database");
+        });
+    });
+});
+
+app.get('/get-events', (req, res) => {
+    const query = "SELECT * FROM tbl_eventsposts1";  // Adjust your SQL query as needed
+    db.query(query, (err, results) => {
+        if (err) {
+            console.error(err);
+            return res.status(500).json({ message: 'Error fetching events from the database' });
+        }
+        res.json(results);  // Send the event data as JSON response
+    });
+});
+
+app.post('/event/register', (req, res)=>{
+
+    const {postID, name, email, contact, address} = req.body
+    const query = 'INSERT INTO tbl_registrants (post_ID, fullName, email, contact, address, dateOfReg) VALUES (?, ?, ?, ?, ?, ?)'
+    const date = new Date()
+
+    db.query(query, [postID, name, email, contact, address, date], (err, result)=>{
+        if (err) {
+            console.error("Error: ", err)
+            return res.status(400).json({message: 'Error Registering'})
+        } 
+        res.status(200).json({success: true, message: 'Registered Succesfull'})
 
 
+    })
 
-
-
-
+})
 
 // Server Port 
 

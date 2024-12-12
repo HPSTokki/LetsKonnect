@@ -1,44 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Events</title>
-    <link rel="stylesheet" href="../css/Event-guest.css">
-    <link rel="stylesheet" href="../css/slideshow.css">
-    <link rel="stylesheet" href="../css/modal.css">
-    <link rel = "stylesheet" href = "../css/Event.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-</head>
-<body>
+    <link rel="stylesheet" href="../css/Event-guest.css" />
+    <link rel="stylesheet" href="../css/slideshow.css" />
+    <link rel="stylesheet" href="../css/modal.css" />
+    <link rel="stylesheet" href="../css/Event.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+  </head>
+  <body>
     <header>
-            <nav>
-                <div class = "header">
-                    <img src = "../Assets/LET'SKONNECT.png">
-                </div>
-            </nav>
-        </header>
-    
-        <section class = "welcome-section" id = "welcomeSection">
-            <div class = "image-container">
-                <img src = "../Assets/BACKGROUND/Sangguniang Kabataan.png" alt = "Welcome Image" class = "welcome-image">
-                <div class = "welcome-text">
-                    <h1>WELCOME TO</h1>
-                    <h2>LET'SKONNECT</h2>
-                    <p>KASAMA KA SA AKSYON, KASAMA KA SA SOLUSYON</p>
-                </div>
-            </div>
-        </section>
-        <section class = "navigation-tabs">
-            <div class = "nav-menu">
-                <button class = "tab-button" onclick = "window.location.href='guest-dashboard.html'">Home</button>
-                <button class="tab-button active" onclick="window.location.href = 'Events-guest.html'">Events</button>
-                <button class="tab-button" onclick="window.location.href = 'news&updates.html'">News & Updates</button>
-                <button class="tab-button" onclick="window.location.href = 'scholarships.html'">Scholarships</button>
-                <button class="tab-button" onclick="window.location.href = 'jobFair-usr.html'">Job Fairs</button>
-                <button class="tab-button" onclick="window.location.href = 'user-kkprofile.html'">KK Profiling</button>
-            </div>
-        </section>
+      <nav>
+        <div class="header">
+          <img src="../Assets/LET'SKONNECT.png" />
+        </div>
+      </nav>
+    </header>
+
+    <section class="welcome-section" id="welcomeSection">
+      <div class="image-container">
+        <img
+          src="../Assets/BACKGROUND/Sangguniang Kabataan.png"
+          alt="Welcome Image"
+          class="welcome-image"
+        />
+        <div class="welcome-text">
+          <h1>WELCOME TO</h1>
+          <h2>LET'SKONNECT</h2>
+          <p>KASAMA KA SA AKSYON, KASAMA KA SA SOLUSYON</p>
+        </div>
+      </div>
+    </section>
+    <section class="navigation-tabs">
+      <div class="nav-menu">
+        <button
+          class="tab-button"
+          onclick="window.location.href='guest-dashboard.html'"
+        >
+          Home
+        </button>
+        <button
+          class="tab-button active"
+          onclick="window.location.href = 'Events-guest.html'"
+        >
+          Events
+        </button>
+        <button
+          class="tab-button"
+          onclick="window.location.href = 'news&updates.html'"
+        >
+          News & Updates
+        </button>
+        <button
+          class="tab-button"
+          onclick="window.location.href = 'scholarships.html'"
+        >
+          Scholarships
+        </button>
+        <button
+          class="tab-button"
+          onclick="window.location.href = 'jobFair-usr.html'"
+        >
+          Job Fairs
+        </button>
+        <button
+          class="tab-button"
+          onclick="window.location.href = 'uac-profileinfo.html'"
+        >
+          User Accounts
+        </button>
+      </div>
+    </section>
 
         <div class="Container">
             <div class = "event-slideshow-container">
@@ -80,41 +117,35 @@
                 <i class="fa-solid fa-filter"></i>
                 <h4>2024</h4>
             </div>
-        
+            <div id="events-container">
             <div class = "Event">
                 <div class = "Event-content">
                     <div class = "Event-details">
-                        <img src="../Assets/ADMIN/EventPost1.png" alt="ep1" class="event1"> 
+                        <img src="../Assets/GUEST/1_Events.jpg" alt="ep1" class="event1"> 
                     </div>
                     <div class = "Event-description">
-                        <div class="menu">
-                            <button class="menu-button" onclick="toggleMenu()">&#x22EE;</button>
-                            <div class="options" id="optionsMenu">
-                                <a href="#" onclick="alert('Option 1 selected')">Archive</a>
-                                <a href="#" onclick="alert('Option 2 selected')">Edit</a>
-                            </div>
-                        </div>
-        
+
                         <br>
                         <span>
-                        <p class="description-title-eo">Event Organizer</p>
+                        <p class="description-title-eo">SK Sta. Lucia</p>
         
                         </span>
                         <br>
-                        <p class="description-title-dnt">Date & Time</p>
+                        <p class="description-title-dnt">October 19, 2024</p>
                         <br>
                         <hr>
                         <br>
-                        <p class = "description-title">Category</p>
-                        <h1>Title</h1>
+                        <p class = "description-title">For Youth/Kabataan</p>
+                        <h1>Barkada Kontra Droga</h1>
                         <p class = "description-title">Headline</p>
                         <hr>
                         <br>
                         <p class = "description-title">Brief Description</p>
                         <br>
                         <p class = "main-description">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas eleifend justo feugiat magna volutpat,
-                            eu corsequat elit hendrerit consectetur adipiscing elit. Maecenas eleifend...
+                            Pinatatawag ng Sangguniang Kabataan ng Sta. Lucia ang bawat Teritoryo ng Pitong Sitio sa Santa Lucia Parish Hall (3rd floor) ngayong Sabado, Oktubre 19 ng 1:00 PM, para siguruhin na magiging kaisa ang mga manlalaro sa Giyera Kontra Droga sa buong kaharian. 
+ 
+
                         </p>
                         <div class = "description-buttons">
                             <button id = "registerButton">Register</button>
@@ -125,37 +156,31 @@
             <div class = "Event">
                 <div class = "Event-content">
                     <div class = "Event-details">
-                        <img src="../Assets/ADMIN/EventPost1.png" alt="ep1" class="event1"> 
+                        <img src="../Assets/GUEST/2_Events.jpg" alt="ep1" class="event1"> 
                     </div>
                     <div class = "Event-description">
-                        <div class="menu">
-                            <button class="menu-button" onclick="toggleMenu()">&#x22EE;</button>
-                            <div class="options" id="optionsMenu">
-                                <a href="#">Archive</a>
-                                <a href="#">Edit</a>
-                            </div>
-                        </div>
-        
+
                         <br>
                         <span>
-                        <p class="description-title-eo">Event Organizer</p>
+                        <p class="description-title-eo">SK Sta. Lucia</p>
         
                         </span>
                         <br>
-                        <p class="description-title-dnt">Date & Time</p>
+                        <p class="description-title-dnt">October 19, 2024</p>
                         <br>
                         <hr>
                         <br>
-                        <p class = "description-title">Category</p>
-                        <h1>Title</h1>
+                        <p class = "description-title">For Youth/Kabataan</p>
+                        <h1>Rebyu-Juan</h1>
                         <p class = "description-title">Headline</p>
                         <hr>
                         <br>
                         <p class = "description-title">Brief Description</p>
                         <br>
                         <p class = "main-description">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas eleifend justo feugiat magna volutpat,
-                            eu corsequat elit hendrerit consectetur adipiscing elit. Maecenas eleifend...
+                            Nahihirapan sa CET? Sagot kita bes! 📝 Sa proyektong Rebyu-Juan ng Sangguniang Kabataan ng Barangay Sta. Lucia sa pangunguna nila SK Chairperson Xyrone Pelayo at SK Kagawad and Committee on Education Sophia Patriarca ay patuloy tayong naghahatid ng review courses katuwang ang Sta. Lucia Senior High School mula Oktubre 14 hanggang 18 para bigyan sila nang paghahanda sa CET nang susunod na taon.    
+ 
+
                         </p>
                         <div class = "description-buttons">
                             <button id = "registerButton">Register</button>
@@ -163,6 +188,7 @@
                     </div>
                 </div>
             </div>
+          </div>
         </section>
         <div id="myModal" class="modal" style="display: none;">
             <div class="modal-content">
@@ -186,7 +212,7 @@
                         <input type = "checkbox" id = "dataPrivacy">
                     </div>
                     <div class = "modal-fields">
-                       <form>
+                       <form id="registrantForm">
                             <label for = "name">Full Name</label>
                             <input type = "text" id = "name" placeholder = "Enter your full name">
                             <label for = "email">Email Address</label>
@@ -195,7 +221,7 @@
                             <input type = "text" id = "contact" placeholder = "Enter your contact number">
                             <label for = "address">Address</label>
                             <input type = "text" id = "address" placeholder = "Enter your address">
-                            <button id = "registerButton">Register</button>
+                            <button type="submit" id = "registerButton">Register</button>
                        </form>
                     </div>
                 </div>
@@ -208,16 +234,16 @@
                 <i class="fa-regular fa-copyright"></i>
                 <span>2024 Let'SKonnect</span>
             </a>
-            <div class = "footer-content">
-                <div class = "social-icons">
-                    <a href = "#" class = "footer-icon">
-                        <img src = "../Assets/GUEST/telephone right side small footer.png" alt = "Phone Icon">
+            <div class="footer-content">
+                <div class="social-icons">
+                    <a href="tel:+639084112492" class="footer-icon">
+                        <img src="../Assets/GUEST/telephone right side small footer.png" alt="Phone Icon">
                     </a>
-                    <a href = "https://facebook.com" target="_blank" class="footer-icon">
-                        <img src = "../Assets/GUEST/facebook right side small footer.png" alt = "Facebook Icon">
+                    <a href="https://www.facebook.com/SKStaLuciaQC" target="_blank" class="footer-icon">
+                        <img src="../Assets/GUEST/facebook right side small footer.png" alt="Facebook Icon">
                     </a>
-                    <a href = "#" class = "footer-icon">
-                        <img src = "../Assets/GUEST/Email (Small Footer).png" alt = "Email Icon">
+                    <a href="mailto:SKStaLuciaQC@gmail.com" class="footer-icon">
+                        <img src="../Assets/GUEST/Email (Small Footer).png" alt="Email Icon">
                     </a>
                 </div>
             </div>
@@ -225,5 +251,6 @@
     <script src="../js-frntend/Event-Guest.js"></script>
     <script src="../js-frntend/slideshow.js"></script>
     <script src="../js-frntend/Event-modal.js"></script>
-</body>
+    <script src="../fetch/evt-userposts.js"></script>
+  </body>
 </html>

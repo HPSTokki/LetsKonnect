@@ -10,20 +10,24 @@ document.getElementById("regForm").addEventListener('submit', function(event) {
     fetch(`http://localhost:6001/register`, {
         method: 'POST',
         headers: {
-            'Content-Type': 'application/json'
-        }, 
-        body: JSON.stringify({email, age, password})
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email, age, password }),
     })
     .then(response => response.json())
     .then(data => {
-        if(data.message) {
-            alert(data.message)
+        if (data.userAcc_ID) {
+            sessionStorage.setItem('userAcc_ID', data.userAcc_ID); // Store userAcc_ID
+            alert(data.message); // Show success message
+            window.location.href = "/pages/user-kkprofile.html"; // Redirect to the profile page
+        } else {
+            alert(data.message); // Handle errors (e.g., missing fields or server issues)
         }
     })
     .catch(error => {
-        console.log('Error:', error)
-    })
-})
+        console.error('Error:', error);
+    });
+});
 
 // Login Account Endpoint
 let userAcc_ID;
@@ -31,29 +35,28 @@ let userAcc_ID;
 document.getElementById('logInForm').addEventListener('submit', function(e) {
     e.preventDefault();
 
-    const email = document.getElementById('logInEmail').value
-    const password = document.getElementById('LogInpass').value
+    const email = document.getElementById('logInEmail').value;
+    const password = document.getElementById('LogInpass').value;
 
     fetch('http://localhost:6001/login', {
         method: 'POST',
         headers: {
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
         },
-        body: JSON.stringify({email, password})
+        body: JSON.stringify({ email, password }),
     })
     .then(response => response.json())
     .then(data => {
-        if (data.message) {
-            alert(data.message);
-            if (data.userAcc_ID) {
-                sessionStorage.setItem('userAcc_ID', data.userAcc_ID)
-                console.log('User  ID:', data.userAcc_ID);
-                window.location.href = "pages/user-kkprofile.html"
-            }
+        if (data.userAcc_ID) {
+            sessionStorage.setItem('userAcc_ID', data.userAcc_ID); // Store userAcc_ID
+            alert(data.message); // Show success message
+            window.location.href = "/pages/uac-profileinfo.html"; // Redirect to home page
+        } else {
+            alert(data.message); // Handle invalid credentials or server issues
         }
     })
     .catch(error => {
         console.error('Error:', error);
     });
-})
+});
 

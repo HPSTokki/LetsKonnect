@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+    <link rel = "stylesheet" href = "../css/archive.css">
+    <title>Archive</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class = "header">
+                <img src = "../Assets/LET'SKONNECT.png">
+            </div>
+        </nav>
+    </header>
+
+    <section class = "welcome-section" id = "welcomeSection">
+        <div class = "image-container">
+            <img src = "../Assets/BACKGROUND/Sangguniang Kabataan.png" alt = "Welcome Image" class = "welcome-image">
+            <div class = "welcome-text">
+                <h1>WELCOME TO</h1>
+                <h2>LET'SKONNECT</h2>
+                <p>KASAMA KA SA AKSYON, KASAMA KA SA SOLUSYON</p>
+            </div>
+        </div>
+    </section>
+    <section class = "navigation-tabs">
+        <div class="nav-menu">
+            <button class="tab-button" onclick= "window.location.href = 'admin-homepage.html'">Home</button>
+            <button class="tab-button" onclick= "window.location.href = 'admin-event.html'">Events</button>
+            <button class="tab-button" onclick= "window.location.href = 'admin-news&updates.html'">News & Updates</button>
+            <button class="tab-button" onclick= "window.location.href = 'admin-scholarships.html'">Scholarships</button>
+            <button class="tab-button" onclick= "window.location.href = 'admin-jobfairs.html'">Job Fairs</button>
+            <button class="tab-button" onclick= "window.location.href = 'dashboardAdm.html'">Dashboard</button>
+        </div>
+    </section>
+        <section id="section-1">
+            <a href="/" class="Name">
+                <div class="admin-name">
+                    Placeholder Dot Name
+                </div>
+            </a>
+            <div class="dashboard-title">
+                <h2>Archive</h2>
+            </div>
+            <aside class="dashboard-nav">
+                <ul>
+                    <li><a href="dashboardAdm.html"><span class="material-symbols-outlined">
+                        dashboard
+                        </span>Dashboard</a></li>
+                    <li><a href="dashboardAdm1.html"><span class="material-symbols-outlined">
+                        rate_review
+                        </span>Feedback</a></li>
+                    <li><a href="#"><span class="material-symbols-outlined">
+                        settings
+                        </span>User Management</a></li>
+                    <li><a href="archive.html"><span class="material-symbols-outlined">
+                        bookmark
+                        </span>Archive</a></li>
+                </ul>
+            </aside>
+            <div class = "main-container" id = "mainContainer">
+                <div class = "search-section" id = "searchSection">
+                    <div class = "search-section-text" id = "searchSectionText">
+                        <h1>Archived Posts</h1>
+                        <p>The list below are the posts that have been archived.</p>
+                    </div>
+                    <div class = "search-section-actions" id = "searchSectionActions">
+                        <input type="search" id ="searchBox">
+                        <div class = "checkbox" id = "checkBox">
+                            <input type="checkbox" name="option1" value="value1"> Select All
+                        </div>
+                        <i class="fa-solid fa-arrow-up-wide-short"></i>
+                        <i class="fa-solid fa-trash-can" id="deleteSelected"></i>
+                    </div>
+                </div>
+                <div class = "table-container" id = "tableContainer">
+                    <table border = "1" style = "table-layout: fixed; width: 100%;">
+                        <thead>
+                            <tr style = "border: none; background-color: #B066E8;">
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Age</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tr>
+                            <td>1</td>
+                            <td>2</td>
+                            <td>3</td>
+                            <td>4</td>
+                            <td>
+                                <i class="fa-solid fa-rotate-left"></i>
+                                <i class="fas fa-trash"></i>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </section>
+        <footer class = "footer">
+            <a class = "credit">
+                <i class="fa-regular fa-copyright"></i>
+                <span>2024 Let'SKonnect</span>
+            </a>
+            <div class="footer-content">
+                <div class="social-icons">
+                    <a href="tel:+639084112492" class="footer-icon">
+                        <img src="../Assets/GUEST/telephone right side small footer.png" alt="Phone Icon">
+                    </a>
+                    <a href="https://www.facebook.com/SKStaLuciaQC" target="_blank" class="footer-icon">
+                        <img src="../Assets/GUEST/facebook right side small footer.png" alt="Facebook Icon">
+                    </a>
+                    <a href="mailto:SKStaLuciaQC@gmail.com" class="footer-icon">
+                        <img src="../Assets/GUEST/Email (Small Footer).png" alt="Email Icon">
+                    </a>
+                </div>
+            </div>
+        </footer>
+          <script
+          src="https://kit.fontawesome.com/c225de6932.js"
+          crossorigin="anonymous"
+        ></script>
+        <script src="../fetch/admin-umanagement.js"></script>
+    </body>
+    </html>

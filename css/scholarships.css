@@ -17,7 +17,6 @@
 
 body {
     font-family: "Pathway Extreme", sans-serif;
-    overflow-x: hidden;
     margin-bottom: 0;
 }
 
@@ -46,38 +45,6 @@ nav {
     margin-left: 30px;
     margin-top: 5px;
     height: 35px;
-}
-
-.logsignbutton {
-    position: absolute;
-    right: 0;
-    display: flex;
-    align-items: center;
-    height: 30px;
-
-}
-
-.logbutton {
-    background-color: transparent;
-    font-weight: bold;
-    cursor: pointer;
-    color: #FFFFFF;
-}
-
-.signbutton {
-  color: #9854cb;
-}
-
-.logsignbutton button {
-    margin-right: 5px;
-    padding: 0 5px;
-    height: 100%;
-    width: 70px;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    font-weight: bold;
-    font-size: 10px;
 }
 
 .welcome-section {
@@ -204,7 +171,7 @@ nav {
     position: relative;
     display: flex;
     justify-content: center;
-    height: auto;
+    height: 200vh;
     width: 100vw;
     z-index: 2;
 }
@@ -218,6 +185,8 @@ nav {
     overflow-y: scroll;
     display: flex;
     flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
     gap: 1rem;
 }
 
@@ -226,15 +195,13 @@ nav {
     top: 0;
     left: 0;
     width: 100%;
-    height: auto;
+    height: 120%;
     object-fit: cover;
 }
 
 .scholarship {
   position: relative;
-  top: 3rem;
-  left: 2.5rem;
-  height: 60vh;
+  height: 70vh;
   width: 90vw;
   padding: 1.25rem;
   margin: 1.25rem;
@@ -256,15 +223,14 @@ nav {
   height: 20rem;
   width: 20rem;
   object-fit: contain;
-  border: solid black;
 }
 
 .scholarship h1 {
   position: relative;
   bottom: 20.5rem;
-  left: 35rem;
+  left: 30%;
   font-weight: 300;
-  font-size: 3rem;
+  font-size: 2rem;
   
 }
 
@@ -299,7 +265,7 @@ nav {
 
 .desc-box {
   position: relative;
-  bottom: 27vh;
+  bottom: 30vh;
   left: 27.5vw;
   height: 27vh;
   width: 36.5%;
@@ -327,7 +293,7 @@ nav {
 
 .more-content hr {
   position: absolute;
-  top: 41%;
+  top: 40%;
   left: 32%;
   border: none;
   height: 1px;
@@ -399,7 +365,10 @@ nav {
   bottom: 95%;
   height: 50vh;
   width: 38vw;
-  text-align: justify;
+}
+
+.more-desc-right p {
+  font-size: 0.75em;
 }
 
 .fulldetails {
@@ -427,7 +396,13 @@ nav {
   color: #f2f2f2;
   background-color: #A101A2;
   box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease-in-out;
+}
+
+.buttons button:hover {
+  background-color: #8751c7;
+  cursor: pointer;
+  transition: color 0.3s ease;
 }
 
 .buttons.moved {
